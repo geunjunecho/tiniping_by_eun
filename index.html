@@ -11,68 +11,60 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- ========== COMPACT INTRO ========== -->
-    <div id="compactIntro" class="compact-intro">
-        <div class="compact-bg-stars" id="compactStars"></div>
-        <p class="compact-hint">✨ 터치하여 도감을 열어보세요! ✨</p>
-        <div class="compact-device" id="compactDevice">
-            <!-- Top Lid (opens upward) -->
-            <div class="compact-lid" id="compactLid">
-                <div class="lid-inner">
-                    <div class="lid-ring ring-outer"></div>
-                    <div class="lid-ring ring-mid"></div>
-                    <div class="lid-ring ring-inner"></div>
-                    <div class="lid-pattern">
-                        <span class="pattern-star">⭐</span>
+    <!-- ========== PACT INTRO ========== -->
+    <div id="pactIntro" class="pact-intro">
+        <div class="pact-bg-sparkles" id="pactSparkles"></div>
+        
+        <p class="pact-hint">✨ 팩트를 터치하여 도감을 열어보세요! ✨</p>
+        
+        <div class="pact-container" id="pactContainer">
+            <!-- Left Door -->
+            <div class="pact-door pact-left" id="pactLeft">
+                <div class="door-inner">
+                    <div class="door-deco">
+                        <div class="door-wing left">🪽</div>
+                        <div class="door-gem">💎</div>
+                        <div class="door-swirl">✦</div>
                     </div>
-                    <div class="lid-gems">
-                        <span class="gem gem-1">💎</span>
-                        <span class="gem gem-2">💎</span>
-                        <span class="gem gem-3">💎</span>
-                        <span class="gem gem-4">💎</span>
+                    <div class="door-center-half">
+                        <div class="door-heart-half">💖</div>
                     </div>
                 </div>
+                <div class="door-edge"></div>
             </div>
-
-            <!-- Hinge -->
-            <div class="compact-hinge">
-                <div class="hinge-bow">🎀</div>
-                <div class="hinge-heart">💖</div>
-                <div class="hinge-bow">🎀</div>
+            
+            <!-- Center Lock/Clasp -->
+            <div class="pact-clasp" id="pactClasp">
+                <div class="clasp-star">⭐</div>
+                <div class="clasp-ribbon">🎀</div>
             </div>
-
-            <!-- Bottom Body -->
-            <div class="compact-body">
-                <div class="body-inner">
-                    <!-- Wings -->
-                    <div class="wing wing-left">🪽</div>
-                    <div class="wing wing-right">🪽</div>
-                    <!-- Screen area -->
-                    <div class="compact-screen">
-                        <div class="screen-content">
-                            <span class="screen-icon">🧚</span>
-                            <span class="screen-title">티니핑 도감</span>
-                        </div>
+            
+            <!-- Right Door -->
+            <div class="pact-door pact-right" id="pactRight">
+                <div class="door-inner">
+                    <div class="door-deco">
+                        <div class="door-wing right">🪽</div>
+                        <div class="door-gem">💎</div>
+                        <div class="door-swirl">✧</div>
                     </div>
-                    <!-- Center Star -->
-                    <div class="body-star">⭐</div>
+                    <div class="door-center-half">
+                        <div class="door-heart-half">💖</div>
+                    </div>
                 </div>
+                <div class="door-edge"></div>
             </div>
         </div>
+        
+        <p class="pact-sub-hint">캐치! 티니핑 도감</p>
     </div>
 
-    <!-- ========== MAIN APP (hidden initially) ========== -->
+    <!-- ========== MAIN APP ========== -->
     <div id="mainApp" class="main-app hidden">
-        <!-- Magical Background -->
         <div id="magicBg">
             <div class="rainbow-arch"></div>
             <div id="particles"></div>
-            <div class="cloud cloud-1">☁️</div>
-            <div class="cloud cloud-2">☁️</div>
-            <div class="cloud cloud-3">☁️</div>
         </div>
 
-        <!-- Hero Section -->
         <header class="hero">
             <div class="hero-inner">
                 <div class="logo-badge">
@@ -116,7 +108,7 @@
                 </div>
             </section>
 
-            <div class="stats-banner" id="statsBanner">
+            <div class="stats-banner">
                 <span class="stats-icon">🧚</span>
                 <span id="statsCounter">총 0마리의 티니핑</span>
                 <span class="stats-icon">🧚‍♂️</span>
@@ -132,7 +124,6 @@
             </div>
         </footer>
 
-        <!-- Detail Modal -->
         <div id="detailModal" class="modal">
             <div class="modal-content">
                 <div class="modal-sparkle tl">✦</div>

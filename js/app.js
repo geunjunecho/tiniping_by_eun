@@ -1,55 +1,62 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // ===== COMPACT INTRO =====
-    const compactIntro = document.getElementById('compactIntro');
-    const compactDevice = document.getElementById('compactDevice');
+    // ===== PACT INTRO (좌우로 열리는 팩트) =====
+    const pactIntro = document.getElementById('pactIntro');
+    const pactContainer = document.getElementById('pactContainer');
     const mainApp = document.getElementById('mainApp');
-    const compactStars = document.getElementById('compactStars');
+    const pactSparkles = document.getElementById('pactSparkles');
 
-    // Create intro background sparkles
-    if (compactStars) {
-        const sparkleEmojis = ['✨', '⭐', '🌟', '💖', '💫', '🦋', '🌸'];
-        for (let i = 0; i < 40; i++) {
+    // Create floating sparkles on dark background
+    if (pactSparkles) {
+        const sparkleEmojis = ['✨', '⭐', '🌟', '💖', '💫', '🦋', '🌸', '💎'];
+        for (let i = 0; i < 50; i++) {
             const s = document.createElement('div');
+            const size = 8 + Math.random() * 16;
             s.style.cssText = `
                 position: absolute;
                 left: ${Math.random() * 100}%;
                 top: ${Math.random() * 100}%;
-                font-size: ${8 + Math.random() * 18}px;
-                opacity: ${0.2 + Math.random() * 0.4};
-                animation: introSparkle ${3 + Math.random() * 4}s ${Math.random() * 3}s ease-in-out infinite alternate;
+                font-size: ${size}px;
+                opacity: ${0.15 + Math.random() * 0.35};
+                animation: floatSparkle ${4 + Math.random() * 6}s ${Math.random() * 4}s ease-in-out infinite alternate;
                 pointer-events: none;
             `;
             s.textContent = sparkleEmojis[Math.floor(Math.random() * sparkleEmojis.length)];
-            compactStars.appendChild(s);
+            pactSparkles.appendChild(s);
         }
-        // Add sparkle animation
         const styleEl = document.createElement('style');
         styleEl.textContent = `
-            @keyframes introSparkle {
-                0% { transform: scale(0.5) rotate(0deg); opacity: 0.1; }
-                100% { transform: scale(1.2) rotate(180deg); opacity: 0.6; }
+            @keyframes floatSparkle {
+                0% { transform: translateY(10px) scale(0.6) rotate(0deg); opacity: 0.1; }
+                100% { transform: translateY(-20px) scale(1.2) rotate(180deg); opacity: 0.5; }
             }
         `;
         document.head.appendChild(styleEl);
     }
 
-    // Handle compact click
-    if (compactDevice) {
-        compactDevice.addEventListener('click', () => {
-            // Play opening animation
-            compactIntro.classList.add('opening');
+    // Handle pact click — open doors left/right
+    if (pactContainer) {
+        pactContainer.addEventListener('click', () => {
+            // 1. Open the doors
+            pactIntro.classList.add('opening');
             
-            // After lid opens, fade to main app
+            // 2. After doors open, show main app
             setTimeout(() => {
                 mainApp.classList.remove('hidden');
                 mainApp.classList.add('visible');
-            }, 600);
+            }, 800);
             
+            // 3. Fade out intro
             setTimeout(() => {
-                compactIntro.classList.add('gone');
+                pactIntro.classList.add('fade-out');
             }, 1200);
+            
+            // 4. Remove from DOM
+            setTimeout(() => {
+                pactIntro.classList.add('gone');
+            }, 2200);
         });
     }
+
 
     let appData = { seasons: [], tinipings: [] };
     let filteredData = [];

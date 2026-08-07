@@ -328,7 +328,7 @@
     },
     {
       "id": 18,
-      "name": "무셔핑",
+      "name": "덜덜핑",
       "nameEn": "Roarping",
       "season": [
         1
@@ -398,7 +398,7 @@
       "emotion": "시간",
       "color": "#E1B12C",
       "description": "시간에 민감한 티니핑.",
-      "image": "https://i.namu.wiki/i/IRcNb1oMB4jYIj5NUY0liiMCsvTMaTZGJvMSKJ3RolMmnPXLtKsLBN6p5Vz9xME65g_UY1BIz4GKUy3bPfmFzw.webp",
+      "image": "https://i.namu.wiki/i/sj_HVzBX6LcuKmcNbFQBv0m2sKwexNV6kznkz7QHvuwN8Le6p2oAQ6QZADoZBfJo7lvcDpGrUtX4jR8W2cCm284_cecVFECevqhF-raXgkQU-cwrbRL-5keKugAhULnQgJAR3i1hML9pLqDqyNnTMw.webp",
       "gender": "남"
     },
     {
@@ -413,7 +413,7 @@
       "emotion": "휴식",
       "color": "#48DBFB",
       "description": "편안하게 쉬는 것을 좋아하는 티니핑.",
-      "image": "https://i.namu.wiki/i/9nDvlVlv6nElxtRTyIJxzoV4r17dDsH3wXG5Yupnw4fnDzCUoAgTbCetpifgz-KXabJZMomZ5-ovsieV_190DQ.webp",
+      "image": "https://i.namu.wiki/i/GCybCh2r7R2UQPKsYpfL_RpIXYi4MURcQ-CcGU7d7jPeDiEIVIk7NYR23ldVyKY8SFLBpFE9r3ddKRy_ZTttcwpm_YeY4qN1TMiGHemBxwYHp-jdVwFHcvdHKLFykRNfo84BazkQZ3vrwUxmZlxDcQ.webp",
       "gender": "남"
     },
     {
@@ -458,7 +458,7 @@
       "emotion": "설렘",
       "color": "#FF9F43",
       "description": "심장을 쿵쾅거리게 하는 티니핑.",
-      "image": "https://i.namu.wiki/i/RTsfmJgHfeDRazt--q41H0TNdzmD0Pa_nx9UiJmImXs05xmJDwcrQtvAydvcI49O6PnzfNjFW5W45mye2DKC8Q.webp",
+      "image": "https://i.namu.wiki/i/V0kOnM29Le2jgHqJ1Nhuu9K6ffbG2EBTYUf7Oa5xun92C0kWXT2iETSa4LmaTG7fM7pLR9LCP92b_FFHRh6asGmN3AOex7mB-Bmfj3Ve2gWfc91SlXZ6psnhic_qmqux37lJwfzUXQwjXDNm_14ANA.webp",
       "gender": "여"
     },
     {
@@ -519,7 +519,7 @@
       "emotion": "요리",
       "color": "#FEEAA8",
       "description": "요리를 잘하는 티니핑.",
-      "image": "https://i.namu.wiki/i/aDzB_z1FqNnENdgmnZHVCwHkBUAgVR7Xbo5JCy6hR5kRFAFpScz12Y50unLqOT098qDnJRjkQg9xyISCf3cCfA.webp",
+      "image": "https://i.namu.wiki/i/sT0l1XHJ69fUbKkTMM2J-aYIabx5_OrLUIEBSGy-IEoUVNWz-jivoEQ7jk8E8Pr-4IA1IsGBsP0VXWSYPk3fLf3BuZ8LeKQRVrO2eVZn12WxRa2y7n7vLUaJSZXLWA8VdOjrdGG9W45IMVimHxiFRg.webp",
       "gender": "남"
     },
     {
@@ -534,7 +534,7 @@
       "emotion": "게으름",
       "color": "#C8D6E5",
       "description": "항상 미루는 티니핑.",
-      "image": "https://i.namu.wiki/i/dKDuEjVy2IJvOaAvjuDGHqwTSbMyjF0YmjUTTrjx8YtjQDk_mAWePVb1iOIXB5dCJLVtAuTvOqdewj7iC8oHOA.webp",
+      "image": "https://i.namu.wiki/i/mQwlXhlMht9yYUdXQBcz-_7EwKIsCqMGmMY-lrrXOPtG2iP9ayJm13XMztInfvBxZWlAM0qjsiyzbbYtl6MoQ3sj0EYOwD6fkHn7NUVEtKkLShkX2VPFggaK52NfG5owLNPLdqnKWuZ9wHzJQOz6Eg.webp",
       "gender": "남"
     },
     {
@@ -706,7 +706,7 @@
     },
     {
       "id": 43,
-      "name": "투투핑",
+      "name": "토닥핑",
       "nameEn": "Tutuping",
       "season": [
         2
@@ -1607,7 +1607,7 @@
     },
     {
       "id": 103,
-      "name": "빤짝핑",
+      "name": "찌릿핑",
       "nameEn": "Flashping",
       "season": [
         1
