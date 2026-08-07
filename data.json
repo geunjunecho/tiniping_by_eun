@@ -1,0 +1,1879 @@
+{
+  "seasons": [
+    {
+      "id": 1,
+      "name": "캐치! 티니핑",
+      "nameEn": "Catch! Teenieping",
+      "theme": "큐브",
+      "themeEn": "Emotion",
+      "year": 2020,
+      "color": "#FF69B4"
+    },
+    {
+      "id": 2,
+      "name": "반짝반짝 캐치! 티니핑",
+      "nameEn": "Twinkle Catch! Teenieping",
+      "theme": "보석",
+      "themeEn": "Jewel",
+      "year": 2021,
+      "color": "#9B59B6"
+    },
+    {
+      "id": 3,
+      "name": "알쏭달쏭 캐치! 티니핑",
+      "nameEn": "Secret Catch! Teenieping",
+      "theme": "열쇠",
+      "themeEn": "Key",
+      "year": 2022,
+      "color": "#3498DB"
+    },
+    {
+      "id": 4,
+      "name": "새콤달콤 캐치! 티니핑",
+      "nameEn": "Dessert Catch! Teenieping",
+      "theme": "디저트",
+      "themeEn": "Dessert",
+      "year": 2023,
+      "color": "#E74C3C"
+    },
+    {
+      "id": 5,
+      "name": "슈팅스타 캐치! 티니핑",
+      "nameEn": "Star Catch! Teenieping",
+      "theme": "스타",
+      "themeEn": "Star",
+      "year": 2024,
+      "color": "#F1C40F"
+    },
+    {
+      "id": 6,
+      "name": "프린세스 캐치! 티니핑",
+      "nameEn": "Princess Catch! Teenieping",
+      "theme": "프린세스",
+      "themeEn": "Princess",
+      "year": 2025,
+      "color": "#E91E63"
+    },
+    {
+      "id": 7,
+      "name": "쥬얼스타 캐치! 티니핑",
+      "nameEn": "Jewelstar Catch! Teenieping",
+      "theme": "쥬얼스타",
+      "themeEn": "Jewelstar",
+      "year": 2026,
+      "color": "#00BCD4"
+    }
+  ],
+  "tinipings": [
+    {
+      "id": 1,
+      "name": "하츄핑",
+      "nameEn": "Heartsping",
+      "season": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "mainSeason": 1,
+      "grade": "로열",
+      "emotion": "사랑",
+      "color": "#FF69B4",
+      "description": "사랑의 감정을 가진 로열 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Heartsping.png",
+      "gender": "여"
+    },
+    {
+      "id": 2,
+      "name": "바로핑",
+      "nameEn": "Dadaping",
+      "season": [
+        1
+      ],
+      "mainSeason": 1,
+      "grade": "로열",
+      "emotion": "올바름",
+      "color": "#3498DB",
+      "description": "올바름의 감정을 가진 로열 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Dadaping.png",
+      "gender": "남"
+    },
+    {
+      "id": 3,
+      "name": "아자핑",
+      "nameEn": "Gogoping",
+      "season": [
+        1
+      ],
+      "mainSeason": 1,
+      "grade": "로열",
+      "emotion": "용기",
+      "color": "#F1C40F",
+      "description": "용기의 감정을 가진 로열 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Gogoping.png",
+      "gender": "남"
+    },
+    {
+      "id": 4,
+      "name": "차차핑",
+      "nameEn": "Chachaping",
+      "season": [
+        1
+      ],
+      "mainSeason": 1,
+      "grade": "로열",
+      "emotion": "희망",
+      "color": "#2ECC71",
+      "description": "희망의 감정을 가진 로열 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Chachaping.png",
+      "gender": "여"
+    },
+    {
+      "id": 5,
+      "name": "라라핑",
+      "nameEn": "Lalaping",
+      "season": [
+        1
+      ],
+      "mainSeason": 1,
+      "grade": "로열",
+      "emotion": "즐거움",
+      "color": "#9B59B6",
+      "description": "즐거움의 감정을 가진 로열 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Lalaping.png",
+      "gender": "여"
+    },
+    {
+      "id": 6,
+      "name": "해핑",
+      "nameEn": "Happying",
+      "season": [
+        1
+      ],
+      "mainSeason": 1,
+      "grade": "로열",
+      "emotion": "행복",
+      "color": "#E74C3C",
+      "description": "행복의 감정을 가진 로열 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Happying.png",
+      "gender": "여"
+    },
+    {
+      "id": 7,
+      "name": "키키핑",
+      "nameEn": "Kikiping",
+      "season": [
+        1
+      ],
+      "mainSeason": 1,
+      "grade": "일반",
+      "emotion": "장난",
+      "color": "#8E44AD",
+      "description": "장난치기를 좋아하는 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Kikiping.png",
+      "gender": "남"
+    },
+    {
+      "id": 8,
+      "name": "투투핑",
+      "nameEn": "Tutuping",
+      "season": [
+        1
+      ],
+      "mainSeason": 1,
+      "grade": "일반",
+      "emotion": "질투",
+      "color": "#D35400",
+      "description": "질투가 많은 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Tutuping.png",
+      "gender": "여"
+    },
+    {
+      "id": 9,
+      "name": "앙대핑",
+      "nameEn": "Egoping",
+      "season": [
+        1
+      ],
+      "mainSeason": 1,
+      "grade": "빌런",
+      "emotion": "반대",
+      "color": "#2C3E50",
+      "description": "무엇이든 반대하는 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Egoping.png",
+      "gender": "남"
+    },
+    {
+      "id": 10,
+      "name": "그림핑",
+      "nameEn": "Artping",
+      "season": [
+        1
+      ],
+      "mainSeason": 1,
+      "grade": "일반",
+      "emotion": "예술",
+      "color": "#16A085",
+      "description": "그림 그리기를 좋아하는 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Artping.png",
+      "gender": "여"
+    },
+    {
+      "id": 11,
+      "name": "베베핑",
+      "nameEn": "Bebeping",
+      "season": [
+        1
+      ],
+      "mainSeason": 1,
+      "grade": "일반",
+      "emotion": "아기",
+      "color": "#F39C12",
+      "description": "아기처럼 행동하는 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Bebeping.png",
+      "gender": "남"
+    },
+    {
+      "id": 12,
+      "name": "멋져핑",
+      "nameEn": "Charmping",
+      "season": [
+        1
+      ],
+      "mainSeason": 1,
+      "grade": "일반",
+      "emotion": "멋짐",
+      "color": "#2980B9",
+      "description": "스스로 멋지다고 생각하는 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Charmping.png",
+      "gender": "남"
+    },
+    {
+      "id": 13,
+      "name": "용감핑",
+      "nameEn": "Dareping",
+      "season": [
+        1
+      ],
+      "mainSeason": 1,
+      "grade": "일반",
+      "emotion": "도전",
+      "color": "#C0392B",
+      "description": "도전적이고 용감한 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Dareping.png",
+      "gender": "남"
+    },
+    {
+      "id": 14,
+      "name": "으랏핑",
+      "nameEn": "Freezeping",
+      "season": [
+        1
+      ],
+      "mainSeason": 1,
+      "grade": "일반",
+      "emotion": "활기",
+      "color": "#27AE60",
+      "description": "힘이 넘치는 활기찬 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Freezeping.png",
+      "gender": "남"
+    },
+    {
+      "id": 15,
+      "name": "깜찍핑",
+      "nameEn": "Giggleping",
+      "season": [
+        1
+      ],
+      "mainSeason": 1,
+      "grade": "일반",
+      "emotion": "깜찍",
+      "color": "#FFC312",
+      "description": "깜찍하게 웃는 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Giggleping.png",
+      "gender": "여"
+    },
+    {
+      "id": 16,
+      "name": "노라핑",
+      "nameEn": "Noraping",
+      "season": [
+        1
+      ],
+      "mainSeason": 1,
+      "grade": "일반",
+      "emotion": "놀이",
+      "color": "#1ABC9C",
+      "description": "노는 것을 좋아하는 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Noraping.png",
+      "gender": "남"
+    },
+    {
+      "id": 17,
+      "name": "노리핑",
+      "nameEn": "Noriping",
+      "season": [
+        1
+      ],
+      "mainSeason": 1,
+      "grade": "일반",
+      "emotion": "놀이",
+      "color": "#16A085",
+      "description": "노라핑과 함께 노는 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Noriping.png",
+      "gender": "여"
+    },
+    {
+      "id": 18,
+      "name": "무셔핑",
+      "nameEn": "Roarping",
+      "season": [
+        1
+      ],
+      "mainSeason": 1,
+      "grade": "일반",
+      "emotion": "공포",
+      "color": "#8E44AD",
+      "description": "겁이 많은 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Roarping.png",
+      "gender": "남"
+    },
+    {
+      "id": 19,
+      "name": "부끄핑",
+      "nameEn": "Shyping",
+      "season": [
+        1
+      ],
+      "mainSeason": 1,
+      "grade": "일반",
+      "emotion": "부끄러움",
+      "color": "#FF9FF3",
+      "description": "부끄러움이 많은 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Shyping.png",
+      "gender": "여"
+    },
+    {
+      "id": 20,
+      "name": "쓰담핑",
+      "nameEn": "Sighping",
+      "season": [
+        1
+      ],
+      "mainSeason": 1,
+      "grade": "일반",
+      "emotion": "위로",
+      "color": "#54A0FF",
+      "description": "위로해주기를 좋아하는 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Sighping.png",
+      "gender": "여"
+    },
+    {
+      "id": 21,
+      "name": "잼잼핑",
+      "nameEn": "Sleeping",
+      "season": [
+        1
+      ],
+      "mainSeason": 1,
+      "grade": "일반",
+      "emotion": "수면",
+      "color": "#F368E0",
+      "description": "잠을 많이 자는 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Sleeping.png",
+      "gender": "남"
+    },
+    {
+      "id": 22,
+      "name": "째깍핑",
+      "nameEn": "Spookping",
+      "season": [
+        1
+      ],
+      "mainSeason": 1,
+      "grade": "일반",
+      "emotion": "시간",
+      "color": "#E1B12C",
+      "description": "시간에 민감한 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Spookping.png",
+      "gender": "남"
+    },
+    {
+      "id": 23,
+      "name": "새근핑",
+      "nameEn": "Stickping",
+      "season": [
+        1
+      ],
+      "mainSeason": 1,
+      "grade": "일반",
+      "emotion": "휴식",
+      "color": "#48DBFB",
+      "description": "편안하게 쉬는 것을 좋아하는 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Stickping.png",
+      "gender": "남"
+    },
+    {
+      "id": 24,
+      "name": "패션핑",
+      "nameEn": "Wannabeping",
+      "season": [
+        1
+      ],
+      "mainSeason": 1,
+      "grade": "일반",
+      "emotion": "멋",
+      "color": "#FF6B6B",
+      "description": "패션에 관심이 많은 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Wannabeping.png",
+      "gender": "여"
+    },
+    {
+      "id": 25,
+      "name": "주르핑",
+      "nameEn": "Weeping",
+      "season": [
+        1
+      ],
+      "mainSeason": 1,
+      "grade": "일반",
+      "emotion": "슬픔",
+      "color": "#0ABDE3",
+      "description": "자주 우는 슬픈 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Weeping.png",
+      "gender": "여"
+    },
+    {
+      "id": 26,
+      "name": "심쿵핑",
+      "nameEn": "Luvping",
+      "season": [
+        1
+      ],
+      "mainSeason": 1,
+      "grade": "일반",
+      "emotion": "설렘",
+      "color": "#FF9F43",
+      "description": "심장을 쿵쾅거리게 하는 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Luvping.png",
+      "gender": "여"
+    },
+    {
+      "id": 27,
+      "name": "똑똑핑",
+      "nameEn": "Curieping",
+      "season": [
+        1
+      ],
+      "mainSeason": 1,
+      "grade": "일반",
+      "emotion": "지식",
+      "color": "#1DD1A1",
+      "description": "똑똑한 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Curieping.png",
+      "gender": "여"
+    },
+    {
+      "id": 28,
+      "name": "발레핑",
+      "nameEn": "Balletping",
+      "season": [
+        1,
+        2
+      ],
+      "mainSeason": 1,
+      "grade": "일반",
+      "emotion": "춤",
+      "color": "#FDA7DF",
+      "description": "발레를 좋아하는 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Balletping.png",
+      "gender": "여"
+    },
+    {
+      "id": 29,
+      "name": "차캐핑",
+      "nameEn": "Goodping",
+      "season": [
+        1
+      ],
+      "mainSeason": 1,
+      "grade": "일반",
+      "emotion": "착함",
+      "color": "#00D2D3",
+      "description": "착한 마음씨를 가진 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Goodping.png",
+      "gender": "여"
+    },
+    {
+      "id": 30,
+      "name": "요리핑",
+      "nameEn": "Yummyping",
+      "season": [
+        1
+      ],
+      "mainSeason": 1,
+      "grade": "일반",
+      "emotion": "요리",
+      "color": "#FEEAA8",
+      "description": "요리를 잘하는 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Yummyping.png",
+      "gender": "남"
+    },
+    {
+      "id": 31,
+      "name": "맨날핑",
+      "nameEn": "Moseyping",
+      "season": [
+        1
+      ],
+      "mainSeason": 1,
+      "grade": "일반",
+      "emotion": "게으름",
+      "color": "#C8D6E5",
+      "description": "항상 미루는 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Moseyping.png",
+      "gender": "남"
+    },
+    {
+      "id": 32,
+      "name": "악동핑",
+      "nameEn": "Badping",
+      "season": [
+        1
+      ],
+      "mainSeason": 1,
+      "grade": "빌런",
+      "emotion": "악동",
+      "color": "#576574",
+      "description": "장난을 넘어선 악동 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Badping.png",
+      "gender": "남"
+    },
+    {
+      "id": 33,
+      "name": "조아핑",
+      "nameEn": "Joahping",
+      "season": [
+        2
+      ],
+      "mainSeason": 2,
+      "grade": "로열",
+      "emotion": "친절",
+      "color": "#FDA7DF",
+      "description": "친절함의 보석 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Joahping.png",
+      "gender": "여"
+    },
+    {
+      "id": 34,
+      "name": "믿어핑",
+      "nameEn": "Trustping",
+      "season": [
+        2
+      ],
+      "mainSeason": 2,
+      "grade": "로열",
+      "emotion": "믿음",
+      "color": "#48DBFB",
+      "description": "믿음의 보석 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Trustping.png",
+      "gender": "남"
+    },
+    {
+      "id": 35,
+      "name": "방글핑",
+      "nameEn": "Teeheeping",
+      "season": [
+        2
+      ],
+      "mainSeason": 2,
+      "grade": "로열",
+      "emotion": "웃음",
+      "color": "#FFC312",
+      "description": "웃음의 보석 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Teeheeping.png",
+      "gender": "여"
+    },
+    {
+      "id": 36,
+      "name": "왕자핑",
+      "nameEn": "Princeping",
+      "season": [
+        2,
+        5,
+        6
+      ],
+      "mainSeason": 2,
+      "grade": "일반",
+      "emotion": "왕자",
+      "color": "#341F97",
+      "description": "왕자병에 걸린 보석 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Princeping.png",
+      "gender": "남"
+    },
+    {
+      "id": 37,
+      "name": "가나핑",
+      "nameEn": "Ganaping",
+      "season": [
+        2
+      ],
+      "mainSeason": 2,
+      "grade": "일반",
+      "emotion": "음악",
+      "color": "#F368E0",
+      "description": "노래를 좋아하는 보석 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Ganaping.png",
+      "gender": "여"
+    },
+    {
+      "id": 38,
+      "name": "달님핑",
+      "nameEn": "Moonping",
+      "season": [
+        2
+      ],
+      "mainSeason": 2,
+      "grade": "일반",
+      "emotion": "달",
+      "color": "#54A0FF",
+      "description": "밤을 사랑하는 보석 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Moonping.png",
+      "gender": "여"
+    },
+    {
+      "id": 39,
+      "name": "또또핑",
+      "nameEn": "Againping",
+      "season": [
+        2
+      ],
+      "mainSeason": 2,
+      "grade": "일반",
+      "emotion": "반복",
+      "color": "#1DD1A1",
+      "description": "무엇이든 다시 하려는 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Againping.png",
+      "gender": "남"
+    },
+    {
+      "id": 40,
+      "name": "미니핑",
+      "nameEn": "Miniping",
+      "season": [
+        2
+      ],
+      "mainSeason": 2,
+      "grade": "일반",
+      "emotion": "작음",
+      "color": "#FF9F43",
+      "description": "크기를 작게 만드는 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Miniping.png",
+      "gender": "여"
+    },
+    {
+      "id": 41,
+      "name": "보타핑",
+      "nameEn": "Botaping",
+      "season": [
+        2
+      ],
+      "mainSeason": 2,
+      "grade": "일반",
+      "emotion": "포기",
+      "color": "#8395A7",
+      "description": "금방 포기하는 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Botaping.png",
+      "gender": "남"
+    },
+    {
+      "id": 42,
+      "name": "어머핑",
+      "nameEn": "Omgping",
+      "season": [
+        2
+      ],
+      "mainSeason": 2,
+      "grade": "일반",
+      "emotion": "놀람",
+      "color": "#EE5253",
+      "description": "쉽게 놀라는 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Omgping.png",
+      "gender": "여"
+    },
+    {
+      "id": 43,
+      "name": "투투핑",
+      "nameEn": "Tutuping",
+      "season": [
+        2
+      ],
+      "mainSeason": 2,
+      "grade": "일반",
+      "emotion": "질투",
+      "color": "#5F27CD",
+      "description": "보석 티니핑 버전의 투투핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Tutuping_jewel.png",
+      "gender": "여"
+    },
+    {
+      "id": 44,
+      "name": "삐삐핑",
+      "nameEn": "Ppipiping",
+      "season": [
+        2
+      ],
+      "mainSeason": 2,
+      "grade": "일반",
+      "emotion": "삐짐",
+      "color": "#FF6B6B",
+      "description": "잘 삐지는 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Ppipiping.png",
+      "gender": "여"
+    },
+    {
+      "id": 45,
+      "name": "띠용핑",
+      "nameEn": "Wonderping",
+      "season": [
+        2
+      ],
+      "mainSeason": 2,
+      "grade": "일반",
+      "emotion": "엉뚱",
+      "color": "#10AC84",
+      "description": "엉뚱한 상상을 하는 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Wonderping.png",
+      "gender": "남"
+    },
+    {
+      "id": 46,
+      "name": "솔찌핑",
+      "nameEn": "Okeydokeyping",
+      "season": [
+        3
+      ],
+      "mainSeason": 3,
+      "grade": "로열",
+      "emotion": "솔직",
+      "color": "#FDCB6E",
+      "description": "솔직함의 열쇠 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Okeydokeyping.png",
+      "gender": "남"
+    },
+    {
+      "id": 47,
+      "name": "나나핑",
+      "nameEn": "Nanaping",
+      "season": [
+        3
+      ],
+      "mainSeason": 3,
+      "grade": "로열",
+      "emotion": "열정",
+      "color": "#D63031",
+      "description": "열정의 열쇠 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Nanaping.png",
+      "gender": "여"
+    },
+    {
+      "id": 48,
+      "name": "꾸래핑",
+      "nameEn": "Cheerupping",
+      "season": [
+        3
+      ],
+      "mainSeason": 3,
+      "grade": "로열",
+      "emotion": "배려",
+      "color": "#74B9FF",
+      "description": "배려의 열쇠 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Cheerupping.png",
+      "gender": "여"
+    },
+    {
+      "id": 49,
+      "name": "깡총핑",
+      "nameEn": "Hop-ping",
+      "season": [
+        3
+      ],
+      "mainSeason": 3,
+      "grade": "일반",
+      "emotion": "활발",
+      "color": "#A29BFE",
+      "description": "깡총깡총 뛰어다니는 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Hop-ping.png",
+      "gender": "남"
+    },
+    {
+      "id": 50,
+      "name": "삐뽀핑",
+      "nameEn": "Nursepings",
+      "season": [
+        3
+      ],
+      "mainSeason": 3,
+      "grade": "일반",
+      "emotion": "치료",
+      "color": "#FAB1A0",
+      "description": "치료를 돕는 간호사 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Nursepings.png",
+      "gender": "여"
+    },
+    {
+      "id": 51,
+      "name": "간호핑",
+      "nameEn": "Nursepings",
+      "season": [
+        3
+      ],
+      "mainSeason": 3,
+      "grade": "일반",
+      "emotion": "간호",
+      "color": "#FFEAA7",
+      "description": "간호를 담당하는 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Nursepings.png",
+      "gender": "여"
+    },
+    {
+      "id": 52,
+      "name": "엉뚱핑",
+      "nameEn": "Sillyping",
+      "season": [
+        3
+      ],
+      "mainSeason": 3,
+      "grade": "일반",
+      "emotion": "엉뚱",
+      "color": "#00B894",
+      "description": "항상 엉뚱한 짓을 하는 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Sillyping.png",
+      "gender": "남"
+    },
+    {
+      "id": 53,
+      "name": "공주핑",
+      "nameEn": "Princessping",
+      "season": [
+        3
+      ],
+      "mainSeason": 3,
+      "grade": "일반",
+      "emotion": "공주",
+      "color": "#FD79A8",
+      "description": "공주처럼 행동하는 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Princessping.png",
+      "gender": "여"
+    },
+    {
+      "id": 54,
+      "name": "다해핑",
+      "nameEn": "Justiceping",
+      "season": [
+        3
+      ],
+      "mainSeason": 3,
+      "grade": "일반",
+      "emotion": "정의",
+      "color": "#0984E3",
+      "description": "정의로운 열쇠 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Justiceping.png",
+      "gender": "남"
+    },
+    {
+      "id": 55,
+      "name": "꾸미핑",
+      "nameEn": "Decoping",
+      "season": [
+        3
+      ],
+      "mainSeason": 3,
+      "grade": "일반",
+      "emotion": "꾸밈",
+      "color": "#6C5CE7",
+      "description": "꾸미기를 좋아하는 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Decoping.png",
+      "gender": "여"
+    },
+    {
+      "id": 56,
+      "name": "호기핑",
+      "nameEn": "Curiousping",
+      "season": [
+        3
+      ],
+      "mainSeason": 3,
+      "grade": "일반",
+      "emotion": "호기심",
+      "color": "#FDCB6E",
+      "description": "호기심이 많은 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Curiousping.png",
+      "gender": "남"
+    },
+    {
+      "id": 57,
+      "name": "으쌰핑",
+      "nameEn": "Powerping",
+      "season": [
+        3
+      ],
+      "mainSeason": 3,
+      "grade": "일반",
+      "emotion": "힘",
+      "color": "#D63031",
+      "description": "힘이 센 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Powerping.png",
+      "gender": "남"
+    },
+    {
+      "id": 58,
+      "name": "우왕핑",
+      "nameEn": "Wowping",
+      "season": [
+        3
+      ],
+      "mainSeason": 3,
+      "grade": "일반",
+      "emotion": "감탄",
+      "color": "#E17055",
+      "description": "항상 감탄하는 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Wowping.png",
+      "gender": "남"
+    },
+    {
+      "id": 59,
+      "name": "하나핑",
+      "nameEn": "Oneping",
+      "season": [
+        3
+      ],
+      "mainSeason": 3,
+      "grade": "일반",
+      "emotion": "하나",
+      "color": "#81ECEC",
+      "description": "하나만 고집하는 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Oneping.png",
+      "gender": "여"
+    },
+    {
+      "id": 60,
+      "name": "마왕핑",
+      "nameEn": "Wizping",
+      "season": [
+        3
+      ],
+      "mainSeason": 3,
+      "grade": "빌런",
+      "emotion": "어둠",
+      "color": "#2D3436",
+      "description": "어둠의 마법을 쓰는 마왕 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Wizping.png",
+      "gender": "남"
+    },
+    {
+      "id": 61,
+      "name": "매직핑",
+      "nameEn": "Magicping",
+      "season": [
+        3
+      ],
+      "mainSeason": 3,
+      "grade": "일반",
+      "emotion": "마술",
+      "color": "#A29BFE",
+      "description": "마술을 부리는 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Magicping.png",
+      "gender": "남"
+    },
+    {
+      "id": 62,
+      "name": "포실핑",
+      "nameEn": "Fluffyping",
+      "season": [
+        4
+      ],
+      "mainSeason": 4,
+      "grade": "로열",
+      "emotion": "포근",
+      "color": "#F8A5C2",
+      "description": "포근함의 디저트 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Fluffyping.png",
+      "gender": "여"
+    },
+    {
+      "id": 63,
+      "name": "말랑핑",
+      "nameEn": "Mallowping",
+      "season": [
+        4
+      ],
+      "mainSeason": 4,
+      "grade": "로열",
+      "emotion": "말랑",
+      "color": "#786FA6",
+      "description": "말랑함의 디저트 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Mallowping.png",
+      "gender": "여"
+    },
+    {
+      "id": 64,
+      "name": "샤샤핑",
+      "nameEn": "Shashaping",
+      "season": [
+        4
+      ],
+      "mainSeason": 4,
+      "grade": "로열",
+      "emotion": "시원",
+      "color": "#63CDDA",
+      "description": "시원함의 디저트 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Shashaping.png",
+      "gender": "여"
+    },
+    {
+      "id": 65,
+      "name": "따끄핑",
+      "nameEn": "Tangyping",
+      "season": [
+        4
+      ],
+      "mainSeason": 4,
+      "grade": "일반",
+      "emotion": "따끔",
+      "color": "#E66767",
+      "description": "따끔한 맛의 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Tangyping.png",
+      "gender": "남"
+    },
+    {
+      "id": 66,
+      "name": "베리하츄핑",
+      "nameEn": "Berry Heartsping",
+      "season": [
+        4
+      ],
+      "mainSeason": 4,
+      "grade": "레전드",
+      "emotion": "사랑",
+      "color": "#FDA7DF",
+      "description": "하츄핑의 새로운 폼.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/BerryHeartsping.png",
+      "gender": "여"
+    },
+    {
+      "id": 67,
+      "name": "짱짱핑",
+      "nameEn": "Jellyping",
+      "season": [
+        4
+      ],
+      "mainSeason": 4,
+      "grade": "일반",
+      "emotion": "쫄깃",
+      "color": "#546DE5",
+      "description": "쫄깃한 젤리 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Jellyping.png",
+      "gender": "남"
+    },
+    {
+      "id": 68,
+      "name": "반하핑",
+      "nameEn": "Fallinping",
+      "season": [
+        4
+      ],
+      "mainSeason": 4,
+      "grade": "일반",
+      "emotion": "반함",
+      "color": "#F19066",
+      "description": "쉽게 반하는 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Fallinping.png",
+      "gender": "여"
+    },
+    {
+      "id": 69,
+      "name": "까꿍핑",
+      "nameEn": "Peekabooping",
+      "season": [
+        4
+      ],
+      "mainSeason": 4,
+      "grade": "일반",
+      "emotion": "숨기",
+      "color": "#F3A683",
+      "description": "숨바꼭질을 좋아하는 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Peekabooping.png",
+      "gender": "여"
+    },
+    {
+      "id": 70,
+      "name": "퐁당핑",
+      "nameEn": "Plungeping",
+      "season": [
+        4
+      ],
+      "mainSeason": 4,
+      "grade": "일반",
+      "emotion": "퐁당",
+      "color": "#778BEB",
+      "description": "물에 빠지는 것을 좋아하는 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Plungeping.png",
+      "gender": "남"
+    },
+    {
+      "id": 71,
+      "name": "안녕핑",
+      "nameEn": "Helloping",
+      "season": [
+        4
+      ],
+      "mainSeason": 4,
+      "grade": "일반",
+      "emotion": "인사",
+      "color": "#CF6A87",
+      "description": "인사를 잘하는 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Helloping.png",
+      "gender": "여"
+    },
+    {
+      "id": 72,
+      "name": "달짝핑",
+      "nameEn": "Sweetping",
+      "season": [
+        4
+      ],
+      "mainSeason": 4,
+      "grade": "일반",
+      "emotion": "달콤",
+      "color": "#F78FB3",
+      "description": "달콤한 디저트 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Sweetping.png",
+      "gender": "여"
+    },
+    {
+      "id": 73,
+      "name": "또너핑",
+      "nameEn": "Donutping",
+      "season": [
+        4
+      ],
+      "mainSeason": 4,
+      "grade": "일반",
+      "emotion": "도넛",
+      "color": "#E77F67",
+      "description": "도넛을 좋아하는 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Donutping.png",
+      "gender": "남"
+    },
+    {
+      "id": 74,
+      "name": "랄라핑",
+      "nameEn": "Lolliping",
+      "season": [
+        4
+      ],
+      "mainSeason": 4,
+      "grade": "일반",
+      "emotion": "롤리팝",
+      "color": "#786FA6",
+      "description": "롤리팝 캔디 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Lolliping.png",
+      "gender": "여"
+    },
+    {
+      "id": 75,
+      "name": "커핑",
+      "nameEn": "Cupping",
+      "season": [
+        4
+      ],
+      "mainSeason": 4,
+      "grade": "일반",
+      "emotion": "컵",
+      "color": "#596275",
+      "description": "컵 모양의 디저트 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Cupping.png",
+      "gender": "남"
+    },
+    {
+      "id": 76,
+      "name": "머핑",
+      "nameEn": "Muffping",
+      "season": [
+        4
+      ],
+      "mainSeason": 4,
+      "grade": "일반",
+      "emotion": "머핀",
+      "color": "#F3A683",
+      "description": "머핀 디저트 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Muffping.png",
+      "gender": "여"
+    },
+    {
+      "id": 77,
+      "name": "오로라핑",
+      "nameEn": "Auroraping",
+      "season": [
+        4,
+        5
+      ],
+      "mainSeason": 4,
+      "grade": "일반",
+      "emotion": "오로라",
+      "color": "#C44569",
+      "description": "아름다운 오로라 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Auroraping.png",
+      "gender": "여"
+    },
+    {
+      "id": 78,
+      "name": "샤베핑",
+      "nameEn": "Sherbetping",
+      "season": [
+        5
+      ],
+      "mainSeason": 5,
+      "grade": "일반",
+      "emotion": "샤베트",
+      "color": "#82CCDD",
+      "description": "차가운 샤베트 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Sherbetping.png",
+      "gender": "여"
+    },
+    {
+      "id": 79,
+      "name": "치치핑",
+      "nameEn": "Chichiping",
+      "season": [
+        5
+      ],
+      "mainSeason": 5,
+      "grade": "일반",
+      "emotion": "치치",
+      "color": "#F8C291",
+      "description": "별빛을 담은 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Chichiping.png",
+      "gender": "여"
+    },
+    {
+      "id": 80,
+      "name": "아이핑",
+      "nameEn": "Iping",
+      "season": [
+        5
+      ],
+      "mainSeason": 5,
+      "grade": "일반",
+      "emotion": "아이",
+      "color": "#6A89CC",
+      "description": "순수한 마음의 스타 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Iping.png",
+      "gender": "남"
+    },
+    {
+      "id": 81,
+      "name": "빤짝핑",
+      "nameEn": "Twinkleping",
+      "season": [
+        5
+      ],
+      "mainSeason": 5,
+      "grade": "일반",
+      "emotion": "반짝임",
+      "color": "#FAD390",
+      "description": "반짝이는 스타 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Twinkleping.png",
+      "gender": "여"
+    },
+    {
+      "id": 82,
+      "name": "뽀뽀핑",
+      "nameEn": "Kissyping",
+      "season": [
+        5
+      ],
+      "mainSeason": 5,
+      "grade": "일반",
+      "emotion": "뽀뽀",
+      "color": "#E55039",
+      "description": "애교가 많은 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Kissyping.png",
+      "gender": "여"
+    },
+    {
+      "id": 83,
+      "name": "단짝핑",
+      "nameEn": "Bestieping",
+      "season": [
+        5
+      ],
+      "mainSeason": 5,
+      "grade": "일반",
+      "emotion": "우정",
+      "color": "#78E08F",
+      "description": "우정을 소중히 하는 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Bestieping.png",
+      "gender": "여"
+    },
+    {
+      "id": 84,
+      "name": "스노우핑",
+      "nameEn": "Snowping",
+      "season": [
+        5
+      ],
+      "mainSeason": 5,
+      "grade": "일반",
+      "emotion": "눈",
+      "color": "#FFFFFF",
+      "description": "눈송이처럼 맑은 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Snowping.png",
+      "gender": "남"
+    },
+    {
+      "id": 85,
+      "name": "나그네핑",
+      "nameEn": "Wanderping",
+      "season": [
+        5
+      ],
+      "mainSeason": 5,
+      "grade": "일반",
+      "emotion": "방랑",
+      "color": "#079992",
+      "description": "떠돌아다니기를 좋아하는 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Wanderping.png",
+      "gender": "남"
+    },
+    {
+      "id": 86,
+      "name": "큐핑",
+      "nameEn": "Cuping",
+      "season": [
+        5
+      ],
+      "mainSeason": 5,
+      "grade": "일반",
+      "emotion": "큐",
+      "color": "#38ADA9",
+      "description": "신호를 보내는 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Cuping.png",
+      "gender": "여"
+    },
+    {
+      "id": 87,
+      "name": "윙윙핑",
+      "nameEn": "Buzzping",
+      "season": [
+        5
+      ],
+      "mainSeason": 5,
+      "grade": "일반",
+      "emotion": "비행",
+      "color": "#F6B93B",
+      "description": "윙윙 날아다니는 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Buzzping.png",
+      "gender": "남"
+    },
+    {
+      "id": 88,
+      "name": "이클립스핑",
+      "nameEn": "Eclipseping",
+      "season": [
+        6
+      ],
+      "mainSeason": 6,
+      "grade": "빌런",
+      "emotion": "일식",
+      "color": "#0A3D62",
+      "description": "어둠을 가져오는 프린세스 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Eclipseping.png",
+      "gender": "여"
+    },
+    {
+      "id": 89,
+      "name": "다이아나핑",
+      "nameEn": "Dianaping",
+      "season": [
+        6
+      ],
+      "mainSeason": 6,
+      "grade": "로열",
+      "emotion": "다이아",
+      "color": "#B8E994",
+      "description": "빛나는 다이아몬드 프린세스 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Dianaping.png",
+      "gender": "여"
+    },
+    {
+      "id": 90,
+      "name": "트러핑",
+      "nameEn": "Truffleping",
+      "season": [
+        6
+      ],
+      "mainSeason": 6,
+      "grade": "일반",
+      "emotion": "트러플",
+      "color": "#78E08F",
+      "description": "고급스러운 향의 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Truffleping.png",
+      "gender": "남"
+    },
+    {
+      "id": 91,
+      "name": "서프핑",
+      "nameEn": "Surfping",
+      "season": [
+        6
+      ],
+      "mainSeason": 6,
+      "grade": "일반",
+      "emotion": "파도",
+      "color": "#3C6382",
+      "description": "파도를 타는 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Surfping.png",
+      "gender": "남"
+    },
+    {
+      "id": 92,
+      "name": "파우핑",
+      "nameEn": "Powping",
+      "season": [
+        6
+      ],
+      "mainSeason": 6,
+      "grade": "일반",
+      "emotion": "파워",
+      "color": "#B71540",
+      "description": "힘찬 에너지를 가진 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Powping.png",
+      "gender": "남"
+    },
+    {
+      "id": 93,
+      "name": "메르핑",
+      "nameEn": "Merping",
+      "season": [
+        6
+      ],
+      "mainSeason": 6,
+      "grade": "일반",
+      "emotion": "인어",
+      "color": "#60A3BC",
+      "description": "인어처럼 수영하는 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Merping.png",
+      "gender": "여"
+    },
+    {
+      "id": 94,
+      "name": "쥬핑",
+      "nameEn": "Jooping",
+      "season": [
+        6
+      ],
+      "mainSeason": 6,
+      "grade": "일반",
+      "emotion": "동물원",
+      "color": "#F8C291",
+      "description": "동물들과 친한 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Jooping.png",
+      "gender": "여"
+    },
+    {
+      "id": 95,
+      "name": "코코핑",
+      "nameEn": "Cocoping",
+      "season": [
+        6
+      ],
+      "mainSeason": 6,
+      "grade": "일반",
+      "emotion": "코코넛",
+      "color": "#6A89CC",
+      "description": "코코넛처럼 단단한 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Cocoping.png",
+      "gender": "남"
+    },
+    {
+      "id": 96,
+      "name": "주주핑",
+      "nameEn": "Jujuping",
+      "season": [
+        6
+      ],
+      "mainSeason": 6,
+      "grade": "일반",
+      "emotion": "주주",
+      "color": "#F6B93B",
+      "description": "다양한 매력을 가진 프린세스 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Jujuping.png",
+      "gender": "여"
+    },
+    {
+      "id": 97,
+      "name": "쑥쑥핑",
+      "nameEn": "Growping",
+      "season": [
+        1
+      ],
+      "mainSeason": 1,
+      "grade": "일반",
+      "emotion": "성장",
+      "color": "#7BC67E",
+      "description": "쑥쑥 자라나는 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Growping.png",
+      "gender": "남"
+    },
+    {
+      "id": 98,
+      "name": "달달핑",
+      "nameEn": "Sweetieping",
+      "season": [
+        1
+      ],
+      "mainSeason": 1,
+      "grade": "일반",
+      "emotion": "달콤",
+      "color": "#FFB6C1",
+      "description": "달달한 매력의 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Sweetieping.png",
+      "gender": "여"
+    },
+    {
+      "id": 99,
+      "name": "졸졸핑",
+      "nameEn": "Followping",
+      "season": [
+        1
+      ],
+      "mainSeason": 1,
+      "grade": "일반",
+      "emotion": "따라감",
+      "color": "#A0D2DB",
+      "description": "누구든 졸졸 따라다니는 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Followping.png",
+      "gender": "여"
+    },
+    {
+      "id": 100,
+      "name": "꿈틀핑",
+      "nameEn": "Dreamyping",
+      "season": [
+        1
+      ],
+      "mainSeason": 1,
+      "grade": "일반",
+      "emotion": "꿈",
+      "color": "#B19CD9",
+      "description": "꿈꾸는 것을 좋아하는 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Dreamyping.png",
+      "gender": "여"
+    },
+    {
+      "id": 101,
+      "name": "빙글핑",
+      "nameEn": "Spinping",
+      "season": [
+        1
+      ],
+      "mainSeason": 1,
+      "grade": "일반",
+      "emotion": "회전",
+      "color": "#FF85A1",
+      "description": "빙글빙글 도는 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Spinping.png",
+      "gender": "여"
+    },
+    {
+      "id": 102,
+      "name": "히히핑",
+      "nameEn": "Heheping",
+      "season": [
+        1
+      ],
+      "mainSeason": 1,
+      "grade": "일반",
+      "emotion": "재미",
+      "color": "#FFD93D",
+      "description": "히히 웃기를 좋아하는 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Heheping.png",
+      "gender": "여"
+    },
+    {
+      "id": 103,
+      "name": "반짝핑",
+      "nameEn": "Flashping",
+      "season": [
+        1
+      ],
+      "mainSeason": 1,
+      "grade": "일반",
+      "emotion": "빛",
+      "color": "#FFE66D",
+      "description": "반짝반짝 빛나는 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Flashping.png",
+      "gender": "여"
+    },
+    {
+      "id": 104,
+      "name": "머뭇핑",
+      "nameEn": "Hesitaping",
+      "season": [
+        1
+      ],
+      "mainSeason": 1,
+      "grade": "일반",
+      "emotion": "머뭇거림",
+      "color": "#CDB4DB",
+      "description": "망설이는 성격의 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Hesitaping.png",
+      "gender": "남"
+    },
+    {
+      "id": 105,
+      "name": "따뜻핑",
+      "nameEn": "Warmping",
+      "season": [
+        1
+      ],
+      "mainSeason": 1,
+      "grade": "일반",
+      "emotion": "따뜻",
+      "color": "#F4A261",
+      "description": "따뜻한 마음의 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Warmping.png",
+      "gender": "여"
+    },
+    {
+      "id": 106,
+      "name": "파티핑",
+      "nameEn": "Partyping",
+      "season": [
+        3
+      ],
+      "mainSeason": 3,
+      "grade": "일반",
+      "emotion": "파티",
+      "color": "#FDCB6E",
+      "description": "파티를 좋아하는 열쇠 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Partyping.png",
+      "gender": "여"
+    },
+    {
+      "id": 107,
+      "name": "스타핑",
+      "nameEn": "Starping",
+      "season": [
+        3
+      ],
+      "mainSeason": 3,
+      "grade": "일반",
+      "emotion": "스타",
+      "color": "#6C5CE7",
+      "description": "스타가 되고 싶은 열쇠 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Starping.png",
+      "gender": "여"
+    },
+    {
+      "id": 108,
+      "name": "핫핑",
+      "nameEn": "Hotping",
+      "season": [
+        3
+      ],
+      "mainSeason": 3,
+      "grade": "일반",
+      "emotion": "뜨거움",
+      "color": "#E17055",
+      "description": "뜨거운 열정의 열쇠 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Hotping.png",
+      "gender": "남"
+    },
+    {
+      "id": 109,
+      "name": "허핑",
+      "nameEn": "Huffyping",
+      "season": [
+        3
+      ],
+      "mainSeason": 3,
+      "grade": "일반",
+      "emotion": "성급",
+      "color": "#FDCB6E",
+      "description": "성급한 성격의 열쇠 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Huffyping.png",
+      "gender": "남"
+    },
+    {
+      "id": 110,
+      "name": "캔디핑",
+      "nameEn": "Candyping",
+      "season": [
+        4
+      ],
+      "mainSeason": 4,
+      "grade": "일반",
+      "emotion": "사탕",
+      "color": "#FF6B81",
+      "description": "사탕처럼 달콤한 디저트 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Candyping.png",
+      "gender": "여"
+    },
+    {
+      "id": 111,
+      "name": "초코핑",
+      "nameEn": "Chocoping",
+      "season": [
+        4
+      ],
+      "mainSeason": 4,
+      "grade": "일반",
+      "emotion": "초콜릿",
+      "color": "#6D4C41",
+      "description": "초콜릿 디저트 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Chocoping.png",
+      "gender": "남"
+    },
+    {
+      "id": 112,
+      "name": "팬케핑",
+      "nameEn": "Pancakeping",
+      "season": [
+        4
+      ],
+      "mainSeason": 4,
+      "grade": "일반",
+      "emotion": "팬케이크",
+      "color": "#FFCD56",
+      "description": "팬케이크 디저트 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Pancakeping.png",
+      "gender": "여"
+    },
+    {
+      "id": 113,
+      "name": "와플핑",
+      "nameEn": "Waffleping",
+      "season": [
+        4
+      ],
+      "mainSeason": 4,
+      "grade": "일반",
+      "emotion": "와플",
+      "color": "#D4A373",
+      "description": "와플 디저트 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Waffleping.png",
+      "gender": "남"
+    },
+    {
+      "id": 114,
+      "name": "요거핑",
+      "nameEn": "Yogurtping",
+      "season": [
+        4
+      ],
+      "mainSeason": 4,
+      "grade": "일반",
+      "emotion": "요거트",
+      "color": "#FEFAE0",
+      "description": "요거트 디저트 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Yogurtping.png",
+      "gender": "여"
+    },
+    {
+      "id": 115,
+      "name": "마카핑",
+      "nameEn": "Macaping",
+      "season": [
+        4
+      ],
+      "mainSeason": 4,
+      "grade": "일반",
+      "emotion": "마카롱",
+      "color": "#CDB4DB",
+      "description": "마카롱 디저트 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Macaping.png",
+      "gender": "여"
+    },
+    {
+      "id": 116,
+      "name": "글리핑",
+      "nameEn": "Glitterping",
+      "season": [
+        7
+      ],
+      "mainSeason": 7,
+      "grade": "로열",
+      "emotion": "빛남",
+      "color": "#00BCD4",
+      "description": "쥬얼스타의 빛나는 로열 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Glitterping.png",
+      "gender": "여"
+    },
+    {
+      "id": 117,
+      "name": "스텔핑",
+      "nameEn": "Stellaping",
+      "season": [
+        7
+      ],
+      "mainSeason": 7,
+      "grade": "로열",
+      "emotion": "별",
+      "color": "#7C4DFF",
+      "description": "별빛의 쥬얼스타 로열 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Stellaping.png",
+      "gender": "여"
+    },
+    {
+      "id": 118,
+      "name": "루비핑",
+      "nameEn": "Rubyping",
+      "season": [
+        7
+      ],
+      "mainSeason": 7,
+      "grade": "일반",
+      "emotion": "루비",
+      "color": "#E53935",
+      "description": "루비 보석의 쥬얼스타 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Rubyping.png",
+      "gender": "여"
+    },
+    {
+      "id": 119,
+      "name": "사파핑",
+      "nameEn": "Sapphireping",
+      "season": [
+        7
+      ],
+      "mainSeason": 7,
+      "grade": "일반",
+      "emotion": "사파이어",
+      "color": "#1E88E5",
+      "description": "사파이어 보석의 쥬얼스타 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Sapphireping.png",
+      "gender": "남"
+    },
+    {
+      "id": 120,
+      "name": "에메핑",
+      "nameEn": "Emeraldping",
+      "season": [
+        7
+      ],
+      "mainSeason": 7,
+      "grade": "일반",
+      "emotion": "에메랄드",
+      "color": "#43A047",
+      "description": "에메랄드 보석의 쥬얼스타 티니핑.",
+      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Emeraldping.png",
+      "gender": "여"
+    }
+  ]
+}
