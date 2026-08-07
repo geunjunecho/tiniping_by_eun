@@ -64,31 +64,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function createParticles() {
         const particlesContainer = document.getElementById('particles');
-        const symbols = ['💖', '✨', '⭐', '🌸', '🎀'];
-        const particleCount = 25;
+        const symbols = ['💖', '✨', '⭐', '🌸', '🎀', '💫', '🦋', '🌟', '💕', '🔮', '🧚', '🌈'];
+        const particleCount = 30;
 
         for (let i = 0; i < particleCount; i++) {
             const p = document.createElement('div');
             p.classList.add('particle');
             p.innerText = symbols[Math.floor(Math.random() * symbols.length)];
-            
-            // Randomize position, size, and animation duration
+            const dur = 12 + Math.random() * 18;
+            const del = Math.random() * dur;
+            const size = 12 + Math.random() * 22;
+            p.style.setProperty('--duration', `${dur}s`);
+            p.style.setProperty('--delay', `${del}s`);
+            p.style.setProperty('--size', `${size}px`);
             p.style.left = `${Math.random() * 100}vw`;
-            p.style.animationDuration = `${10 + Math.random() * 15}s`;
-            p.style.animationDelay = `${Math.random() * 5}s`;
-            p.style.fontSize = `${10 + Math.random() * 20}px`;
-            
             particlesContainer.appendChild(p);
         }
     }
 
     function renderSeasonTabs() {
         seasonTabs.innerHTML = '';
+        const seasonIcons = ['✨','💎','🔑','🍰','⭐','👑','💎'];
         
         // All button
         const allBtn = document.createElement('button');
         allBtn.className = 'season-btn active';
-        allBtn.innerText = '✨ 전체';
+        allBtn.style.setProperty('--season-color', 'var(--pink-500)');
+        allBtn.style.setProperty('--season-glow', 'rgba(255,105,180,0.35)');
+        allBtn.innerHTML = '<span>✨ 전체</span>';
         allBtn.addEventListener('click', () => {
             document.querySelectorAll('.season-btn').forEach(b => b.classList.remove('active'));
             allBtn.classList.add('active');
@@ -98,32 +101,16 @@ document.addEventListener('DOMContentLoaded', () => {
         seasonTabs.appendChild(allBtn);
 
         // Season buttons
-        appData.seasons.forEach(season => {
+        appData.seasons.forEach((season, i) => {
             const btn = document.createElement('button');
             btn.className = 'season-btn';
-            btn.innerText = `${season.id}기: ${season.theme}`;
-            btn.style.color = season.color;
+            btn.style.setProperty('--season-color', season.color);
+            btn.style.setProperty('--season-glow', season.color + '55');
+            const icon = seasonIcons[i] || '🌟';
+            btn.innerHTML = `<span>${icon} ${season.id}기 ${season.theme}</span>`;
             btn.addEventListener('click', () => {
                 document.querySelectorAll('.season-btn').forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
-                btn.style.backgroundColor = season.color;
-                btn.style.color = 'white';
-                
-                // Reset others
-                document.querySelectorAll('.season-btn:not(.active)').forEach(b => {
-                    b.style.backgroundColor = 'rgba(255,255,255,0.6)';
-                    if(b.innerText !== '✨ 전체'){
-                        const idMatch = b.innerText.match(/^(\d+)기/);
-                        if(idMatch) {
-                            const sid = parseInt(idMatch[1]);
-                            const sd = appData.seasons.find(s=>s.id === sid);
-                            b.style.color = sd ? sd.color : '#666';
-                        }
-                    } else {
-                        b.style.color = '#666';
-                    }
-                });
-
                 currentSeasonId = season.id;
                 applyFilters();
             });
@@ -162,22 +149,35 @@ document.addEventListener('DOMContentLoaded', () => {
             card.className = 'card';
             card.style.setProperty('--card-color', tp.color);
             
-            const firstChar = tp.name.charAt(0);
+            const nameChars = tp.name.replace('핑','');
+            const displayChar = nameChars.length <= 2 ? nameChars : nameChars.substring(0,2);
             
-            // Grade icon
-            let gradeIcon = '';
-            if(tp.grade === '로열') gradeIcon = '👑';
-            else if(tp.grade === '레전드') gradeIcon = '🌈';
-            else if(tp.grade === '빌런') gradeIcon = '😈';
+            // Grade icon & decoration
+            let gradeIcon = '⭐';
+            let gradeDecor = '';
+            if(tp.grade === '로열') { gradeIcon = '👑'; gradeDecor = '<span class="grade-crown">👑</span>'; }
+            else if(tp.grade === '레전드') { gradeIcon = '🌈'; gradeDecor = '<span class="grade-crown">🌟</span>'; }
+            else if(tp.grade === '빌런') { gradeIcon = '😈'; gradeDecor = '<span class="grade-crown">😈</span>'; }
+            
+            // Gender emoji
+            const genderEmoji = tp.gender === '여' ? '🎀' : '⚡';
             
             // Get main season info
             const mainSeasonObj = appData.seasons.find(s => s.id === tp.mainSeason);
             const seasonBadgeStyle = mainSeasonObj ? `background-color: ${mainSeasonObj.color}` : 'background-color: #ccc';
 
+            // Check if image exists
+            const hasImage = tp.image && !tp.image.includes('catch-teenieping/images');
+            const avatarContent = hasImage 
+                ? `<img class="avatar-img" src="${tp.image}" alt="${tp.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                   <span class="avatar-letter" style="display:none">${displayChar}</span>`
+                : `<span class="avatar-letter">${displayChar}</span>`;
+
             card.innerHTML = `
-                <div class="avatar-container">
-                    <img src="${tp.image}" class="avatar-img" alt="${tp.name}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                    <div class="avatar-fallback" style="display:none; width:100%; height:100%; align-items:center; justify-content:center;">${firstChar}</div>
+                <div class="avatar-container" style="background: linear-gradient(135deg, ${tp.color}, ${tp.color}CC);">
+                    ${avatarContent}
+                    ${gradeDecor}
+                    <span class="avatar-gender">${genderEmoji}</span>
                 </div>
                 <h3 class="tiniping-name">${tp.name}</h3>
                 <p class="tiniping-name-en">${tp.nameEn}</p>
@@ -203,13 +203,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function openModal(tp) {
-        const firstChar = tp.name.charAt(0);
+        const nameChars = tp.name.replace('핑','');
+        const displayChar = nameChars.length <= 2 ? nameChars : nameChars.substring(0,2);
         const avatarContainer = document.getElementById('modalAvatar');
         
-        avatarContainer.style.backgroundColor = tp.color;
+        avatarContainer.style.background = `linear-gradient(135deg, ${tp.color}, ${tp.color}CC)`;
         avatarContainer.innerHTML = `
-            <img src="${tp.image}" alt="${tp.name}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-            <div class="avatar-fallback" style="display:none; width:100%; height:100%; align-items:center; justify-content:center;">${firstChar}</div>
+            <span class="avatar-fallback">${displayChar}</span>
         `;
 
         document.getElementById('modalNameKo').innerText = tp.name;

@@ -3,49 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>✨ 티니핑 도감 ✨</title>
-    <!-- Google Fonts -->
+    <title>💖 캐치! 티니핑 도감 💖</title>
+    <meta name="description" content="캐치! 티니핑 시리즈의 모든 티니핑을 만나보세요. 1기~7기 120마리 티니핑 도감">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Jua&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jua&family=Gaegu:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="particles"></div>
-    
-    <header>
-        <h1 class="title">✨ 티니핑 도감 ✨</h1>
-        <div class="search-container">
-            <span class="search-icon">🔍</span>
-            <input type="text" id="searchInput" placeholder="티니핑 이름 검색 (한글/영문)">
+    <!-- Magical Background -->
+    <div id="magicBg">
+        <div class="rainbow-arch"></div>
+        <div id="particles"></div>
+        <div class="cloud cloud-1">☁️</div>
+        <div class="cloud cloud-2">☁️</div>
+        <div class="cloud cloud-3">☁️</div>
+    </div>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-inner">
+            <div class="logo-badge">
+                <span class="logo-heart">💖</span>
+                <span class="logo-star left">⭐</span>
+                <span class="logo-star right">🌟</span>
+            </div>
+            <h1 class="title">
+                <span class="title-deco">✦</span>
+                캐치! 티니핑 도감
+                <span class="title-deco">✦</span>
+            </h1>
+            <p class="subtitle">하츄핑과 친구들을 모두 만나보세요! 🧚‍♀️</p>
+            <div class="search-container">
+                <span class="search-icon">🔮</span>
+                <input type="text" id="searchInput" placeholder="✨ 티니핑 이름을 검색해보세요!">
+                <span class="search-sparkle">✨</span>
+            </div>
         </div>
     </header>
 
     <main>
-        <div class="filters">
+        <!-- Season Tabs -->
+        <section class="filters-section">
+            <div class="section-title-row">
+                <span class="section-icon">🌈</span>
+                <h2 class="section-title">시즌 선택</h2>
+            </div>
             <div class="season-tabs" id="seasonTabs">
                 <!-- Generated dynamically -->
             </div>
-            <div class="grade-filters" id="gradeFilters">
-                <button class="grade-btn active" data-grade="로열" style="--grade-color: #FFD700">👑 로열</button>
-                <button class="grade-btn active" data-grade="일반" style="--grade-color: #3498DB">⭐ 일반</button>
-                <button class="grade-btn active" data-grade="레전드" style="--grade-color: #FF69B4">🌈 레전드</button>
-                <button class="grade-btn active" data-grade="빌런" style="--grade-color: #8E44AD">😈 빌런</button>
+        </section>
+
+        <!-- Grade Filters -->
+        <section class="grade-section">
+            <div class="section-title-row">
+                <span class="section-icon">👑</span>
+                <h2 class="section-title">등급 필터</h2>
             </div>
+            <div class="grade-filters" id="gradeFilters">
+                <button class="grade-btn active" data-grade="로열" style="--grade-color: #FFD700; --grade-glow: rgba(255,215,0,0.4)">👑 로열</button>
+                <button class="grade-btn active" data-grade="일반" style="--grade-color: #60A5FA; --grade-glow: rgba(96,165,250,0.4)">💫 일반</button>
+                <button class="grade-btn active" data-grade="레전드" style="--grade-color: #F472B6; --grade-glow: rgba(244,114,182,0.4)">🌈 레전드</button>
+                <button class="grade-btn active" data-grade="빌런" style="--grade-color: #A855F7; --grade-glow: rgba(168,85,247,0.4)">😈 빌런</button>
+            </div>
+        </section>
+
+        <!-- Stats Banner -->
+        <div class="stats-banner" id="statsBanner">
+            <span class="stats-icon">🧚</span>
+            <span id="statsCounter">총 0마리의 티니핑</span>
+            <span class="stats-icon">🧚‍♂️</span>
         </div>
 
+        <!-- Card Grid -->
         <div class="grid-container" id="tinipingGrid">
             <!-- Cards go here -->
         </div>
     </main>
 
     <footer>
-        <p id="statsCounter">총 0마리의 티니핑</p>
+        <div class="footer-content">
+            <p>💖 캐치! 티니핑 도감 💖</p>
+            <p class="footer-sub">내 사랑을 듬뿍듬뿍 줄게~ 츄~♥︎</p>
+        </div>
     </footer>
 
     <!-- Detail Modal -->
     <div id="detailModal" class="modal">
         <div class="modal-content">
+            <div class="modal-sparkle tl">✦</div>
+            <div class="modal-sparkle tr">✦</div>
+            <div class="modal-sparkle bl">✧</div>
+            <div class="modal-sparkle br">✧</div>
             <span class="close-btn">&times;</span>
             <div class="modal-header">
                 <div class="modal-avatar" id="modalAvatar"></div>
