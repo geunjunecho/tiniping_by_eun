@@ -1,4 +1,56 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // ===== COMPACT INTRO =====
+    const compactIntro = document.getElementById('compactIntro');
+    const compactDevice = document.getElementById('compactDevice');
+    const mainApp = document.getElementById('mainApp');
+    const compactStars = document.getElementById('compactStars');
+
+    // Create intro background sparkles
+    if (compactStars) {
+        const sparkleEmojis = ['✨', '⭐', '🌟', '💖', '💫', '🦋', '🌸'];
+        for (let i = 0; i < 40; i++) {
+            const s = document.createElement('div');
+            s.style.cssText = `
+                position: absolute;
+                left: ${Math.random() * 100}%;
+                top: ${Math.random() * 100}%;
+                font-size: ${8 + Math.random() * 18}px;
+                opacity: ${0.2 + Math.random() * 0.4};
+                animation: introSparkle ${3 + Math.random() * 4}s ${Math.random() * 3}s ease-in-out infinite alternate;
+                pointer-events: none;
+            `;
+            s.textContent = sparkleEmojis[Math.floor(Math.random() * sparkleEmojis.length)];
+            compactStars.appendChild(s);
+        }
+        // Add sparkle animation
+        const styleEl = document.createElement('style');
+        styleEl.textContent = `
+            @keyframes introSparkle {
+                0% { transform: scale(0.5) rotate(0deg); opacity: 0.1; }
+                100% { transform: scale(1.2) rotate(180deg); opacity: 0.6; }
+            }
+        `;
+        document.head.appendChild(styleEl);
+    }
+
+    // Handle compact click
+    if (compactDevice) {
+        compactDevice.addEventListener('click', () => {
+            // Play opening animation
+            compactIntro.classList.add('opening');
+            
+            // After lid opens, fade to main app
+            setTimeout(() => {
+                mainApp.classList.remove('hidden');
+                mainApp.classList.add('visible');
+            }, 600);
+            
+            setTimeout(() => {
+                compactIntro.classList.add('gone');
+            }, 1200);
+        });
+    }
+
     let appData = { seasons: [], tinipings: [] };
     let filteredData = [];
     

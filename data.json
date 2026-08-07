@@ -373,7 +373,7 @@
     },
     {
       "id": 21,
-      "name": "잼잼핑",
+      "name": "코자핑",
       "nameEn": "Sleeping",
       "season": [
         1
@@ -383,12 +383,12 @@
       "emotion": "수면",
       "color": "#F368E0",
       "description": "잠을 많이 자는 티니핑.",
-      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Sleeping.png",
+      "image": "https://i.namu.wiki/i/ad6c9W0DNyeiMyA6n9v6kvHIWoBYwJqVOPtQpo5wLHXS00tEIHIqfSJCo9fOy6JEYj6nOwixtI_68musq-tBFA.webp",
       "gender": "남"
     },
     {
       "id": 22,
-      "name": "째깍핑",
+      "name": "무셔핑",
       "nameEn": "Spookping",
       "season": [
         1
@@ -398,12 +398,12 @@
       "emotion": "시간",
       "color": "#E1B12C",
       "description": "시간에 민감한 티니핑.",
-      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Spookping.png",
+      "image": "https://i.namu.wiki/i/IRcNb1oMB4jYIj5NUY0liiMCsvTMaTZGJvMSKJ3RolMmnPXLtKsLBN6p5Vz9xME65g_UY1BIz4GKUy3bPfmFzw.webp",
       "gender": "남"
     },
     {
       "id": 23,
-      "name": "새근핑",
+      "name": "딱풀핑",
       "nameEn": "Stickping",
       "season": [
         1
@@ -413,7 +413,7 @@
       "emotion": "휴식",
       "color": "#48DBFB",
       "description": "편안하게 쉬는 것을 좋아하는 티니핑.",
-      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Stickping.png",
+      "image": "https://i.namu.wiki/i/9nDvlVlv6nElxtRTyIJxzoV4r17dDsH3wXG5Yupnw4fnDzCUoAgTbCetpifgz-KXabJZMomZ5-ovsieV_190DQ.webp",
       "gender": "남"
     },
     {
@@ -448,7 +448,7 @@
     },
     {
       "id": 26,
-      "name": "심쿵핑",
+      "name": "바네핑",
       "nameEn": "Luvping",
       "season": [
         1
@@ -458,7 +458,7 @@
       "emotion": "설렘",
       "color": "#FF9F43",
       "description": "심장을 쿵쾅거리게 하는 티니핑.",
-      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Luvping.png",
+      "image": "https://i.namu.wiki/i/RTsfmJgHfeDRazt--q41H0TNdzmD0Pa_nx9UiJmImXs05xmJDwcrQtvAydvcI49O6PnzfNjFW5W45mye2DKC8Q.webp",
       "gender": "여"
     },
     {
@@ -509,7 +509,7 @@
     },
     {
       "id": 30,
-      "name": "요리핑",
+      "name": "맛나핑",
       "nameEn": "Yummyping",
       "season": [
         1
@@ -519,12 +519,12 @@
       "emotion": "요리",
       "color": "#FEEAA8",
       "description": "요리를 잘하는 티니핑.",
-      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Yummyping.png",
+      "image": "https://i.namu.wiki/i/aDzB_z1FqNnENdgmnZHVCwHkBUAgVR7Xbo5JCy6hR5kRFAFpScz12Y50unLqOT098qDnJRjkQg9xyISCf3cCfA.webp",
       "gender": "남"
     },
     {
       "id": 31,
-      "name": "맨날핑",
+      "name": "차나핑",
       "nameEn": "Moseyping",
       "season": [
         1
@@ -534,7 +534,7 @@
       "emotion": "게으름",
       "color": "#C8D6E5",
       "description": "항상 미루는 티니핑.",
-      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Moseyping.png",
+      "image": "https://i.namu.wiki/i/dKDuEjVy2IJvOaAvjuDGHqwTSbMyjF0YmjUTTrjx8YtjQDk_mAWePVb1iOIXB5dCJLVtAuTvOqdewj7iC8oHOA.webp",
       "gender": "남"
     },
     {
@@ -646,7 +646,7 @@
     },
     {
       "id": 39,
-      "name": "또또핑",
+      "name": "또까핑",
       "nameEn": "Againping",
       "season": [
         2
@@ -656,12 +656,12 @@
       "emotion": "반복",
       "color": "#1DD1A1",
       "description": "무엇이든 다시 하려는 티니핑.",
-      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Againping.png",
+      "image": "https://i.namu.wiki/i/PXRPuNz00VEarn6A9BPBEsJiIl6nc1KFi88d04z2hKC9ykslhVQSOVpLQ5z_ztTk__zTE6uHGNZmptHzeCNNbg.webp",
       "gender": "남"
     },
     {
       "id": 40,
-      "name": "미니핑",
+      "name": "쪼꼼핑",
       "nameEn": "Miniping",
       "season": [
         2
@@ -671,7 +671,7 @@
       "emotion": "작음",
       "color": "#FF9F43",
       "description": "크기를 작게 만드는 티니핑.",
-      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Miniping.png",
+      "image": "https://i.namu.wiki/i/QJs5IHpVb8gwSgZw9Tyzn1czqSW43Fo8Nn1et1GeoN25OD1A5Qpf4hl8CwEFLnrohJlo0mMdOSzEf_RlmQNrfA.webp",
       "gender": "여"
     },
     {
@@ -691,7 +691,7 @@
     },
     {
       "id": 42,
-      "name": "어머핑",
+      "name": "깜빡핑",
       "nameEn": "Omgping",
       "season": [
         2
@@ -701,7 +701,7 @@
       "emotion": "놀람",
       "color": "#EE5253",
       "description": "쉽게 놀라는 티니핑.",
-      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Omgping.png",
+      "image": "https://i.namu.wiki/i/nXLb0FAlqtCVOYlhKvp-28L-kAQzqU1unc8i0AvIQmEy7uqrEYRP2GwmncigOvcyinD6lqM0_pXKGvGrepeobA.webp",
       "gender": "여"
     },
     {
@@ -721,7 +721,7 @@
     },
     {
       "id": 44,
-      "name": "삐삐핑",
+      "name": "삐뽀핑",
       "nameEn": "Ppipiping",
       "season": [
         2
@@ -731,7 +731,7 @@
       "emotion": "삐짐",
       "color": "#FF6B6B",
       "description": "잘 삐지는 티니핑.",
-      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Ppipiping.png",
+      "image": "https://i.namu.wiki/i/YiCmJbh7OcpompJAi-AnpffF64c-DpSMD3FYlD3AaH8rYm1hmaY4gwcijBuSyHx4RMX0RPRGqXouu1O5Y2HTSg.webp",
       "gender": "여"
     },
     {
@@ -841,7 +841,7 @@
     },
     {
       "id": 52,
-      "name": "엉뚱핑",
+      "name": "띠용핑",
       "nameEn": "Sillyping",
       "season": [
         3
@@ -851,12 +851,12 @@
       "emotion": "엉뚱",
       "color": "#00B894",
       "description": "항상 엉뚱한 짓을 하는 티니핑.",
-      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Sillyping.png",
+      "image": "https://i.namu.wiki/i/cvly8uwSgsTI7X77_sC8W4sSxxKEAZO71BLqiaLpuunEYUDR01g2gelJ6Fwo4zPaKUKm_k34ED-CwRnPqhP1kQ.webp",
       "gender": "남"
     },
     {
       "id": 53,
-      "name": "공주핑",
+      "name": "공쥬핑",
       "nameEn": "Princessping",
       "season": [
         3
@@ -866,7 +866,7 @@
       "emotion": "공주",
       "color": "#FD79A8",
       "description": "공주처럼 행동하는 티니핑.",
-      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Princessping.png",
+      "image": "https://i.namu.wiki/i/IcmVcq4jz1eYiRdbajdUib5zT51xf-yrWCMGfGcVyL0hKqDREywmlbBYKimKmYbtK5mqxpBXa3u3MPvpKoM6xA.webp",
       "gender": "여"
     },
     {
@@ -886,7 +886,7 @@
     },
     {
       "id": 55,
-      "name": "꾸미핑",
+      "name": "꾸며핑",
       "nameEn": "Decoping",
       "season": [
         3
@@ -896,12 +896,12 @@
       "emotion": "꾸밈",
       "color": "#6C5CE7",
       "description": "꾸미기를 좋아하는 티니핑.",
-      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Decoping.png",
+      "image": "https://i.namu.wiki/i/Sx_6M2qZx1fzXqWrcnDCWzxyWiTgyDck80Ch9-0LHChCG0RFrkENd4QeAX4wsy7t5v38Ws9OedKQgr5HUqc6nw.webp",
       "gender": "여"
     },
     {
       "id": 56,
-      "name": "호기핑",
+      "name": "모야핑",
       "nameEn": "Curiousping",
       "season": [
         3
@@ -911,7 +911,7 @@
       "emotion": "호기심",
       "color": "#FDCB6E",
       "description": "호기심이 많은 티니핑.",
-      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Curiousping.png",
+      "image": "https://i.namu.wiki/i/8QRJ-BZ0kqPGiArpwHQByEPAnT2fvtuM_qiePbnYoUP4sAWkpCrzURpeGT1XX8bFur3pxXkauqW4mTnH1p7jzA.webp",
       "gender": "남"
     },
     {
@@ -926,7 +926,7 @@
       "emotion": "힘",
       "color": "#D63031",
       "description": "힘이 센 티니핑.",
-      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Powerping.png",
+      "image": "https://i.namu.wiki/i/xa9AQqJkpupMyglCkuEc7cFRknSvTlRY2q_PMxHXF-LEphXjh-JuVtFJZn824uyjLKRc3A_lj1qro0jul4Ol5A.webp",
       "gender": "남"
     },
     {
@@ -961,7 +961,7 @@
     },
     {
       "id": 60,
-      "name": "마왕핑",
+      "name": "아라핑",
       "nameEn": "Wizping",
       "season": [
         3
@@ -971,7 +971,7 @@
       "emotion": "어둠",
       "color": "#2D3436",
       "description": "어둠의 마법을 쓰는 마왕 티니핑.",
-      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Wizping.png",
+      "image": "https://i.namu.wiki/i/h3ekIv-LvcfVS8v7c2tNDeZa6GrVDcKMW0Dud2CyyCkWT4DPfs6Bx4s6zkI-dogPfEhF63XsLPmHAKCibnTVFw.webp",
       "gender": "남"
     },
     {
@@ -1001,12 +1001,12 @@
       "emotion": "포근",
       "color": "#F8A5C2",
       "description": "포근함의 디저트 티니핑.",
-      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Fluffyping.png",
+      "image": "https://i.namu.wiki/i/HZ0JWBKiiSdcnm-r-6ck8IdY4t3PjqewaW3q-8hs-r4UNvn0-MrjJpX7uF_OD1d6tXefBMICBxBm1zrg3fzPUQ.webp",
       "gender": "여"
     },
     {
       "id": 63,
-      "name": "말랑핑",
+      "name": "멜로핑",
       "nameEn": "Mallowping",
       "season": [
         4
@@ -1016,7 +1016,7 @@
       "emotion": "말랑",
       "color": "#786FA6",
       "description": "말랑함의 디저트 티니핑.",
-      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Mallowping.png",
+      "image": "https://i.namu.wiki/i/zaFX9KuysLnjKbvvdT7nFG_MIPvF3mp1fBWqqfH0rJ9pmXn5tSpc_6z5M-4IzJQ6MBX7iHr-1YJ-nw35MCJC2Q.webp",
       "gender": "여"
     },
     {
@@ -1031,12 +1031,12 @@
       "emotion": "시원",
       "color": "#63CDDA",
       "description": "시원함의 디저트 티니핑.",
-      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Shashaping.png",
+      "image": "https://i.namu.wiki/i/UmgKzeTmtdG7siAcAk4eDL5ROo3dpaw_XJAa6W5TYCno7UlJLDA0PE59vgvdE78Fh8Pw0sSlarTUFAjWXoomaA.webp",
       "gender": "여"
     },
     {
       "id": 65,
-      "name": "따끄핑",
+      "name": "새콤핑",
       "nameEn": "Tangyping",
       "season": [
         4
@@ -1046,7 +1046,7 @@
       "emotion": "따끔",
       "color": "#E66767",
       "description": "따끔한 맛의 티니핑.",
-      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Tangyping.png",
+      "image": "https://i.namu.wiki/i/DQvVZZXwJNQ1mCpjGZEIg1Ft2SeZjwaSIP_dbMkf74lx5CqkDLOt4IVCtlSrMfr223uvVH1hQcvcqtMigebWyA.webp",
       "gender": "남"
     },
     {
@@ -1061,12 +1061,12 @@
       "emotion": "사랑",
       "color": "#FDA7DF",
       "description": "하츄핑의 새로운 폼.",
-      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/BerryHeartsping.png",
+      "image": "https://i.namu.wiki/i/JNFG7ZDLqAgHRQO-fgGX8tWuB0sVNHpFFmltnb690_I0R4B6MdzkWcuUO4PdAoJ3trizG7u7dWjxNaTu0CI6og.webp",
       "gender": "여"
     },
     {
       "id": 67,
-      "name": "짱짱핑",
+      "name": "말랑핑",
       "nameEn": "Jellyping",
       "season": [
         4
@@ -1076,7 +1076,7 @@
       "emotion": "쫄깃",
       "color": "#546DE5",
       "description": "쫄깃한 젤리 티니핑.",
-      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Jellyping.png",
+      "image": "https://i.namu.wiki/i/vHs-r9CvNxfXBxSPcvvt1DpOLRlMOTtabmqUOWa9EKnw9hYCWjEau9XC33emgBNnqJUYQBgaLGB-UE6bMXGmqQ.webp",
       "gender": "남"
     },
     {
@@ -1121,7 +1121,7 @@
       "emotion": "퐁당",
       "color": "#778BEB",
       "description": "물에 빠지는 것을 좋아하는 티니핑.",
-      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Plungeping.png",
+      "image": "https://i.namu.wiki/i/xaAa9oRrPagDbtQI9rxg6tcyeSNkaVfqmPyRGG30tlPQCZcK5kZffNo63KI9cJBmzL_sZVo_64Z4VaHzzxYFpA.webp",
       "gender": "남"
     },
     {
@@ -1141,7 +1141,7 @@
     },
     {
       "id": 72,
-      "name": "달짝핑",
+      "name": "달콤핑",
       "nameEn": "Sweetping",
       "season": [
         4
@@ -1151,7 +1151,7 @@
       "emotion": "달콤",
       "color": "#F78FB3",
       "description": "달콤한 디저트 티니핑.",
-      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Sweetping.png",
+      "image": "https://i.namu.wiki/i/1Xq-qqU9jC7JND2rCJsaogjsDb84me6e8q4luTnY1rMOmxLJYtXh0UuO54AaZOluNniYbyZTcOlpbzZNt7OOuQ.webp",
       "gender": "여"
     },
     {
@@ -1166,12 +1166,12 @@
       "emotion": "도넛",
       "color": "#E77F67",
       "description": "도넛을 좋아하는 티니핑.",
-      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Donutping.png",
+      "image": "https://i.namu.wiki/i/lDJxcnS7sV1Mm4DFMtKtAP0md6RXv1qBZJL_dgVcHxX77yu8frAX92I9O7r2AGcCayi2k-SH-JRXRoMYDDunmw.webp",
       "gender": "남"
     },
     {
       "id": 74,
-      "name": "랄라핑",
+      "name": "롤리핑",
       "nameEn": "Lolliping",
       "season": [
         4
@@ -1181,7 +1181,7 @@
       "emotion": "롤리팝",
       "color": "#786FA6",
       "description": "롤리팝 캔디 티니핑.",
-      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Lolliping.png",
+      "image": "https://i.namu.wiki/i/NgEE1DaJbzFGoq77sfsLb6_27sh-zzsJF2x_4YlJKI3Ej3JS4Sy-Pu89iiW_naYGPSLaV7K9oxeBgN3JQglMLQ.webp",
       "gender": "여"
     },
     {
@@ -1196,7 +1196,7 @@
       "emotion": "컵",
       "color": "#596275",
       "description": "컵 모양의 디저트 티니핑.",
-      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Cupping.png",
+      "image": "https://i.namu.wiki/i/DqER6DG9AAPBiqaoZKinjIbU_NXJLDNMV8cnVH5dU-VyVbVWlhVyUQP2wiKEQEvFp1_0h9nUIL5-ekIKwCnO-A.webp",
       "gender": "남"
     },
     {
@@ -1211,7 +1211,7 @@
       "emotion": "머핀",
       "color": "#F3A683",
       "description": "머핀 디저트 티니핑.",
-      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Muffping.png",
+      "image": "https://i.namu.wiki/i/DqER6DG9AAPBiqaoZKinjIbU_NXJLDNMV8cnVH5dU-VyVbVWlhVyUQP2wiKEQEvFp1_0h9nUIL5-ekIKwCnO-A.webp",
       "gender": "여"
     },
     {
@@ -1227,7 +1227,7 @@
       "emotion": "오로라",
       "color": "#C44569",
       "description": "아름다운 오로라 티니핑.",
-      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Auroraping.png",
+      "image": "https://i.namu.wiki/i/3qHgLrB-WE7yh1s9XOEfkEhwfaFipJ6AkYjXGdS6fNh5p0NSDewwUKO402Vplw-9V8277ltelNX8FC7SgIoElQ.webp",
       "gender": "여"
     },
     {
@@ -1287,7 +1287,7 @@
       "emotion": "반짝임",
       "color": "#FAD390",
       "description": "반짝이는 스타 티니핑.",
-      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Twinkleping.png",
+      "image": "https://i.namu.wiki/i/7SGJXyFS5kx1GvCE5jePEzP39gHDZ-JKuFTCkcwXurXJCvBBlZ4Aiu00NyhjFw0en9-LWDIh43Jxxk7v9egVGw.webp",
       "gender": "여"
     },
     {
@@ -1302,7 +1302,7 @@
       "emotion": "뽀뽀",
       "color": "#E55039",
       "description": "애교가 많은 티니핑.",
-      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Kissyping.png",
+      "image": "https://i.namu.wiki/i/Ab0uhOovVONd7_2kNApjpiQpBF2nOs5OhlF1tkpycJ-OzIGozCJTowUUqZjGa--9xbDE2bHZ2uFHyo248dcbRQ.webp",
       "gender": "여"
     },
     {
@@ -1332,7 +1332,7 @@
       "emotion": "눈",
       "color": "#FFFFFF",
       "description": "눈송이처럼 맑은 티니핑.",
-      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Snowping.png",
+      "image": "https://i.namu.wiki/i/zzMMLkkzvjDRnB29uxUBm1FXXmWZ7nbMZI0ZwkGZSZaRL5ETjqYfSaz2dnFX778EpJ8gmedyD84xfR4-sG8roA.webp",
       "gender": "남"
     },
     {
@@ -1347,7 +1347,7 @@
       "emotion": "방랑",
       "color": "#079992",
       "description": "떠돌아다니기를 좋아하는 티니핑.",
-      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Wanderping.png",
+      "image": "https://i.namu.wiki/i/px7Pq-wfobCNHSrY3jq1bP5JJ3lCFdwJR2sNNB00DF7qXBZNtaXv9AparIJ4JC5FHL2QutU0Q3BG6wxP88_Ilw.webp",
       "gender": "남"
     },
     {
@@ -1362,7 +1362,7 @@
       "emotion": "큐",
       "color": "#38ADA9",
       "description": "신호를 보내는 티니핑.",
-      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Cuping.png",
+      "image": "https://i.namu.wiki/i/FsReY3p3s_5PnOpdTQaFM3kIWEAjwc8c01DdcjyhKd6KEIFXN73nuiWcReU1VEO23Sz1Zjai9TKJ2BLiSmYOTw.webp",
       "gender": "여"
     },
     {
@@ -1392,7 +1392,7 @@
       "emotion": "일식",
       "color": "#0A3D62",
       "description": "어둠을 가져오는 프린세스 티니핑.",
-      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Eclipseping.png",
+      "image": "https://i.namu.wiki/i/MSltdo-pHSBhaciS0hLo0qqbaUudPXNCU4NUrUiBOBPqK4QgB-W8qhbEoMhqg1p2miFt6hmU99Usf17cwdHH-A.webp",
       "gender": "여"
     },
     {
@@ -1407,7 +1407,7 @@
       "emotion": "다이아",
       "color": "#B8E994",
       "description": "빛나는 다이아몬드 프린세스 티니핑.",
-      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Dianaping.png",
+      "image": "https://i.namu.wiki/i/0dBy5uDllIzU2xSkH3jAkLZpGABi3ROv3BX0y3bweJ9Lm7RGRsNfotGgQRtplC5MRp1VVCyl_Kh8dHKkrcdBlg.webp",
       "gender": "여"
     },
     {
@@ -1422,7 +1422,7 @@
       "emotion": "트러플",
       "color": "#78E08F",
       "description": "고급스러운 향의 티니핑.",
-      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Truffleping.png",
+      "image": "https://i.namu.wiki/i/JLFJOUJ9READF3DtX5rg1udBklBMdiSZ0K8MTuMv5rtjMBLdhHRMe1fgZnicFs4ItDCBYWyuwzshdVfSC3Ge8A.webp",
       "gender": "남"
     },
     {
@@ -1607,7 +1607,7 @@
     },
     {
       "id": 103,
-      "name": "반짝핑",
+      "name": "빤짝핑",
       "nameEn": "Flashping",
       "season": [
         1
@@ -1682,7 +1682,7 @@
     },
     {
       "id": 108,
-      "name": "핫핑",
+      "name": "뜨거핑",
       "nameEn": "Hotping",
       "season": [
         3
