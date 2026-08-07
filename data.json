@@ -253,7 +253,7 @@
     },
     {
       "id": 13,
-      "name": "용감핑",
+      "name": "부투핑",
       "nameEn": "Dareping",
       "season": [
         1
@@ -263,12 +263,12 @@
       "emotion": "도전",
       "color": "#C0392B",
       "description": "도전적이고 용감한 티니핑.",
-      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Dareping.png",
+      "image": "https://i.namu.wiki/i/IAi4sTsygbJ-4bFePdhcHetIqKkt-S0eRwqKhZzQ7K8HXG0qjDdMmNzEV00XTa4hVj0Q_NEDFTRB16aor_fPaGh6HkOFjGFjSIMDqyCMqjVp7P1B7Qnp4rVfm-syGlhUGGr52zmIYPbIRprZJuwMaw.webp",
       "gender": "남"
     },
     {
       "id": 14,
-      "name": "으랏핑",
+      "name": "꽁꽁핑",
       "nameEn": "Freezeping",
       "season": [
         1
@@ -278,7 +278,7 @@
       "emotion": "활기",
       "color": "#27AE60",
       "description": "힘이 넘치는 활기찬 티니핑.",
-      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Freezeping.png",
+      "image": "https://i.namu.wiki/i/WPVQpz_fbbXkQDWUE5DIMxpXRxeohSif9MxoMzJTFEDElDRP9Trzr0Plm45RHx-EAyc1_dW4T5qItXGbX1urNY_d0J7QqVXqbx6otF6rx8qht7K34XPvqorXTl6CxDnkDTd73qMsAMS6phWU0qUPbA.webp",
       "gender": "남"
     },
     {
