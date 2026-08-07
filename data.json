@@ -248,7 +248,7 @@
       "emotion": "멋짐",
       "color": "#2980B9",
       "description": "스스로 멋지다고 생각하는 티니핑.",
-      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Charmping.png",
+      "image": "https://i.namu.wiki/i/FBMbHWvp8z47P9a3WZmYCKxoOH6yMJhWpyfZtolA276eYo_VU6TUCSwfHwM3uYjiKemVL8kaaSq_Wu2Qm88sTHoeFA7LK3fkNgOhIRthbUCmb-Q8ry56UnqULZ9_1p-ynQ7YN6kyJGJ-ZLXCh8knFA.webp",
       "gender": "남"
     },
     {
@@ -293,7 +293,7 @@
       "emotion": "깜찍",
       "color": "#FFC312",
       "description": "깜찍하게 웃는 티니핑.",
-      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Giggleping.png",
+      "image": "https://i.namu.wiki/i/Pi6iFyVlOk-sbHj4QrfF8c8gyfoa_y5x8qA2a66E5dIi76XR6LnEaGRHUx5H5tFYugxeb6D-agRmiEEEMXRcppAXphqBasln9KuUmH3bSLyF87TpnVmPoHdzfrEZHlaptuEnJ2GrVLQnlTfvYjs7tA.webp",
       "gender": "여"
     },
     {
@@ -358,7 +358,7 @@
     },
     {
       "id": 20,
-      "name": "쓰담핑",
+      "name": "아휴핑",
       "nameEn": "Sighping",
       "season": [
         1
@@ -368,7 +368,7 @@
       "emotion": "위로",
       "color": "#54A0FF",
       "description": "위로해주기를 좋아하는 티니핑.",
-      "image": "https://static.wikia.nocookie.net/catch-teenieping/images/Sighping.png",
+      "image": "https://i.namu.wiki/i/txZdh3GGK2KhBtXYofoWJ47LRm86jKV7m1LcW8UCItovT_gKnuKjAXHD0TVLkC5w9z6WIP7KdFGv5KWXmQ1jL54Rpnw7JtlrHmjDS_S4A7z2i9OZR7Mdnlkn7KMrCVE8lKojVF3k0Bta5wi4J5rqKg.webp",
       "gender": "여"
     },
     {
