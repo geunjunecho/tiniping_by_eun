@@ -265,20 +265,25 @@ document.addEventListener('DOMContentLoaded', () => {
         const nameChars = tp.name.replace('핑','');
         const displayChar = nameChars.length <= 2 ? nameChars : nameChars.substring(0,2);
         const avatarContainer = document.getElementById('modalAvatar');
+        const hasImage = tp.image && tp.image.includes('i.namu.wiki');
         
-        avatarContainer.style.background = `linear-gradient(135deg, ${tp.color}, ${tp.color}CC)`;
-        avatarContainer.innerHTML = `
-            <span class="avatar-fallback">${displayChar}</span>
-        `;
+        avatarContainer.style.background = hasImage 
+            ? 'transparent' 
+            : `linear-gradient(135deg, ${tp.color}, ${tp.color}CC)`;
+        
+        avatarContainer.innerHTML = hasImage
+            ? `<img src="${tp.image}" alt="${tp.name}" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+               <span class="avatar-fallback" style="display:none">${displayChar}</span>`
+            : `<span class="avatar-fallback">${displayChar}</span>`;
 
         document.getElementById('modalNameKo').innerText = tp.name;
-        document.getElementById('modalNameKo').style.color = tp.color;
         document.getElementById('modalNameEn').innerText = tp.nameEn;
         
         let gradeIcon = '';
         if(tp.grade === '로열') gradeIcon = '👑';
         else if(tp.grade === '레전드') gradeIcon = '🌈';
         else if(tp.grade === '빌런') gradeIcon = '😈';
+        else gradeIcon = '💫';
 
         const gradeBadge = document.getElementById('modalGrade');
         gradeBadge.className = `badge grade-${tp.grade}`;
