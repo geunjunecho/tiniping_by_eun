@@ -34,28 +34,30 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Handle pact click — open doors, then show pact frame with encyclopedia inside
-    if (pactContainer) {
-        pactContainer.addEventListener('click', () => {
-            // 1. Open the doors
-            pactIntro.classList.add('opening');
-            
-            // 2. After doors open, show the pact frame (opened pact with encyclopedia inside)
-            setTimeout(() => {
+    function openPact() {
+        if (!pactIntro || pactIntro.classList.contains('opening')) return;
+        pactIntro.classList.add('opening');
+        
+        setTimeout(() => {
+            if (pactFrame) {
                 pactFrame.classList.remove('hidden');
                 pactFrame.classList.add('visible');
-            }, 900);
-            
-            // 3. Fade out intro overlay
-            setTimeout(() => {
-                pactIntro.classList.add('fade-out');
-            }, 1100);
-            
-            // 4. Remove intro from DOM
-            setTimeout(() => {
-                pactIntro.classList.add('gone');
-            }, 2000);
-        });
+            }
+        }, 700);
+        
+        setTimeout(() => {
+            pactIntro.classList.add('fade-out');
+        }, 900);
+        
+        setTimeout(() => {
+            pactIntro.classList.add('gone');
+            pactIntro.style.display = 'none';
+        }, 1500);
     }
+
+    if (pactContainer) pactContainer.addEventListener('click', openPact);
+    if (pactIntro) pactIntro.addEventListener('click', openPact);
+
 
 
     let appData = { seasons: [], tinipings: [] };
@@ -181,7 +183,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function applyFilters() {
         filteredData = appData.tinipings.filter(tp => {
             // Season filter
-            const matchSeason = currentSeasonId === 'all' || tp.season.includes(currentSeasonId);
+            const matchSeason = currentSeasonId === 'all' || tp.mainSeason == currentSeasonId;
             
             // Grade filter
             const matchGrade = activeGrades.has(tp.grade);

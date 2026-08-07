@@ -303,6 +303,11 @@ h1, h2, h3, .title, .season-btn, .grade-btn, .tiniping-name, .section-title {
 /* Fade out whole intro */
 .pact-intro.fade-out {
     opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+}
+.pact-intro.gone {
+    display: none !important;
 }
 
 /* ===== PACT FRAME (열린 팩트 = 도감 프레임) ===== */
@@ -325,7 +330,7 @@ h1, h2, h3, .title, .season-btn, .grade-btn, .tiniping-name, .section-title {
     position: absolute;
     inset: 0;
     border: 6px solid #DAA520;
-    border-radius: 20px;
+    border-radius: 12px;
     pointer-events: none;
     z-index: 10;
     box-shadow:
@@ -333,18 +338,20 @@ h1, h2, h3, .title, .season-btn, .grade-btn, .tiniping-name, .section-title {
         0 0 20px rgba(218,165,32,0.2);
 }
 
-/* Wing decorations on frame */
+/* Wing decorations on frame - subtle side placement */
 .frame-wing {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 3rem;
+    font-size: 2.2rem;
     filter: drop-shadow(0 2px 8px rgba(0,0,0,0.2));
     animation: frameWing 3s ease-in-out infinite alternate;
     z-index: 11;
+    opacity: 0.7;
+    pointer-events: none;
 }
-.frame-wing-left { left: 10px; }
-.frame-wing-right { right: 10px; transform: translateY(-50%) scaleX(-1); }
+.frame-wing-left { left: 6px; }
+.frame-wing-right { right: 6px; transform: translateY(-50%) scaleX(-1); }
 @keyframes frameWing {
     0% { transform: translateY(-50%) rotate(-3deg); }
     100% { transform: translateY(-50%) rotate(3deg); }
@@ -353,46 +360,34 @@ h1, h2, h3, .title, .season-btn, .grade-btn, .tiniping-name, .section-title {
 /* Top decoration strip */
 .frame-top-deco {
     position: absolute;
-    top: -3px; left: 50%;
+    top: 2px; left: 50%;
     transform: translateX(-50%);
     display: flex;
     align-items: center;
     gap: 0.8rem;
-    padding: 0.2rem 1.5rem;
-    background: linear-gradient(90deg, transparent, rgba(218,165,32,0.3), transparent);
-    font-size: 1.2rem;
+    font-size: 1rem;
     z-index: 11;
+    pointer-events: none;
 }
 
 /* Bottom decoration strip */
 .frame-bottom-deco {
-    position: absolute;
-    bottom: 4px; left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    z-index: 11;
-}
-.frame-title {
-    font-family: 'Jua', sans-serif;
-    font-size: 0.85rem;
-    color: #DAA520;
-    letter-spacing: 2px;
-    text-shadow: 0 1px 3px rgba(0,0,0,0.15);
+    display: none;
 }
 
 /* Inner screen (scrollable content area) */
 .pact-screen {
     position: absolute;
-    inset: 16px;
-    border-radius: 14px;
+    inset: 8px;
+    border-radius: 8px;
     background: linear-gradient(180deg, #FFF5F9, #FFF0F5, #F8E8F0);
     overflow-y: auto;
     overflow-x: hidden;
     z-index: 5;
     box-shadow: inset 0 2px 15px rgba(0,0,0,0.05);
-    border: 3px solid rgba(218,165,32,0.4);
+    border: 2px solid rgba(218,165,32,0.3);
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
 }
 
 /* Subtle scanline overlay on screen */
