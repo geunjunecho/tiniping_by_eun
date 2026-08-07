@@ -309,14 +309,16 @@ h1, h2, h3, .title, .season-btn, .grade-btn, .tiniping-name, .section-title {
 .pact-frame {
     position: fixed;
     inset: 0;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     background: linear-gradient(135deg, #F0C8D8, #D4A8C0, #C0B8D8, #A8C8E0, #90B8D4);
     transition: opacity 0.8s ease;
+    z-index: 9000;
+    opacity: 0;
 }
-.pact-frame.hidden { opacity: 0; pointer-events: none; display: none; }
-.pact-frame.visible { opacity: 1; pointer-events: all; display: flex; }
+.pact-frame.hidden { display: none; opacity: 0; pointer-events: none; }
+.pact-frame.visible { display: flex; opacity: 1; pointer-events: all; }
 
 /* Gold border frame around the screen */
 .pact-frame-border {

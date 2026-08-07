@@ -123,6 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function createParticles() {
         const particlesContainer = document.getElementById('particles');
+        if (!particlesContainer) return;
         const symbols = ['💖', '✨', '⭐', '🌸', '🎀', '💫', '🦋', '🌟', '💕', '🔮', '🧚', '🌈'];
         const particleCount = 30;
 
