@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ===== PACT INTRO (좌우로 열리는 팩트) =====
     const pactIntro = document.getElementById('pactIntro');
     const pactContainer = document.getElementById('pactContainer');
-    const mainApp = document.getElementById('mainApp');
+    const pactFrame = document.getElementById('pactFrame');
     const pactSparkles = document.getElementById('pactSparkles');
 
     // Create floating sparkles on dark background
@@ -33,27 +33,27 @@ document.addEventListener('DOMContentLoaded', () => {
         document.head.appendChild(styleEl);
     }
 
-    // Handle pact click — open doors left/right
+    // Handle pact click — open doors, then show pact frame with encyclopedia inside
     if (pactContainer) {
         pactContainer.addEventListener('click', () => {
             // 1. Open the doors
             pactIntro.classList.add('opening');
             
-            // 2. After doors open, show main app
+            // 2. After doors open, show the pact frame (opened pact with encyclopedia inside)
             setTimeout(() => {
-                mainApp.classList.remove('hidden');
-                mainApp.classList.add('visible');
-            }, 800);
+                pactFrame.classList.remove('hidden');
+                pactFrame.classList.add('visible');
+            }, 900);
             
-            // 3. Fade out intro
+            // 3. Fade out intro overlay
             setTimeout(() => {
                 pactIntro.classList.add('fade-out');
-            }, 1200);
+            }, 1100);
             
-            // 4. Remove from DOM
+            // 4. Remove intro from DOM
             setTimeout(() => {
                 pactIntro.classList.add('gone');
-            }, 2200);
+            }, 2000);
         });
     }
 
