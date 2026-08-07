@@ -33,30 +33,34 @@ document.addEventListener('DOMContentLoaded', () => {
         document.head.appendChild(styleEl);
     }
 
-    // Handle pact click — open doors, then show pact frame with encyclopedia inside
+    // Handle pact click — open doors to reveal pactFrame underneath!
     function openPact() {
         if (!pactIntro || pactIntro.classList.contains('opening')) return;
+        
+        // 1. Show the pact frame (encyclopedia) IMMEDIATELY underneath the doors
+        if (pactFrame) {
+            pactFrame.classList.remove('hidden');
+            pactFrame.classList.add('visible');
+        }
+        
+        // 2. Open the doors & fade intro background
         pactIntro.classList.add('opening');
         
-        setTimeout(() => {
-            if (pactFrame) {
-                pactFrame.classList.remove('hidden');
-                pactFrame.classList.add('visible');
-            }
-        }, 700);
-        
+        // 3. Fade out intro overlay text & sparkles
         setTimeout(() => {
             pactIntro.classList.add('fade-out');
-        }, 900);
+        }, 800);
         
+        // 4. Remove intro completely from DOM
         setTimeout(() => {
             pactIntro.classList.add('gone');
             pactIntro.style.display = 'none';
-        }, 1500);
+        }, 1200);
     }
 
     if (pactContainer) pactContainer.addEventListener('click', openPact);
     if (pactIntro) pactIntro.addEventListener('click', openPact);
+
 
 
 

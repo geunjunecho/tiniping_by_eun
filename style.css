@@ -61,11 +61,20 @@ h1, h2, h3, .title, .season-btn, .grade-btn, .tiniping-name, .section-title {
     background: radial-gradient(ellipse at center, 
         #2D1B4E 0%, #1A1030 40%, #0D0820 80%);
     cursor: pointer;
-    transition: opacity 1s ease;
+    transition: opacity 0.8s ease, background 0.4s ease;
     overflow: hidden;
 }
-.pact-intro.opening { pointer-events: none; }
-.pact-intro.gone { display: none; }
+.pact-intro.opening { 
+    pointer-events: none; 
+    background: transparent !important;
+}
+.pact-intro.opening .pact-hint,
+.pact-intro.opening .pact-sub-hint,
+.pact-intro.opening .pact-bg-sparkles {
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+.pact-intro.gone { display: none !important; }
 
 /* Background sparkles */
 .pact-bg-sparkles { position: absolute; inset: 0; pointer-events: none; }
