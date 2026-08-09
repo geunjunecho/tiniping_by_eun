@@ -73,6 +73,12 @@
         <div class="pact-screen">
             <div class="screen-scanlines"></div>
             
+            <!-- Sound Toggle Button -->
+            <button id="soundToggleBtn" class="sound-toggle-btn" title="사운드 켜기/끄기">
+                <span class="sound-icon">🎵</span>
+                <span class="sound-text">사운드 ON</span>
+            </button>
+
             <header class="hero">
                 <div class="hero-inner">
                     <div class="logo-badge">
@@ -86,10 +92,17 @@
                         <span class="title-deco">✦</span>
                     </h1>
                     <p class="subtitle">하츄핑과 친구들을 모두 만나보세요! 🧚‍♀️</p>
-                    <div class="search-container">
-                        <span class="search-icon">🔮</span>
-                        <input type="text" id="searchInput" placeholder="✨ 티니핑 이름을 검색해보세요!">
-                        <span class="search-sparkle">✨</span>
+                    
+                    <div class="hero-action-row">
+                        <div class="search-container">
+                            <span class="search-icon">🔮</span>
+                            <input type="text" id="searchInput" placeholder="✨ 티니핑 이름을 검색해보세요!">
+                            <span class="search-sparkle">✨</span>
+                        </div>
+                        <button id="randomDrawBtn" class="random-draw-btn">
+                            <span class="btn-icon">🎲</span>
+                            <span>오늘의 티니핑 뽑기!</span>
+                        </button>
                     </div>
                 </div>
             </header>
@@ -106,13 +119,14 @@
                 <section class="grade-section">
                     <div class="section-title-row">
                         <span class="section-icon">👑</span>
-                        <h2 class="section-title">등급 필터</h2>
+                        <h2 class="section-title">등급 & 필터</h2>
                     </div>
                     <div class="grade-filters" id="gradeFilters">
                         <button class="grade-btn active" data-grade="로열" style="--grade-color: #FFD700; --grade-glow: rgba(255,215,0,0.4)">👑 로열</button>
                         <button class="grade-btn active" data-grade="일반" style="--grade-color: #60A5FA; --grade-glow: rgba(96,165,250,0.4)">💫 일반</button>
                         <button class="grade-btn active" data-grade="레전드" style="--grade-color: #F472B6; --grade-glow: rgba(244,114,182,0.4)">🌈 레전드</button>
                         <button class="grade-btn active" data-grade="빌런" style="--grade-color: #A855F7; --grade-glow: rgba(168,85,247,0.4)">😈 빌런</button>
+                        <button class="grade-btn caught-filter-btn" id="caughtFilterBtn" style="--grade-color: #EC4899; --grade-glow: rgba(236,72,153,0.4)">💖 내 캐치 도감 (<span id="caughtCount">0</span>)</button>
                     </div>
                 </section>
 
@@ -154,7 +168,13 @@
                     <span id="modalSeason" class="badge"></span>
                 </div>
                 <p id="modalDescription" class="description"></p>
-                <div class="gender-indicator" id="modalGender"></div>
+                <div class="modal-action-row">
+                    <div class="gender-indicator" id="modalGender"></div>
+                    <button id="modalCatchBtn" class="modal-catch-btn">
+                        <span class="heart-icon">🤍</span>
+                        <span class="catch-text">캐치하기!</span>
+                    </button>
+                </div>
             </div>
         </div>
     </div>

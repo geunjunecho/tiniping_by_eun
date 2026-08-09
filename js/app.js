@@ -1,11 +1,186 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // ===== AUDIO SYSTEM (Web Audio API Synthesizer) =====
+    let audioCtx = null;
+    let soundEnabled = true;
+
+    function initAudio() {
+        if (!audioCtx) {
+            const AudioContext = window.AudioContext || window.webkitAudioContext;
+            audioCtx = new AudioContext();
+        }
+        if (audioCtx.state === 'suspended') {
+            audioCtx.resume();
+        }
+    }
+
+    // Sound 1: Pact Opening Magical Arpeggio
+    function playPactOpenSound() {
+        if (!soundEnabled) return;
+        initAudio();
+        const notes = [523.25, 659.25, 783.99, 1046.50, 1318.51, 1567.98, 2093.00];
+        notes.forEach((freq, idx) => {
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(freq, audioCtx.currentTime + idx * 0.07);
+            gain.gain.setValueAtTime(0.12, audioCtx.currentTime + idx * 0.07);
+            gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + idx * 0.07 + 0.5);
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+            osc.start(audioCtx.currentTime + idx * 0.07);
+            osc.stop(audioCtx.currentTime + idx * 0.07 + 0.5);
+        });
+    }
+
+    // Sound 2: Cute Pop / Chime for Button & Card Click
+    function playPopSound() {
+        if (!soundEnabled) return;
+        initAudio();
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = 'sine';
+        const now = audioCtx.currentTime;
+        osc.frequency.setValueAtTime(700, now);
+        osc.frequency.exponentialRampToValueAtTime(1300, now + 0.09);
+        gain.gain.setValueAtTime(0.12, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.1);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start(now);
+        osc.stop(now + 0.1);
+    }
+
+    // Sound 3: Sparkle Burst Sound for Heart Catch & Random Draw
+    function playSparkleSound() {
+        if (!soundEnabled) return;
+        initAudio();
+        const now = audioCtx.currentTime;
+        [1046.5, 1318.5, 1567.98, 2093].forEach((freq, idx) => {
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            osc.type = 'triangle';
+            osc.frequency.setValueAtTime(freq, now + idx * 0.05);
+            gain.gain.setValueAtTime(0.1, now + idx * 0.05);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + idx * 0.05 + 0.28);
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+            osc.start(now + idx * 0.05);
+            osc.stop(now + idx * 0.05 + 0.28);
+        });
+    }
+
+    // Sound Toggle Button
+    const soundToggleBtn = document.getElementById('soundToggleBtn');
+    if (soundToggleBtn) {
+        soundToggleBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            soundEnabled = !soundEnabled;
+            if (soundEnabled) {
+                soundToggleBtn.classList.remove('muted');
+                soundToggleBtn.querySelector('.sound-icon').textContent = '🎵';
+                soundToggleBtn.querySelector('.sound-text').textContent = '사운드 ON';
+                playPopSound();
+            } else {
+                soundToggleBtn.classList.add('muted');
+                soundToggleBtn.querySelector('.sound-icon').textContent = '🔇';
+                soundToggleBtn.querySelector('.sound-text').textContent = '사운드 OFF';
+            }
+        });
+    }
+
+    // ===== HEART BURST EXPLOSION EFFECT =====
+    function createHeartExplosion(x, y) {
+        const emojis = ['💖', '✨', '🌸', '⭐', '🍬', '💕', '💫', '💎', '🎀'];
+        for (let i = 0; i < 14; i++) {
+            const el = document.createElement('div');
+            el.className = 'heart-burst-particle';
+            el.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+            const angle = Math.random() * Math.PI * 2;
+            const distance = 40 + Math.random() * 70;
+            const tx = Math.cos(angle) * distance;
+            const ty = Math.sin(angle) * distance - 35;
+            
+            el.style.cssText = `
+                position: fixed;
+                left: ${x}px;
+                top: ${y}px;
+                font-size: ${16 + Math.random() * 14}px;
+                pointer-events: none;
+                z-index: 30000;
+                transition: transform 0.75s cubic-bezier(0.1, 0.8, 0.3, 1), opacity 0.75s ease;
+            `;
+            document.body.appendChild(el);
+            
+            requestAnimationFrame(() => {
+                el.style.transform = `translate(${tx}px, ${ty}px) scale(1.3) rotate(${Math.random()*60 - 30}deg)`;
+                el.style.opacity = '0';
+            });
+            
+            setTimeout(() => el.remove(), 800);
+        }
+    }
+
+    // ===== MAGIC WAND CURSOR SPARKLE TRAIL =====
+    let lastTrailTime = 0;
+    document.addEventListener('mousemove', (e) => {
+        const now = Date.now();
+        if (now - lastTrailTime < 70) return;
+        lastTrailTime = now;
+        
+        const sparkle = document.createElement('div');
+        sparkle.innerText = ['✨', '⭐', '💫', '💖', '🌸'][Math.floor(Math.random() * 5)];
+        sparkle.style.cssText = `
+            position: fixed;
+            left: ${e.clientX}px;
+            top: ${e.clientY}px;
+            font-size: ${10 + Math.random() * 10}px;
+            pointer-events: none;
+            z-index: 25000;
+            transition: transform 0.6s ease-out, opacity 0.6s ease-out;
+            transform: translate(-50%, -50%) scale(1);
+        `;
+        document.body.appendChild(sparkle);
+        
+        requestAnimationFrame(() => {
+            sparkle.style.transform = `translate(-50%, ${-15 - Math.random() * 20}px) scale(0.2) rotate(${Math.random() * 90}deg)`;
+            sparkle.style.opacity = '0';
+        });
+        
+        setTimeout(() => sparkle.remove(), 650);
+    });
+
+    // ===== FAVORITES / CAUGHT STORAGE =====
+    let caughtSet = new Set(JSON.parse(localStorage.getItem('tiniping_caught') || '[]'));
+    let showingCaughtOnly = false;
+
+    function updateCaughtUI() {
+        const countEl = document.getElementById('caughtCount');
+        if (countEl) countEl.innerText = caughtSet.size;
+        localStorage.setItem('tiniping_caught', JSON.stringify(Array.from(caughtSet)));
+    }
+
+    function toggleCatch(name, event) {
+        if (event) {
+            event.stopPropagation();
+            createHeartExplosion(event.clientX || window.innerWidth / 2, event.clientY || window.innerHeight / 2);
+        }
+        if (caughtSet.has(name)) {
+            caughtSet.delete(name);
+            playPopSound();
+        } else {
+            caughtSet.add(name);
+            playSparkleSound();
+        }
+        updateCaughtUI();
+        applyFilters();
+    }
+
     // ===== PACT INTRO (좌우로 열리는 팩트) =====
     const pactIntro = document.getElementById('pactIntro');
     const pactContainer = document.getElementById('pactContainer');
     const pactFrame = document.getElementById('pactFrame');
     const pactSparkles = document.getElementById('pactSparkles');
 
-    // Create floating sparkles on dark background
     if (pactSparkles) {
         const sparkleEmojis = ['✨', '⭐', '🌟', '💖', '💫', '🦋', '🌸', '💎'];
         for (let i = 0; i < 50; i++) {
@@ -33,25 +208,22 @@ document.addEventListener('DOMContentLoaded', () => {
         document.head.appendChild(styleEl);
     }
 
-    // Handle pact click — open doors to reveal pactFrame underneath!
     function openPact() {
         if (!pactIntro || pactIntro.classList.contains('opening')) return;
         
-        // 1. Show the pact frame (encyclopedia) IMMEDIATELY underneath the doors
+        playPactOpenSound();
+        
         if (pactFrame) {
             pactFrame.classList.remove('hidden');
             pactFrame.classList.add('visible');
         }
         
-        // 2. Open the doors & fade intro background
         pactIntro.classList.add('opening');
         
-        // 3. Fade out intro overlay text & sparkles
         setTimeout(() => {
             pactIntro.classList.add('fade-out');
         }, 800);
         
-        // 4. Remove intro completely from DOM
         setTimeout(() => {
             pactIntro.classList.add('gone');
             pactIntro.style.display = 'none';
@@ -61,31 +233,28 @@ document.addEventListener('DOMContentLoaded', () => {
     if (pactContainer) pactContainer.addEventListener('click', openPact);
     if (pactIntro) pactIntro.addEventListener('click', openPact);
 
-
-
-
+    // ===== APP STATE =====
     let appData = { seasons: [], tinipings: [] };
     let filteredData = [];
-    
-    // State
     let currentSeasonId = 'all';
     let activeGrades = new Set(['로열', '일반', '레전드', '빌런']);
     let searchQuery = '';
+    let currentModalTp = null;
 
     // DOM Elements
     const grid = document.getElementById('tinipingGrid');
     const seasonTabs = document.getElementById('seasonTabs');
     const searchInput = document.getElementById('searchInput');
     const gradeBtns = document.querySelectorAll('.grade-btn');
+    const caughtFilterBtn = document.getElementById('caughtFilterBtn');
+    const randomDrawBtn = document.getElementById('randomDrawBtn');
     const statsCounter = document.getElementById('statsCounter');
     
     const modal = document.getElementById('detailModal');
     const closeBtn = document.querySelector('.close-btn');
+    const modalCatchBtn = document.getElementById('modalCatchBtn');
 
-    // Create Background Particles
-    createParticles();
-
-    // Fetch Data
+    // Load Data
     fetch('data.json')
         .then(response => response.json())
         .then(data => {
@@ -98,17 +267,19 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
     function initApp() {
+        updateCaughtUI();
         renderSeasonTabs();
         applyFilters();
         
-        // Event Listeners
         searchInput.addEventListener('input', (e) => {
             searchQuery = e.target.value.toLowerCase();
             applyFilters();
         });
 
         gradeBtns.forEach(btn => {
+            if (btn.id === 'caughtFilterBtn') return;
             btn.addEventListener('click', (e) => {
+                playPopSound();
                 const grade = btn.dataset.grade;
                 if (activeGrades.has(grade)) {
                     activeGrades.delete(grade);
@@ -121,44 +292,62 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
+        if (caughtFilterBtn) {
+            caughtFilterBtn.addEventListener('click', () => {
+                playPopSound();
+                showingCaughtOnly = !showingCaughtOnly;
+                if (showingCaughtOnly) {
+                    caughtFilterBtn.classList.add('active');
+                } else {
+                    caughtFilterBtn.classList.remove('active');
+                }
+                applyFilters();
+            });
+        }
+
+        if (randomDrawBtn) {
+            randomDrawBtn.addEventListener('click', (e) => {
+                drawRandomTeenieping(e);
+            });
+        }
+
+        if (modalCatchBtn) {
+            modalCatchBtn.addEventListener('click', (e) => {
+                if (currentModalTp) {
+                    toggleCatch(currentModalTp.name, e);
+                    updateModalCatchBtn(currentModalTp.name);
+                }
+            });
+        }
+
         closeBtn.addEventListener('click', closeModal);
         modal.addEventListener('click', (e) => {
             if (e.target === modal) closeModal();
         });
     }
 
-    function createParticles() {
-        const particlesContainer = document.getElementById('particles');
-        if (!particlesContainer) return;
-        const symbols = ['💖', '✨', '⭐', '🌸', '🎀', '💫', '🦋', '🌟', '💕', '🔮', '🧚', '🌈'];
-        const particleCount = 30;
-
-        for (let i = 0; i < particleCount; i++) {
-            const p = document.createElement('div');
-            p.classList.add('particle');
-            p.innerText = symbols[Math.floor(Math.random() * symbols.length)];
-            const dur = 12 + Math.random() * 18;
-            const del = Math.random() * dur;
-            const size = 12 + Math.random() * 22;
-            p.style.setProperty('--duration', `${dur}s`);
-            p.style.setProperty('--delay', `${del}s`);
-            p.style.setProperty('--size', `${size}px`);
-            p.style.left = `${Math.random() * 100}vw`;
-            particlesContainer.appendChild(p);
-        }
+    function drawRandomTeenieping(e) {
+        if (!appData.tinipings || appData.tinipings.length === 0) return;
+        playSparkleSound();
+        const clientX = e ? e.clientX : window.innerWidth / 2;
+        const clientY = e ? e.clientY : window.innerHeight / 2;
+        createHeartExplosion(clientX, clientY);
+        
+        const randomTp = appData.tinipings[Math.floor(Math.random() * appData.tinipings.length)];
+        openModal(randomTp);
     }
 
     function renderSeasonTabs() {
         seasonTabs.innerHTML = '';
         const seasonIcons = ['✨','💎','🔑','🍰','⭐','👑','💎'];
         
-        // All button
         const allBtn = document.createElement('button');
         allBtn.className = 'season-btn active';
         allBtn.style.setProperty('--season-color', 'var(--pink-500)');
         allBtn.style.setProperty('--season-glow', 'rgba(255,105,180,0.35)');
         allBtn.innerHTML = '<span>✨ 전체</span>';
         allBtn.addEventListener('click', () => {
+            playPopSound();
             document.querySelectorAll('.season-btn').forEach(b => b.classList.remove('active'));
             allBtn.classList.add('active');
             currentSeasonId = 'all';
@@ -166,7 +355,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         seasonTabs.appendChild(allBtn);
 
-        // Season buttons
         appData.seasons.forEach((season, i) => {
             const btn = document.createElement('button');
             btn.className = 'season-btn';
@@ -175,6 +363,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const icon = seasonIcons[i] || '🌟';
             btn.innerHTML = `<span>${icon} ${season.id}기 ${season.theme}</span>`;
             btn.addEventListener('click', () => {
+                playPopSound();
                 document.querySelectorAll('.season-btn').forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
                 currentSeasonId = season.id;
@@ -186,16 +375,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function applyFilters() {
         filteredData = appData.tinipings.filter(tp => {
-            // Season filter
             const matchSeason = currentSeasonId === 'all' || tp.mainSeason == currentSeasonId;
-            
-            // Grade filter
             const matchGrade = activeGrades.has(tp.grade);
-            
-            // Search filter
             const matchSearch = tp.name.includes(searchQuery) || tp.nameEn.toLowerCase().includes(searchQuery);
+            const matchCaught = !showingCaughtOnly || caughtSet.has(tp.name);
 
-            return matchSeason && matchGrade && matchSearch;
+            return matchSeason && matchGrade && matchSearch && matchCaught;
         });
 
         renderGrid();
@@ -206,7 +391,7 @@ document.addEventListener('DOMContentLoaded', () => {
         grid.innerHTML = '';
         
         if (filteredData.length === 0) {
-            grid.innerHTML = '<p style="text-align:center; grid-column: 1/-1; padding: 2rem; color: #666;">조건에 맞는 티니핑이 없습니다 😢</p>';
+            grid.innerHTML = '<p style="text-align:center; grid-column: 1/-1; padding: 2rem; color: #666; font-family: \'Jua\', sans-serif;">조건에 맞는 티니핑이 없습니다 😢</p>';
             return;
         }
 
@@ -218,28 +403,28 @@ document.addEventListener('DOMContentLoaded', () => {
             const nameChars = tp.name.replace('핑','');
             const displayChar = nameChars.length <= 2 ? nameChars : nameChars.substring(0,2);
             
-            // Grade icon & decoration
             let gradeIcon = '⭐';
             let gradeDecor = '';
             if(tp.grade === '로열') { gradeIcon = '👑'; gradeDecor = '<span class="grade-crown">👑</span>'; }
             else if(tp.grade === '레전드') { gradeIcon = '🌈'; gradeDecor = '<span class="grade-crown">🌟</span>'; }
             else if(tp.grade === '빌런') { gradeIcon = '😈'; gradeDecor = '<span class="grade-crown">😈</span>'; }
             
-            // Gender emoji
             const genderEmoji = tp.gender === '여' ? '🎀' : '⚡';
-            
-            // Get main season info
             const mainSeasonObj = appData.seasons.find(s => s.id === tp.mainSeason);
             const seasonBadgeStyle = mainSeasonObj ? `background-color: ${mainSeasonObj.color}` : 'background-color: #ccc';
 
-            // Check if image exists
             const hasImage = tp.image && !tp.image.includes('catch-teenieping/images');
             const avatarContent = hasImage 
                 ? `<img class="avatar-img" src="${tp.image}" alt="${tp.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
                    <span class="avatar-letter" style="display:none">${displayChar}</span>`
                 : `<span class="avatar-letter">${displayChar}</span>`;
 
+            const isCaught = caughtSet.has(tp.name);
+
             card.innerHTML = `
+                <span class="card-catch-heart ${isCaught ? 'caught' : ''}" title="내 도감에 캐치!">
+                    ${isCaught ? '💖' : '🤍'}
+                </span>
                 <div class="avatar-container" style="background: linear-gradient(135deg, ${tp.color}, ${tp.color}CC);">
                     ${avatarContent}
                     ${gradeDecor}
@@ -254,12 +439,24 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             `;
 
-            // Staggered animation
             setTimeout(() => {
                 card.classList.add('visible');
-            }, index * 30);
+            }, index * 25);
 
-            card.addEventListener('click', () => openModal(tp));
+            // Heart click event
+            const heartBtn = card.querySelector('.card-catch-heart');
+            if (heartBtn) {
+                heartBtn.addEventListener('click', (e) => {
+                    toggleCatch(tp.name, e);
+                });
+            }
+
+            card.addEventListener('click', (e) => {
+                if (e.target.classList.contains('card-catch-heart')) return;
+                playPopSound();
+                createHeartExplosion(e.clientX, e.clientY);
+                openModal(tp);
+            });
             grid.appendChild(card);
         });
     }
@@ -268,7 +465,22 @@ document.addEventListener('DOMContentLoaded', () => {
         statsCounter.innerText = `총 ${filteredData.length}마리의 티니핑`;
     }
 
+    function updateModalCatchBtn(name) {
+        if (!modalCatchBtn) return;
+        const isCaught = caughtSet.has(name);
+        if (isCaught) {
+            modalCatchBtn.classList.add('caught');
+            modalCatchBtn.querySelector('.heart-icon').textContent = '💖';
+            modalCatchBtn.querySelector('.catch-text').textContent = '캐치 완료!';
+        } else {
+            modalCatchBtn.classList.remove('caught');
+            modalCatchBtn.querySelector('.heart-icon').textContent = '🤍';
+            modalCatchBtn.querySelector('.catch-text').textContent = '캐치하기!';
+        }
+    }
+
     function openModal(tp) {
+        currentModalTp = tp;
         const nameChars = tp.name.replace('핑','');
         const displayChar = nameChars.length <= 2 ? nameChars : nameChars.substring(0,2);
         const avatarContainer = document.getElementById('modalAvatar');
@@ -279,7 +491,7 @@ document.addEventListener('DOMContentLoaded', () => {
             : `linear-gradient(135deg, ${tp.color}, ${tp.color}CC)`;
         
         avatarContainer.innerHTML = hasImage
-            ? `<img src="${tp.image}" alt="${tp.name}" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+            ? `<img src="${tp.image}" alt="${tp.name}" style="width:100%;height:100%;object-fit:contain;padding:6px;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
                <span class="avatar-fallback" style="display:none">${displayChar}</span>`
             : `<span class="avatar-fallback">${displayChar}</span>`;
 
@@ -312,10 +524,13 @@ document.addEventListener('DOMContentLoaded', () => {
         genderIndicator.className = `gender-indicator gender-${tp.gender}`;
         genderIndicator.innerText = tp.gender === '여' ? '♀ 여' : '♂ 남';
 
+        updateModalCatchBtn(tp.name);
+
         modal.classList.add('show');
     }
 
     function closeModal() {
+        playPopSound();
         modal.classList.remove('show');
     }
 });
