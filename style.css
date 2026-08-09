@@ -603,9 +603,54 @@ h1, h2, h3, .title, .season-btn, .grade-btn, .tiniping-name, .section-title {
     margin: 0 auto;
 }
 
-.hero-action-row .search-container {
-    flex: 1 1 300px;
-    margin: 0;
+.search-container {
+    flex: 1 1 320px;
+    max-width: 450px;
+    position: relative;
+}
+
+#searchInput {
+    width: 100%;
+    padding: 0.85rem 3rem;
+    border-radius: 50px;
+    border: 2px solid var(--pink-300);
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 0.98rem;
+    color: var(--text-main);
+    box-shadow: 0 4px 15px rgba(255,105,180,0.15), inset 0 2px 6px rgba(255,255,255,0.6);
+    transition: all 0.3s ease;
+    outline: none;
+    box-sizing: border-box;
+}
+#searchInput::placeholder { color: var(--pink-400); opacity: 0.75; }
+#searchInput:focus {
+    border-color: var(--pink-500);
+    box-shadow: 0 6px 20px rgba(255,105,180,0.3), 0 0 0 4px rgba(255,105,180,0.15);
+    transform: translateY(-1px);
+}
+
+.search-icon {
+    position: absolute;
+    left: 1.1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+    pointer-events: none;
+}
+.search-sparkle {
+    position: absolute;
+    right: 1.1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+    animation: sparkleFlash 2s ease-in-out infinite;
+    pointer-events: none;
+}
+@keyframes sparkleFlash {
+    0%, 100% { opacity: 0.5; transform: translateY(-50%) scale(0.8); }
+    50% { opacity: 1; transform: translateY(-50%) scale(1.2); }
 }
 
 /* Random Draw Button */
