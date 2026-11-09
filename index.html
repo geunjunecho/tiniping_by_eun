@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jua&family=Gaegu:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/minigames.css">
 </head>
 <body>
     <!-- ========== PACT INTRO (닫힌 상태) ========== -->
@@ -103,6 +104,10 @@
                             <span class="btn-icon">🎲</span>
                             <span>오늘의 티니핑 뽑기!</span>
                         </button>
+                        <button id="heroMinigameBtn" class="hero-minigame-btn">
+                            <span class="btn-icon">🎮</span>
+                            <span>샤랄라 미니게임방!</span>
+                        </button>
                     </div>
                 </div>
             </header>
@@ -174,11 +179,20 @@
                         <span class="heart-icon">🤍</span>
                         <span class="catch-text">캐치하기!</span>
                     </button>
+                    <button id="modalMinigameBtn" class="modal-minigame-btn">
+                        <span class="game-icon">🎮</span>
+                        <span class="game-text">이 친구와 미니게임!</span>
+                    </button>
                 </div>
             </div>
         </div>
     </div>
 
     <script src="js/app.js"></script>
+    <script src="js/minigames-core.js"></script>
+    <script src="js/games/tp-runner.js"></script>
+    <script src="js/games/tp-parfait.js"></script>
+    <script src="js/games/tp-bubble.js"></script>
+    <script src="js/games/tp-memory.js"></script>
 </body>
 </html>

@@ -254,6 +254,56 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeBtn = document.querySelector('.close-btn');
     const modalCatchBtn = document.getElementById('modalCatchBtn');
 
+    // ===== GLOBAL APP BRIDGE FOR MINIGAMES =====
+    window.TinipingAppBridge = {
+        getCurrentTp: () => currentModalTp || (appData.tinipings && appData.tinipings[0]) || null,
+        getAllTinipings: () => appData.tinipings || [],
+        getSeasons: () => appData.seasons || [],
+        isCaught: (name) => caughtSet.has(name),
+        catchTiniping: (name) => {
+            if (!name) return;
+            if (!caughtSet.has(name)) {
+                caughtSet.add(name);
+                playSparkleSound();
+                updateCaughtUI();
+                applyFilters();
+                if (currentModalTp && currentModalTp.name === name) {
+                    updateModalCatchBtn(name);
+                }
+            }
+        },
+        createHeartExplosion: (x, y) => createHeartExplosion(x || window.innerWidth / 2, y || window.innerHeight / 2),
+        playPopSound: () => playPopSound(),
+        playSparkleSound: () => playSparkleSound(),
+        playPactOpenSound: () => playPactOpenSound()
+    };
+
+    const modalMinigameBtn = document.getElementById('modalMinigameBtn');
+    if (modalMinigameBtn) {
+        modalMinigameBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            playSparkleSound();
+            if (window.TpMiniGames) {
+                window.TpMiniGames.openHub(currentModalTp);
+            }
+        });
+    }
+
+    const heroMinigameBtn = document.getElementById('heroMinigameBtn');
+    if (heroMinigameBtn) {
+        heroMinigameBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            playSparkleSound();
+            if (window.TpMiniGames) {
+                const defaultTp = currentModalTp ||
+                    (appData.tinipings && appData.tinipings.find(t => t.name === '하츄핑')) ||
+                    (appData.tinipings && appData.tinipings[0]) ||
+                    null;
+                window.TpMiniGames.openHub(defaultTp);
+            }
+        });
+    }
+
     // Load Data
     fetch('data.json')
         .then(response => response.json())
