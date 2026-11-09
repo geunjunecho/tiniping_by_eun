@@ -219,9 +219,18 @@ test('2. 마운트 후 4x4(16장) 보드가 8:8로 시작하며 flipTile() 호�
   assert.equal(init.timeLeft, 25, '초기 제한 시간은 25초여야 함');
   assert.equal(init.score, 0);
 
-  // 심술핑 타일(0번) 뒤집기
+  // 심술핑 타일(0번) 뒤집기 (3D 양면 DOM이 재구축되지 않고 유지되는지 함께 검증)
+  const gridEl = stageEl.querySelector('[data-role="grid"]');
   const villainTileIdx = init.tiles.find((t) => t.owner === 'villain').index;
+  const tileElBefore = gridEl.children[villainTileIdx];
+  assert.ok(
+    tileElBefore.innerHTML.includes('tp-flipbattle-tile-card') &&
+      tileElBefore.innerHTML.includes('tp-tile-hero') &&
+      tileElBefore.innerHTML.includes('tp-tile-villain'),
+    '각 타일은 hero/villain 양면 3D 구조를 동시에 포함해야 함'
+  );
   stageEl._tpFlipBattleGame.flipTile(villainTileIdx);
+  assert.equal(gridEl.children[villainTileIdx], tileElBefore, '타일 뒤집기 시 버튼 DOM이 유지되어야 함');
 
   const afterFlip = stageEl._tpFlipBattleGame.getState();
   assert.equal(afterFlip.tiles[villainTileIdx].owner, 'hero', '뒤집은 타일이 hero 소유로 바뀌어야 함');

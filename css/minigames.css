@@ -692,68 +692,169 @@
     to { opacity: 1; transform: scale(1); }
 }
 
-/* ===== 9. T5 마법 판 뒤집기 대결 (tp-flipbattle) ===== */
+/* ===== 9. T5 마법 판 뒤집기 대결 (tp-flipbattle) — 레퍼런스 황혼 보라 스테이지 & 정사각 메탈 베벨 타일 ===== */
+.tp-flipbattle-wrap {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 480px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background:
+        radial-gradient(circle at 14% 22%, rgba(255, 255, 255, 0.22) 0 1.5px, transparent 2px),
+        radial-gradient(circle at 82% 16%, rgba(255, 255, 255, 0.18) 0 2px, transparent 2.5px),
+        radial-gradient(circle at 48% 80%, rgba(255, 255, 255, 0.14) 0 1.5px, transparent 2px),
+        linear-gradient(180deg, #433352 0%, #6A4F73 55%, #583F62 100%);
+    border-radius: 22px;
+    padding: 0 16px 18px 16px;
+    box-sizing: border-box;
+    box-shadow: inset 0 2px 14px rgba(0, 0, 0, 0.35), 0 8px 24px rgba(34, 18, 48, 0.35);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: none;
+    overflow: hidden;
+}
+
 .tp-flipbattle-hud {
     display: flex;
     flex-direction: column;
-    gap: 0.55rem;
-    padding: 0.7rem 0.95rem;
-    background: rgba(255, 255, 255, 0.92);
-    border-radius: 18px;
-    border: 2px solid #F472B6;
-    box-shadow: 0 4px 14px rgba(236, 72, 153, 0.16);
-    margin-bottom: 0.55rem;
+    gap: 0.45rem;
+    padding: 0.5rem 0 0.25rem 0;
+    margin-bottom: 0.25rem;
 }
 
 .tp-flipbattle-top-row {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    flex-wrap: wrap;
+    gap: 0.65rem;
+    min-height: 60px;
+}
+
+.tp-flipbattle-hud-stat,
+.tp-flipbattle-hud-clock {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.tp-flipbattle-hud-avatar {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, #FFFFFF 0%, #FFE4F2 75%, #F8BBD0 100%);
+    border: 3px solid #FFFFFF;
+    box-shadow: 0 4px 0 #2A1B38, 0 6px 14px rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.tp-flipbattle-hud-avatar img {
+    width: 88% !important;
+    height: 88% !important;
+    object-fit: contain;
+}
+
+.tp-flipbattle-big-num {
+    font-family: 'Jua', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: #FFFFFF;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    text-shadow: 0 3px 0 #2A1B38, 0 5px 12px rgba(0, 0, 0, 0.45);
+    -webkit-text-stroke: 1.5px #2A1B38;
+}
+
+.tp-flipbattle-clock-svg {
+    width: 46px;
+    height: 46px;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.38));
+    flex-shrink: 0;
+}
+
+.tp-flipbattle-hud-right {
+    display: flex;
+    align-items: center;
     gap: 0.5rem;
+    margin-left: auto;
+}
+
+.tp-flipbattle-corner-ribbon {
+    background: linear-gradient(180deg, #39A9DB 0%, #2B8BB8 100%);
+    color: #FFFFFF;
+    font-family: 'Jua', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 900;
+    padding: 10px 22px 10px 26px;
+    border-radius: 0 0 0 32px;
+    margin-top: -10px;
+    margin-right: -16px;
+    box-shadow: 0 4px 0 #1E6385, 0 6px 14px rgba(0, 0, 0, 0.32);
+    text-shadow: 0 2px 3px rgba(0, 0, 0, 0.28);
+    white-space: nowrap;
 }
 
 .tp-flipbattle-timer-pill {
-    padding: 0.35rem 0.9rem;
+    padding: 0.28rem 0.7rem;
     border-radius: 999px;
-    background: linear-gradient(135deg, #FEF3C7, #FDE68A);
-    border: 2px solid #F59E0B;
+    background: rgba(254, 243, 199, 0.9);
+    border: 1.5px solid #F59E0B;
     color: #92400E;
     font-family: 'Jua', sans-serif;
-    font-size: 1.05rem;
+    font-size: 0.85rem;
 }
 
 .tp-flipbattle-score-pill {
-    padding: 0.35rem 1rem;
+    padding: 0.3rem 0.75rem;
     border-radius: 999px;
-    background: linear-gradient(135deg, #FCE7F3, #FBCFE8);
-    border: 2px solid #EC4899;
-    color: #9D174D;
+    background: rgba(255, 255, 255, 0.16);
+    border: 1.5px solid rgba(255, 255, 255, 0.28);
+    color: #FFF;
     font-family: 'Jua', sans-serif;
-    font-size: 1.08rem;
+    font-size: 0.88rem;
 }
 
 .tp-flipbattle-finish-btn {
-    padding: 0.42rem 0.95rem;
+    padding: 0.35rem 0.8rem;
     border-radius: 999px;
-    border: 2px solid #FFF;
+    border: 2px solid rgba(255, 255, 255, 0.75);
     background: linear-gradient(135deg, #EC4899, #8B5CF6);
     color: #FFF;
     font-family: 'Jua', sans-serif;
-    font-size: 0.92rem;
+    font-size: 0.82rem;
     cursor: pointer;
-    box-shadow: 0 3px 10px rgba(236, 72, 153, 0.35);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
     transition: transform 0.15s ease;
+    white-space: nowrap;
 }
 
 .tp-flipbattle-finish-btn:active {
     transform: scale(0.95);
 }
 
+.tp-flipbattle-subrow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.65rem;
+    flex-wrap: wrap;
+    padding: 0.35rem 0.8rem;
+    border-radius: 999px;
+    background: rgba(34, 21, 46, 0.42);
+    border: 1.5px solid rgba(255, 255, 255, 0.16);
+}
+
 .tp-flipbattle-tug {
     display: flex;
     flex-direction: column;
-    gap: 0.28rem;
+    gap: 0.2rem;
+    flex: 1;
+    min-width: 200px;
 }
 
 .tp-flipbattle-tug-labels {
@@ -761,105 +862,111 @@
     align-items: center;
     justify-content: space-between;
     font-family: 'Jua', sans-serif;
-    font-size: 0.95rem;
+    font-size: 0.82rem;
 }
 
 .tp-tug-hero-label {
-    color: #DB2777;
+    color: #FBCFE8;
 }
 
 .tp-tug-vs {
-    font-size: 0.85rem;
-    color: #7C3AED;
+    font-size: 0.75rem;
+    color: #FDE047;
 }
 
 .tp-tug-villain-label {
-    color: #5B21B6;
+    color: #FECACA;
 }
 
 .tp-flipbattle-tug-bar {
     width: 100%;
-    height: 16px;
+    height: 11px;
     border-radius: 999px;
-    background: linear-gradient(90deg, #6D28D9, #4C1D95);
-    border: 2px solid #FFF;
-    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.25), 0 2px 6px rgba(109, 40, 217, 0.25);
+    background: linear-gradient(90deg, #EF4444, #991B1B);
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
     overflow: hidden;
     position: relative;
 }
 
 .tp-flipbattle-tug-fill-hero {
     height: 100%;
-    background: linear-gradient(90deg, #FF69B4 0%, #EC4899 60%, #FBBF24 100%);
+    background: linear-gradient(90deg, #38BDF8 0%, #EC4899 65%, #FBBF24 100%);
     border-radius: 999px 0 0 999px;
     transition: width 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .tp-flipbattle-banner {
-    text-align: center;
     font-family: 'Jua', sans-serif;
-    font-size: 0.96rem;
-    color: #831843;
-    background: rgba(255, 255, 255, 0.88);
-    padding: 0.45rem 0.8rem;
-    border-radius: 14px;
-    border: 1.5px dashed #F472B6;
-    margin-bottom: 0.55rem;
+    font-size: 0.86rem;
+    color: #F5E8FF;
+    margin: 0;
 }
 
 .tp-flipbattle-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
+    gap: 14px;
     width: 100%;
-    max-width: 520px;
-    margin: 0 auto;
+    max-width: 580px;
+    margin: 4px auto;
+    padding: 4px;
     flex: 1;
     align-content: center;
-    perspective: 700px;
+    perspective: 750px;
 }
 
 .tp-flipbattle-tile {
     position: relative;
-    min-height: 82px;
-    border-radius: 18px;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    height: auto;
+    min-height: 88px;
+    border-radius: 8px;
     cursor: pointer;
-    padding: 6px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.24s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease, background 0.2s ease;
-    transform-style: preserve-3d;
+    padding: 0;
+    background: transparent;
+    border: none;
+    outline: none;
+    perspective: 750px;
+    overflow: visible;
     touch-action: none;
+    box-sizing: border-box;
+    transition: transform 0.16s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-.tp-flipbattle-tile.is-hero {
-    background: linear-gradient(145deg, #FFF0F7 0%, #FCE7F3 60%, #FBCFE8 100%);
-    border: 3px solid var(--hero-color, #EC4899);
-    box-shadow: 0 5px 14px rgba(236, 72, 153, 0.28), inset 0 2px 6px rgba(255, 255, 255, 0.9);
+.tp-flipbattle-tile:hover {
+    transform: translateY(-2px);
+    z-index: 4;
 }
 
-.tp-flipbattle-tile.is-villain {
-    background: linear-gradient(145deg, #5B21B6 0%, #4C1D95 65%, #2E1065 100%);
-    border: 3px solid #A78BFA;
-    box-shadow: 0 5px 14px rgba(76, 29, 149, 0.4), inset 0 2px 5px rgba(255, 255, 255, 0.2);
+.tp-flipbattle-tile-card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    transition: transform 0.32s cubic-bezier(0.22, 1.15, 0.36, 1);
+}
+
+.tp-flipbattle-tile.is-hero .tp-flipbattle-tile-card {
+    transform: rotateY(0deg);
+}
+
+.tp-flipbattle-tile.is-villain .tp-flipbattle-tile-card {
+    transform: rotateY(180deg);
+}
+
+.tp-flipbattle-tile.is-flipping.is-hero .tp-flipbattle-tile-card {
+    transform: rotateY(0deg) rotate(-4deg) scale(1.06);
+}
+
+.tp-flipbattle-tile.is-flipping.is-villain .tp-flipbattle-tile-card {
+    transform: rotateY(180deg) rotate(4deg) scale(1.06);
 }
 
 .tp-flipbattle-tile.has-magic-wand {
-    border-color: #FFD700;
-    box-shadow: 0 0 20px rgba(255, 215, 0, 0.9), 0 6px 16px rgba(236, 72, 153, 0.45);
     animation: tpWandTilePulse 0.6s ease-in-out infinite alternate;
-}
-
-.tp-flipbattle-tile.is-flipping {
-    animation: tpTileFlip3D 0.32s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-@keyframes tpTileFlip3D {
-    0% { transform: rotateY(0deg) scale(0.92); }
-    50% { transform: rotateY(90deg) scale(1.08); }
-    100% { transform: rotateY(0deg) scale(1); }
 }
 
 @keyframes tpWandTilePulse {
@@ -868,39 +975,113 @@
 }
 
 .tp-flipbattle-tile-inner {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    padding: 6px;
+    box-sizing: border-box;
+    background: linear-gradient(145deg, #8B939A 0%, #737B82 55%, #5E666D 100%);
+    border: 3px solid #4E555B;
+    box-shadow: 0 6px 0 #393E43, 0 10px 18px rgba(0, 0, 0, 0.38), inset 0 2px 1px rgba(255, 255, 255, 0.35);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 3px;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
     pointer-events: none;
+    overflow: hidden;
 }
 
-.tp-flipbattle-villain-icon {
-    font-size: 1.75rem;
-    line-height: 1;
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.35));
+.tp-flipbattle-tile-inner.tp-tile-hero {
+    transform: rotateY(0deg);
+    z-index: 2;
+}
+
+.tp-flipbattle-tile-inner.tp-tile-villain {
+    transform: rotateY(180deg);
+    z-index: 1;
+}
+
+.tp-flipbattle-tile.is-villain .tp-flipbattle-tile-inner.tp-tile-villain {
+    z-index: 3;
+}
+
+.tp-flipbattle-well {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+    background: radial-gradient(circle at 50% 42%, #F4F7F9 0%, #E2E7EB 75%, #D2D9DF 100%);
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.14);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 4px;
+    box-sizing: border-box;
+}
+
+.tp-flipbattle-well-hero {
+    background: radial-gradient(circle at 50% 42%, #F5FAFF 0%, #E4F0FB 72%, #D4E6F8 100%);
+}
+
+.tp-flipbattle-well-villain {
+    background: radial-gradient(circle at 50% 42%, #FFF5F5 0%, #F5E1E4 72%, #EBD0D5 100%);
+}
+
+.tp-flipbattle-tile.has-magic-wand .tp-flipbattle-tile-inner {
+    border-color: #FFD700;
+    box-shadow: 0 6px 0 #B45309, 0 0 22px rgba(255, 215, 0, 0.9);
+}
+
+.tp-flipbattle-avatar-wrap {
+    width: 72%;
+    height: 72%;
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.tp-flipbattle-avatar-wrap img,
+.tp-flipbattle-villain-svg {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain;
+    filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.2));
 }
 
 .tp-flipbattle-tile-name {
+    position: absolute;
+    bottom: 3px;
+    left: 4px;
+    right: 4px;
+    text-align: center;
     font-family: 'Jua', sans-serif;
-    font-size: 0.78rem;
+    font-size: 0.68rem;
     line-height: 1.1;
+    color: #374151;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.85);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-.tp-flipbattle-tile.is-hero .tp-flipbattle-tile-name {
-    color: #9D174D;
-}
-
-.tp-flipbattle-tile.is-villain .tp-flipbattle-tile-name {
-    color: #EDE9FE;
+.tp-flipbattle-tile-inner.tp-tile-villain .tp-flipbattle-tile-name {
+    color: #991B1B;
 }
 
 .tp-flipbattle-wand-badge {
     position: absolute;
-    top: -7px;
-    right: -5px;
-    z-index: 4;
+    top: -8px;
+    right: -6px;
+    z-index: 6;
     background: linear-gradient(135deg, #FDE047, #F59E0B);
     color: #78350F;
     font-family: 'Jua', sans-serif;
@@ -931,10 +1112,25 @@
         padding: 1rem;
     }
     .tp-flipbattle-grid {
-        gap: 7px;
+        gap: 9px;
     }
     .tp-flipbattle-tile {
-        min-height: 70px;
+        min-height: 72px;
+    }
+    .tp-flipbattle-big-num {
+        font-size: 1.9rem;
+    }
+    .tp-flipbattle-hud-avatar {
+        width: 42px;
+        height: 42px;
+    }
+    .tp-flipbattle-clock-svg {
+        width: 38px;
+        height: 38px;
+    }
+    .tp-flipbattle-corner-ribbon {
+        font-size: 0.95rem;
+        padding: 8px 14px 8px 18px;
     }
     .tp-mg-reward-toast {
         font-size: 0.92rem;

@@ -21,25 +21,36 @@
     { name: '포실핑', color: '#F48FB1', emotion: '포근함', seasonEmoji: '☁️' }
   ];
 
+  var XYLOPHONE_NOTES = [
+    { idx: 0, label: '도', color: '#FF5252', glow: 'rgba(255, 82, 82, 0.75)' },
+    { idx: 1, label: '레', color: '#FF9800', glow: 'rgba(255, 152, 0, 0.75)' },
+    { idx: 2, label: '미', color: '#FDD835', glow: 'rgba(253, 216, 53, 0.8)' },
+    { idx: 3, label: '파', color: '#66BB6A', glow: 'rgba(102, 187, 106, 0.75)' },
+    { idx: 4, label: '솔', color: '#29B6F6', glow: 'rgba(41, 182, 246, 0.75)' },
+    { idx: 5, label: '라', color: '#5C6BC0', glow: 'rgba(92, 107, 192, 0.75)' },
+    { idx: 6, label: '시', color: '#AB47BC', glow: 'rgba(171, 71, 188, 0.75)' },
+    { idx: 7, label: '도', color: '#EC407A', glow: 'rgba(236, 64, 122, 0.8)' }
+  ];
+
   function injectBubbleStyles() {
     if (typeof document === 'undefined' || !document.head) return;
-    if (document.getElementById('tp-bubble-game-styles')) return;
-
-    var styleEl = document.createElement('style');
+    var existing = document.getElementById('tp-bubble-game-styles');
+    var styleEl = existing || document.createElement('style');
     styleEl.id = 'tp-bubble-game-styles';
     styleEl.textContent = [
       '.tp-bubble-wrap {',
       '  position: relative; width: 100%; height: 100%; min-height: 440px;',
       '  display: flex; flex-direction: column; overflow: hidden;',
-      '  background: linear-gradient(180deg, #E0F7FA 0%, #F3E5F5 55%, #FFF9C4 100%);',
+      '  background: radial-gradient(circle at 50% 25%, rgba(255,255,255,0.82) 0%, rgba(255,255,255,0) 55%), linear-gradient(180deg, #B2EBF2 0%, #E1BEE7 54%, #FFF9C4 100%);',
       '  border-radius: 20px; user-select: none; -webkit-user-select: none;',
       '  font-family: "Pretendard", "Malgun Gothic", sans-serif;',
+      '  box-shadow: inset 0 0 24px rgba(255, 255, 255, 0.75);',
       '}',
       '.tp-bubble-hud {',
       '  position: relative; z-index: 10; display: flex; flex-wrap: wrap;',
       '  align-items: center; justify-content: space-between; gap: 8px;',
-      '  padding: 10px 14px; background: rgba(255, 255, 255, 0.88);',
-      '  backdrop-filter: blur(8px); border-bottom: 2px solid rgba(38, 198, 218, 0.28);',
+      '  padding: 10px 14px; background: rgba(255, 255, 255, 0.92);',
+      '  backdrop-filter: blur(8px); border-bottom: 2px solid rgba(38, 198, 218, 0.32);',
       '}',
       '.tp-bubble-cheer {',
       '  display: flex; align-items: center; gap: 8px; font-weight: 800;',
@@ -77,34 +88,77 @@
       '  box-shadow: 0 3px 8px rgba(255, 64, 129, 0.35); transition: transform 0.15s;',
       '}',
       '.tp-bubble-finish-btn:active { transform: scale(0.95); }',
+      '.tp-bubble-xylophone {',
+      '  position: relative; z-index: 9; display: flex; align-items: center; justify-content: center; gap: 6px;',
+      '  padding: 6px 12px; background: rgba(255, 255, 255, 0.78);',
+      '  border-bottom: 2px dashed rgba(171, 71, 188, 0.25);',
+      '}',
+      '.tp-xylophone-title {',
+      '  font-size: 12px; font-weight: 900; color: #6A1B9A; margin-right: 4px;',
+      '}',
+      '.tp-xylophone-key {',
+      '  --key-color: #29B6F6; --key-glow: rgba(41, 182, 246, 0.65);',
+      '  min-width: 30px; height: 24px; padding: 0 6px; border-radius: 8px;',
+      '  display: inline-flex; align-items: center; justify-content: center;',
+      '  font-size: 12px; font-weight: 900; color: #455A64;',
+      '  background: rgba(255, 255, 255, 0.88); border: 2px solid var(--key-color);',
+      '  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.12);',
+      '  transition: transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.18s, color 0.18s, box-shadow 0.18s;',
+      '}',
+      '.tp-xylophone-key.is-lit {',
+      '  background: var(--key-color); color: #FFFFFF;',
+      '  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);',
+      '}',
+      '.tp-xylophone-key.is-active {',
+      '  background: var(--key-color); color: #FFFFFF;',
+      '  transform: translateY(-3px) scale(1.16);',
+      '  box-shadow: 0 4px 12px var(--key-glow), 0 0 0 2px #FFFFFF;',
+      '  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);',
+      '}',
       '.tp-bubble-playfield {',
       '  position: relative; flex: 1; width: 100%; min-height: 350px; overflow: hidden;',
       '}',
       '.tp-magic-bubble {',
-      '  position: absolute; border-radius: 50%; cursor: pointer;',
+      '  position: absolute; border-radius: 50%; cursor: pointer; padding: 4px; overflow: hidden;',
       '  display: flex; flex-direction: column; align-items: center; justify-content: center;',
-      '  box-sizing: border-box; text-align: center; touch-action: manipulation;',
-      '  transition: transform 0.12s ease-out;',
-      '  box-shadow: inset -6px -6px 16px rgba(255,255,255,0.85), inset 6px 6px 16px rgba(38,198,218,0.35), 0 6px 16px rgba(0,0,0,0.1);',
+      '  box-sizing: border-box; text-align: center; touch-action: manipulation; outline: none;',
+      '  animation: tpBubbleWobble 2.2s ease-in-out infinite alternate;',
+      '  transition: transform 0.14s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.14s ease;',
+      '  box-shadow: inset -8px -8px 18px rgba(255,255,255,0.88), inset 8px 8px 18px rgba(38,198,218,0.42), inset 0 0 12px rgba(236,64,122,0.28), 0 8px 18px rgba(0,0,0,0.12);',
+      '}',
+      '@keyframes tpBubbleWobble {',
+      '  0% { transform: translateX(-2px) scale(0.99, 1.01); }',
+      '  100% { transform: translateX(2px) scale(1.01, 0.99); }',
+      '}',
+      '.tp-magic-bubble:hover { transform: scale(1.06); }',
+      '.tp-magic-bubble:active { transform: scale(0.92); }',
+      '.tp-bubble-icon-box {',
+      '  width: 40px; height: 40px; min-width: 40px; min-height: 40px;',
+      '  display: flex; align-items: center; justify-content: center; overflow: hidden; pointer-events: none; z-index: 2;',
+      '}',
+      '.tp-magic-bubble::before {',
+      '  content: ""; position: absolute; bottom: 11%; right: 15%; width: 16%; height: 9%;',
+      '  border-radius: 50%; background: rgba(255, 255, 255, 0.62);',
+      '  transform: rotate(-28deg); pointer-events: none; z-index: 3;',
       '}',
       '.tp-magic-bubble::after {',
-      '  content: ""; position: absolute; top: 12%; left: 18%; width: 22%; height: 14%;',
-      '  border-radius: 50%; background: rgba(255, 255, 255, 0.85);',
-      '  transform: rotate(-28deg); pointer-events: none;',
+      '  content: ""; position: absolute; top: 11%; left: 16%; width: 26%; height: 15%;',
+      '  border-radius: 50%; background: rgba(255, 255, 255, 0.92);',
+      '  transform: rotate(-28deg); pointer-events: none; z-index: 3;',
       '}',
       '.tp-magic-bubble--hero {',
-      '  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.95), rgba(255,182,193,0.68) 55%, rgba(255,215,0,0.65) 100%);',
+      '  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.96), rgba(255,182,193,0.72) 52%, rgba(128,216,255,0.48) 78%, rgba(255,215,0,0.72) 100%);',
       '  border: 3px solid #FFD54F;',
-      '  box-shadow: 0 0 18px rgba(255, 213, 79, 0.75), inset 0 0 14px rgba(255,255,255,0.9);',
+      '  box-shadow: 0 0 20px rgba(255, 213, 79, 0.8), inset 0 0 16px rgba(255,255,255,0.92);',
       '}',
       '.tp-magic-bubble--friend {',
-      '  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.92), rgba(128,222,234,0.52) 60%, rgba(206,147,216,0.55) 100%);',
-      '  border: 2.5px solid rgba(255, 255, 255, 0.9);',
+      '  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.95), rgba(128,222,234,0.56) 52%, rgba(244,143,177,0.48) 78%, rgba(206,147,216,0.65) 100%);',
+      '  border: 2.5px solid rgba(255, 255, 255, 0.94);',
       '}',
       '.tp-magic-bubble--bonus {',
       '  background: radial-gradient(circle at 30% 30%, #FFF9C4, #FF80AB 55%, #80D8FF 100%);',
       '  border: 3px solid #FFF176;',
-      '  box-shadow: 0 0 20px rgba(255, 128, 171, 0.7);',
+      '  box-shadow: 0 0 22px rgba(255, 128, 171, 0.78), inset 0 0 14px rgba(255,255,255,0.9);',
       '}',
       '.tp-magic-bubble--villain {',
       '  background: radial-gradient(circle at 35% 35%, #7E57C2, #311B92 70%, #1A0933 100%);',
@@ -112,12 +166,22 @@
       '  box-shadow: 0 0 14px rgba(49, 27, 146, 0.65);',
       '}',
       '.tp-bubble-label {',
-      '  font-size: 11px; font-weight: 800; color: #37474F;',
-      '  background: rgba(255,255,255,0.82); padding: 1px 6px; border-radius: 999px;',
+      '  font-size: 11px; font-weight: 800; color: #37474F; z-index: 2;',
+      '  background: rgba(255,255,255,0.86); padding: 1px 6px; border-radius: 999px;',
       '  margin-top: 2px; max-width: 90%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;',
       '}',
       '.tp-magic-bubble--villain .tp-bubble-label {',
       '  background: rgba(0,0,0,0.55); color: #EDE7F6;',
+      '}',
+      '.tp-bubble-pop-ring {',
+      '  position: absolute; width: 84px; height: 84px; border-radius: 50%; pointer-events: none; z-index: 22;',
+      '  border: 4px solid #80DEEA;',
+      '  box-shadow: 0 0 16px rgba(255, 128, 171, 0.85), inset 0 0 12px rgba(255, 255, 255, 0.95);',
+      '  animation: tpBubbleRingBurst 0.42s cubic-bezier(0.16, 1, 0.3, 1) forwards;',
+      '}',
+      '@keyframes tpBubbleRingBurst {',
+      '  0% { opacity: 0.95; transform: translate(-50%, -50%) scale(0.45); }',
+      '  100% { opacity: 0; transform: translate(-50%, -50%) scale(1.65); }',
       '}',
       '.tp-bubble-float-text {',
       '  position: absolute; pointer-events: none; z-index: 25;',
@@ -130,7 +194,9 @@
       '  100% { opacity: 0; transform: translate(-50%, -42px) scale(1.1); }',
       '}'
     ].join('\n');
-    document.head.appendChild(styleEl);
+    if (!existing) {
+      document.head.appendChild(styleEl);
+    }
   }
 
   function normalizeBubbleType(type) {
@@ -237,6 +303,13 @@
       var tickTimerId = null;
       var floatingTimers = [];
 
+      var xylophoneKeysHtml = XYLOPHONE_NOTES.map(function (n) {
+        return (
+          '<span class="tp-xylophone-key" data-role="xylophone-key" data-note-idx="' + n.idx + '" ' +
+            'style="--key-color: ' + n.color + '; --key-glow: ' + n.glow + ';">' + n.label + '</span>'
+        );
+      }).join('');
+
       stageEl.innerHTML = [
         '<div class="tp-bubble-wrap">',
         '  <div class="tp-bubble-hud">',
@@ -252,6 +325,10 @@
         '      <button type="button" class="tp-bubble-finish-btn" data-role="finish-btn">🏁 여기까지 하고 선물 받기!</button>',
         '    </div>',
         '  </div>',
+        '  <div class="tp-bubble-xylophone" data-role="xylophone-bar" aria-label="무지개 실로폰 계이름 바">',
+        '    <span class="tp-xylophone-title">🎹 실로폰</span>',
+             xylophoneKeysHtml,
+        '  </div>',
         '  <div class="tp-bubble-playfield" data-role="playfield"></div>',
         '</div>'
       ].join('');
@@ -262,6 +339,7 @@
       var scoreEl = stageEl.querySelector ? stageEl.querySelector('[data-role="score"]') : null;
       var cheerTextEl = stageEl.querySelector ? stageEl.querySelector('[data-role="cheer-text"], .tp-bubble-cheer-text') : null;
       var finishBtnEl = stageEl.querySelector ? stageEl.querySelector('[data-role="finish-btn"]') : null;
+      var xylophoneKeyEls = stageEl.querySelectorAll ? stageEl.querySelectorAll('[data-role="xylophone-key"]') : [];
 
       function updateHud() {
         if (heartsEl) {
@@ -278,6 +356,41 @@
         if (cheerTextEl) {
           cheerTextEl.textContent = state.lastMessage;
         }
+        if (xylophoneKeyEls && xylophoneKeyEls.length) {
+          var activeNoteIdx = state.comboCount > 0 ? ((state.comboCount - 1) % XYLOPHONE_NOTES.length) : -1;
+          for (var i = 0; i < xylophoneKeyEls.length; i++) {
+            var keyEl = xylophoneKeyEls[i];
+            var cls = 'tp-xylophone-key';
+            if (activeNoteIdx >= 0) {
+              if (i === activeNoteIdx) {
+                cls += ' is-active is-lit';
+              } else if (i < activeNoteIdx) {
+                cls += ' is-lit';
+              }
+            }
+            keyEl.className = cls;
+          }
+        }
+      }
+
+      function spawnPopRingBurst(x, y, ringColor) {
+        if (!playfieldEl || typeof document === 'undefined' || !document.createElement) return;
+        var ringEl = document.createElement('div');
+        ringEl.className = 'tp-bubble-pop-ring';
+        ringEl.style.left = (x || 50) + '%';
+        ringEl.style.top = (y || 50) + '%';
+        if (ringColor) {
+          ringEl.style.borderColor = ringColor;
+        }
+        if (playfieldEl.appendChild) {
+          playfieldEl.appendChild(ringEl);
+        }
+        var rtid = setTimeout(function () {
+          if (ringEl && ringEl.parentNode) {
+            ringEl.parentNode.removeChild(ringEl);
+          }
+        }, 440);
+        floatingTimers.push(rtid);
       }
 
       function showFloatingFeedback(x, y, text, color) {
@@ -327,17 +440,17 @@
         if (bType === 'hero') {
           charData = ctx;
           labelText = '👑 ' + ctx.name;
-          innerHtml = safeRenderAvatar(h, ctx, 'sm') + '<span class="tp-bubble-label">' + labelText + '</span>';
+          innerHtml = '<div class="tp-bubble-icon-box">' + safeRenderAvatar(h, ctx, 'sm') + '</div><span class="tp-bubble-label">' + labelText + '</span>';
         } else if (bType === 'friend') {
           charData = friendPool[Math.floor(Math.random() * friendPool.length)] || DEFAULT_FRIENDS[0];
           labelText = charData.name || '친구핑';
-          innerHtml = safeRenderAvatar(h, charData, 'sm') + '<span class="tp-bubble-label">' + labelText + '</span>';
+          innerHtml = '<div class="tp-bubble-icon-box">' + safeRenderAvatar(h, charData, 'sm') + '</div><span class="tp-bubble-label">' + labelText + '</span>';
         } else if (bType === 'bonus') {
           labelText = '보너스 하트';
-          innerHtml = '<span style="font-size:30px;line-height:1;">🌈💖</span><span class="tp-bubble-label">' + labelText + '</span>';
+          innerHtml = '<div class="tp-bubble-icon-box"><span style="font-size:28px;line-height:1;">🌈💖</span></div><span class="tp-bubble-label">' + labelText + '</span>';
         } else {
           labelText = '심술 먹구름';
-          innerHtml = '<span style="font-size:28px;line-height:1;">⛈️😈</span><span class="tp-bubble-label">' + labelText + '</span>';
+          innerHtml = '<div class="tp-bubble-icon-box"><span style="font-size:26px;line-height:1;">⛈️😈</span></div><span class="tp-bubble-label">' + labelText + '</span>';
         }
 
         var bubbleEl = null;
@@ -444,6 +557,7 @@
           state.lives = Math.max(0, state.lives - 1);
           state.comboCount = 0;
           h.playSfx('hit');
+          spawnPopRingBurst(bx, by, '#7E57C2');
           showFloatingFeedback(bx, by, '앗! 심술 방울이야! ⛈️💔', '#6A1B9A');
           updateHud();
 
@@ -460,7 +574,9 @@
         }
         var noteIdx = state.comboCount - 1;
         var solfege = SOLFEGE_NAMES[noteIdx % SOLFEGE_NAMES.length];
+        var xyloNote = XYLOPHONE_NOTES[noteIdx % XYLOPHONE_NOTES.length];
         h.playSfx('note', noteIdx);
+        spawnPopRingBurst(bx, by, xyloNote ? xyloNote.color : '#80DEEA');
 
         if (target.type === 'hero') {
           state.score += 30;
@@ -612,6 +728,7 @@
       };
 
       stageEl._bubbleGame = api;
+      stageEl._tpGameInstance = api;
 
       function cleanup() {
         state.isGameOver = true;
@@ -622,6 +739,9 @@
         bubbles = [];
         if (stageEl._bubbleGame === api) {
           delete stageEl._bubbleGame;
+        }
+        if (stageEl._tpGameInstance === api) {
+          delete stageEl._tpGameInstance;
         }
       }
 

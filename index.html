@@ -10,8 +10,46 @@
     <link href="https://fonts.googleapis.com/css2?family=Jua&family=Gaegu:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="css/minigames.css">
+    <style>
+        .portal-nav-bar {
+            position: fixed;
+            top: 10px;
+            left: 12px;
+            z-index: 19500;
+            display: flex;
+            gap: 6px;
+        }
+        .portal-nav-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 6px 12px;
+            border-radius: 999px;
+            font-family: 'Jua', 'Noto Sans KR', sans-serif;
+            font-size: 13px;
+            text-decoration: none;
+            color: #fff;
+            background: rgba(88, 28, 135, 0.85);
+            border: 2px solid rgba(255, 255, 255, 0.65);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+            backdrop-filter: blur(6px);
+            transition: transform 0.15s ease;
+        }
+        .portal-nav-btn:hover, .portal-nav-btn:active {
+            transform: scale(1.06);
+        }
+        .portal-nav-btn.to-pokemon {
+            background: linear-gradient(135deg, #EF4444, #DC0A2D);
+            border-color: #FDE047;
+        }
+    </style>
 </head>
 <body>
+    <!-- 상단 도감 전환/홈 네비게이션 -->
+    <nav class="portal-nav-bar" aria-label="도감 전환">
+        <a href="../index.html" class="portal-nav-btn">🏠 홈으로</a>
+        <a href="../pokemon.html" class="portal-nav-btn to-pokemon">⚡ 포켓몬 도감</a>
+    </nav>
     <!-- ========== PACT INTRO (닫힌 상태) ========== -->
     <div id="pactIntro" class="pact-intro">
         <div class="pact-bg-sparkles" id="pactSparkles"></div>

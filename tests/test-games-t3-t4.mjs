@@ -284,10 +284,21 @@ test('3. T4(memory) 마운트 후 skipPreview(), 같은 캐릭터 카드 2장 fl
   assert.equal(previewState.cards.length, 8, '1스테이지는 4쌍(8장)이어야 함');
   assert.equal(previewState.isPreviewing, true, '초기에는 미리보기 상태여야 함');
 
-  // 미리보기 즉시 건너뛰기
+  // 미리보기 즉시 건너뛰기 (DOM 노드가 재생성되지 않고 in-place 클래스만 갱신되는지 검증)
+  const gridEl = stageEl.querySelector('[data-role="grid"]');
+  const initialCardEls = [...gridEl.children];
+  assert.equal(initialCardEls.length, 8, '1스테이지 8장의 카드 버튼 DOM이 생성되어야 함');
+  assert.ok(
+    initialCardEls[0].innerHTML.includes('tp-memory-card-inner') &&
+      initialCardEls[0].innerHTML.includes('tp-memory-card-back') &&
+      initialCardEls[0].innerHTML.includes('tp-memory-card-front'),
+    '각 카드는 앞면과 뒷면을 모두 포함한 3D inner 래퍼를 가져야 함'
+  );
+
   stageEl._memoryGame.skipPreview();
   const readyState = stageEl._memoryGame.getState();
   assert.equal(readyState.isPreviewing, false, 'skipPreview 후 isPreviewing이 false여야 함');
+  assert.equal(gridEl.children[0], initialCardEls[0], 'skipPreview 시 카드 DOM을 재구축하지 않고 유지해야 함');
 
   // 마법 힌트 호출 검증
   const hintPair = stageEl._memoryGame.useHint();

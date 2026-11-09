@@ -13,6 +13,39 @@
   var WAND_SPAWN_INTERVAL_MS = 4200;
   var SOLFEGE_NAMES = ['도', '레', '미', '파', '솔', '라', '시', '높은 도'];
 
+  var ALARM_CLOCK_SVG =
+    '<svg class="tp-arcade-clock-svg" viewBox="0 0 64 64" width="46" height="46" aria-hidden="true">' +
+      '<path d="M10 18 C6 12, 14 4, 22 10 L18 20 Z" fill="#FACC15" stroke="#FFFFFF" stroke-width="2.5" stroke-linejoin="round"/>' +
+      '<path d="M54 18 C58 12, 50 4, 42 10 L46 20 Z" fill="#FACC15" stroke="#FFFFFF" stroke-width="2.5" stroke-linejoin="round"/>' +
+      '<rect x="29" y="5" width="6" height="8" rx="3" fill="#EAB308" stroke="#FFFFFF" stroke-width="2"/>' +
+      '<path d="M18 52 L13 59 M46 52 L51 59" stroke="#FACC15" stroke-width="5" stroke-linecap="round"/>' +
+      '<circle cx="32" cy="35" r="22" fill="#FACC15" stroke="#FFFFFF" stroke-width="3"/>' +
+      '<circle cx="32" cy="35" r="17" fill="#FFFFFF" stroke="#EAB308" stroke-width="2"/>' +
+      '<path d="M32 35 L32 24 M32 35 L25 40" stroke="#334155" stroke-width="2.8" stroke-linecap="round"/>' +
+      '<circle cx="32" cy="35" r="2.6" fill="#334155"/>' +
+    '</svg>';
+
+  var VILLAIN_FACE_SVG =
+    '<svg class="tp-flipbattle-villain-svg" viewBox="0 0 80 80" width="62" height="62" aria-hidden="true">' +
+      '<defs>' +
+        '<radialGradient id="tpVillainHeadGrad" cx="38%" cy="32%" r="65%">' +
+          '<stop offset="0%" stop-color="#F87171"/>' +
+          '<stop offset="62%" stop-color="#DC2626"/>' +
+          '<stop offset="100%" stop-color="#991B1B"/>' +
+        '</radialGradient>' +
+      '</defs>' +
+      '<path d="M16 28 L12 10 L29 19 Z" fill="#DC2626"/>' +
+      '<path d="M64 28 L68 10 L51 19 Z" fill="#DC2626"/>' +
+      '<circle cx="40" cy="43" r="28" fill="url(#tpVillainHeadGrad)"/>' +
+      '<ellipse cx="40" cy="54" rx="21" ry="14" fill="#FECDD3"/>' +
+      '<path d="M26 33 L35 36" stroke="#450A0A" stroke-width="2.8" stroke-linecap="round"/>' +
+      '<path d="M54 33 L45 36" stroke="#450A0A" stroke-width="2.8" stroke-linecap="round"/>' +
+      '<circle cx="31" cy="41" r="3.4" fill="#450A0A"/>' +
+      '<circle cx="49" cy="41" r="3.4" fill="#450A0A"/>' +
+      '<ellipse cx="40" cy="48" rx="4.8" ry="3.4" fill="#7F1D1D"/>' +
+      '<path d="M35 55 Q40 59 45 55" stroke="#7F1D1D" stroke-width="2.5" fill="none" stroke-linecap="round"/>' +
+    '</svg>';
+
   function injectFlipBattleStyles() {
     if (typeof document === 'undefined' || !document.head) return;
     if (document.getElementById('tp-flipbattle-inline-styles')) return;
@@ -21,12 +54,135 @@
     styleEl.id = 'tp-flipbattle-inline-styles';
     styleEl.textContent = [
       '.tp-flipbattle-wrap {',
-      '  position: relative; width: 100%; height: 100%; min-height: 440px;',
-      '  display: flex; flex-direction: column; justify-content: space-between;',
-      '  background: linear-gradient(180deg, #FDF2F8 0%, #F3E8FF 55%, #FEF3C7 100%);',
-      '  border-radius: 22px; padding: 12px 14px; box-sizing: border-box;',
+      '  position: relative; width: 100%; height: 100%; min-height: 450px;',
+      '  display: flex; flex-direction: column; justify-content: space-between; gap: 6px;',
+      '  background:',
+      '    radial-gradient(circle at 14% 25%, rgba(255, 255, 255, 0.55) 1.5px, transparent 2.5px),',
+      '    radial-gradient(circle at 84% 30%, rgba(255, 255, 255, 0.5) 1.5px, transparent 2.5px),',
+      '    radial-gradient(circle at 22% 76%, rgba(255, 255, 255, 0.45) 1.5px, transparent 2.5px),',
+      '    radial-gradient(circle at 88% 72%, rgba(255, 255, 255, 0.4) 1.5px, transparent 2.5px),',
+      '    linear-gradient(180deg, #433352 0%, #6A4F73 55%, #583F62 100%);',
+      '  border-radius: 22px; padding: 0 16px 12px 16px; box-sizing: border-box; overflow: hidden;',
       '  user-select: none; -webkit-user-select: none; touch-action: none;',
-      '  font-family: "Jua", "Pretendard", "Malgun Gothic", sans-serif;',
+      '  font-family: "Jua", "Pretendard", "Malgun Gothic", sans-serif; color: #FFFFFF;',
+      '}',
+      '.tp-flipbattle-hud {',
+      '  display: flex; flex-direction: column; gap: 4px; padding: 0; background: transparent; border: none; box-shadow: none; margin-bottom: 2px;',
+      '}',
+      '.tp-flipbattle-top-row {',
+      '  display: flex; align-items: center; justify-content: space-between; gap: 10px; min-height: 58px;',
+      '}',
+      '.tp-flipbattle-hud-stat, .tp-flipbattle-hud-clock, .tp-flipbattle-hud-right {',
+      '  display: flex; align-items: center; gap: 10px;',
+      '}',
+      '.tp-flipbattle-hud-avatar {',
+      '  width: 52px; height: 52px; border-radius: 50%; overflow: hidden; flex-shrink: 0;',
+      '  background: radial-gradient(circle at 35% 30%, #7DD3FC 0%, #38BDF8 60%, #0284C7 100%);',
+      '  border: 3px solid rgba(255,255,255,0.92); box-shadow: 0 4px 10px rgba(0,0,0,0.35);',
+      '  display: flex; align-items: center; justify-content: center;',
+      '}',
+      '.tp-flipbattle-hud-avatar img { width: 86%; height: 86%; object-fit: contain; }',
+      '.tp-flipbattle-big-num {',
+      '  font-family: "Jua", "Outfit", "Arial Black", sans-serif; font-size: 38px; font-weight: 900; line-height: 1;',
+      '  color: #FFFFFF; text-shadow: 0 3px 0 #2A1B38, 0 5px 12px rgba(0,0,0,0.45);',
+      '}',
+      '.tp-flipbattle-corner-ribbon {',
+      '  background: linear-gradient(180deg, #38BDF8 0%, #3299C7 100%); color: #FFFFFF;',
+      '  font-weight: 900; font-size: 19px; padding: 10px 24px 12px 26px; border-radius: 0 0 0 32px;',
+      '  box-shadow: -2px 4px 12px rgba(0,0,0,0.28), inset 0 1px 0 rgba(255,255,255,0.45);',
+      '  text-shadow: 0 2px 4px rgba(0,0,0,0.25); margin-right: -16px; margin-top: -6px; white-space: nowrap;',
+      '}',
+      '.tp-flipbattle-subrow {',
+      '  display: flex; align-items: center; justify-content: space-between; gap: 10px;',
+      '  background: rgba(35, 22, 48, 0.48); border: 1.5px solid rgba(255,255,255,0.18);',
+      '  border-radius: 12px; padding: 4px 12px;',
+      '}',
+      '.tp-flipbattle-banner {',
+      '  flex: 1.2; text-align: left; font-size: 13px; font-weight: 800; color: #FDE68A;',
+      '  background: transparent; border: none; padding: 0; margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;',
+      '}',
+      '.tp-flipbattle-tug { flex: 1; min-width: 190px; display: flex; flex-direction: column; gap: 2px; }',
+      '.tp-flipbattle-tug-labels { display: flex; align-items: center; justify-content: space-between; font-size: 11.5px; }',
+      '.tp-tug-hero-label { color: #7DD3FC; }',
+      '.tp-tug-vs { color: #FFFFFF; font-size: 11px; opacity: 0.85; }',
+      '.tp-tug-villain-label { color: #FCA5A5; }',
+      '.tp-flipbattle-tug-bar {',
+      '  width: 100%; height: 10px; border-radius: 999px; background: #EF4444; border: 1.5px solid rgba(255,255,255,0.55); overflow: hidden;',
+      '}',
+      '.tp-flipbattle-tug-fill-hero { height: 100%; background: linear-gradient(90deg, #38BDF8, #60A5FA); transition: width 0.22s ease; }',
+      '.tp-flipbattle-grid {',
+      '  display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;',
+      '  width: 100%; max-width: 480px; margin: 0 auto; flex: 1; align-content: center; perspective: 800px;',
+      '}',
+      '.tp-flipbattle-tile {',
+      '  position: relative; width: 100%; aspect-ratio: 1 / 1; height: auto; min-height: 82px; max-height: 106px;',
+      '  margin: 0 auto; border-radius: 8px; cursor: pointer; padding: 0;',
+      '  background: transparent; border: none; outline: none;',
+      '  perspective: 800px; overflow: visible; touch-action: none; box-sizing: border-box;',
+      '}',
+      '.tp-flipbattle-tile-card {',
+      '  width: 100%; height: 100%; position: relative; border-radius: 8px;',
+      '  transform-style: preserve-3d; -webkit-transform-style: preserve-3d;',
+      '  transition: transform 0.34s cubic-bezier(0.22, 1.15, 0.36, 1), box-shadow 0.24s ease;',
+      '}',
+      '.tp-flipbattle-tile.is-hero .tp-flipbattle-tile-card { transform: rotateY(0deg); }',
+      '.tp-flipbattle-tile.is-villain .tp-flipbattle-tile-card { transform: rotateY(180deg); }',
+      '.tp-flipbattle-tile.is-flipping.is-hero .tp-flipbattle-tile-card,',
+      '.tp-flipbattle-tile.is-hero:hover .tp-flipbattle-tile-card {',
+      '  transform: rotateY(0deg) rotate(-4deg) scale(1.06);',
+      '}',
+      '.tp-flipbattle-tile.is-villain:hover .tp-flipbattle-tile-card {',
+      '  transform: rotateY(180deg) rotate(-4deg) scale(1.06);',
+      '}',
+      '.tp-flipbattle-tile-inner {',
+      '  position: absolute; inset: 0; width: 100%; height: 100%;',
+      '  border-radius: 8px; padding: 6px; box-sizing: border-box;',
+      '  background: #7A8288; border: 3px solid #52585E;',
+      '  box-shadow: 0 6px 0 #3E4348, 0 10px 18px rgba(0,0,0,0.38);',
+      '  display: flex; flex-direction: column; align-items: center; justify-content: center;',
+      '  backface-visibility: hidden; -webkit-backface-visibility: hidden; pointer-events: none; overflow: hidden;',
+      '}',
+      '.tp-flipbattle-tile.is-flipping .tp-flipbattle-tile-inner {',
+      '  box-shadow: 8px 12px 18px rgba(0,0,0,0.45), 0 6px 0 #3E4348;',
+      '}',
+      '.tp-flipbattle-tile-inner.tp-tile-hero { transform: rotateY(0deg); z-index: 2; }',
+      '.tp-flipbattle-tile-inner.tp-tile-villain { transform: rotateY(180deg); z-index: 1; }',
+      '.tp-flipbattle-tile.is-villain .tp-flipbattle-tile-inner.tp-tile-villain { z-index: 3; }',
+      '.tp-flipbattle-well {',
+      '  width: 100%; height: 100%; border-radius: 4px; background: #E5E9EC;',
+      '  box-shadow: inset 0 2px 5px rgba(0,0,0,0.14);',
+      '  display: flex; flex-direction: column; align-items: center; justify-content: center;',
+      '  position: relative; overflow: hidden; padding: 2px; box-sizing: border-box;',
+      '}',
+      '.tp-flipbattle-well-hero { background: radial-gradient(circle, #F0F9FF 0%, #D8ECF8 100%); }',
+      '.tp-flipbattle-well-villain { background: radial-gradient(circle, #FFF1F2 0%, #F5D0D6 100%); }',
+      '.tp-flipbattle-tile.has-magic-wand .tp-flipbattle-tile-inner {',
+      '  border-color: #FFD700;',
+      '  box-shadow: 0 0 20px rgba(255, 215, 0, 0.9), 0 6px 0 #B45309;',
+      '}',
+      '.tp-flipbattle-avatar-wrap {',
+      '  width: 60px; height: 60px; min-width: 54px; min-height: 54px;',
+      '  display: flex; align-items: center; justify-content: center; overflow: hidden;',
+      '}',
+      '.tp-flipbattle-avatar-wrap .tp-mg-avatar {',
+      '  width: 56px !important; height: 56px !important; border-width: 2.5px;',
+      '  background: radial-gradient(circle at 35% 30%, #7DD3FC 0%, #38BDF8 65%, #0284C7 100%);',
+      '}',
+      '.tp-flipbattle-tile-name {',
+      '  position: absolute; bottom: 2px; left: 50%; transform: translateX(-50%);',
+      '  font-size: 10px; font-weight: 900; color: #1E293B; background: rgba(255,255,255,0.82);',
+      '  padding: 0 5px; border-radius: 999px; line-height: 1.2; white-space: nowrap;',
+      '}',
+      '.tp-flipbattle-wand-badge {',
+      '  display: none; align-items: center; justify-content: center;',
+      '}',
+      '.tp-flipbattle-tile.has-magic-wand .tp-flipbattle-wand-badge {',
+      '  display: inline-flex;',
+      '}',
+      '@media (max-width: 720px) {',
+      '  .tp-flipbattle-tile { min-height: 72px; max-height: 86px; }',
+      '  .tp-flipbattle-avatar-wrap { width: 48px; height: 48px; min-width: 44px; min-height: 44px; }',
+      '  .tp-flipbattle-big-num { font-size: 28px; }',
       '}'
     ].join('\n');
     document.head.appendChild(styleEl);
@@ -45,9 +201,9 @@
     var img = (tp && tp.image) ? tp.image : '';
     var emoji = (tp && tp.seasonEmoji) ? tp.seasonEmoji : '💖';
     if (img) {
-      return '<img src="' + img + '" alt="' + name + '" style="width:38px;height:38px;object-fit:contain;pointer-events:none;" />';
+      return '<img src="' + img + '" alt="' + name + '" style="width:100%;height:100%;object-fit:contain;pointer-events:none;filter:drop-shadow(0 3px 6px rgba(0,0,0,0.18));" />';
     }
-    return '<span style="font-size:26px;line-height:1;">' + emoji + '</span>';
+    return '<span style="font-size:36px;line-height:1;">' + emoji + '</span>';
   }
 
   var gameDef = {
@@ -101,7 +257,7 @@
         magicWandCount: 0,
         isPointerDown: false,
         isGameOver: false,
-        bannerMessage: '⚡ 보라색 심술핑 카드를 터치하거나 손가락으로 쓱~ 문질러 뒤집어요!'
+        bannerMessage: '⚡ 심술핑 카드를 터치하거나 손가락으로 쓱~ 문질러 뒤집어요!'
       };
 
       // 4x4 (16장) 초기 보드 생성: 8장 hero, 8장 villain (체커보드 교차 배치로 0번은 villain)
@@ -129,27 +285,42 @@
         '<div class="tp-flipbattle-wrap" data-role="wrap" style="--hero-color: ' + (ctx.color || '#EC4899') + ';">',
         '  <div class="tp-flipbattle-hud">',
         '    <div class="tp-flipbattle-top-row">',
-        '      <div class="tp-flipbattle-timer-pill" data-role="timer">⏰ 25초</div>',
-        '      <div class="tp-flipbattle-score-pill" data-role="score">💖 0점</div>',
-        '      <button type="button" class="tp-flipbattle-finish-btn" data-role="finish-btn">🏁 지금 결과 보기!</button>',
-        '    </div>',
-        '    <div class="tp-flipbattle-tug">',
-        '      <div class="tp-flipbattle-tug-labels">',
-        '        <span class="tp-tug-hero-label" data-role="hero-label">💖 ' + ctx.name + ' 8장</span>',
-        '        <span class="tp-tug-vs">⚡ 줄다리기 대결 ⚡</span>',
-        '        <span class="tp-tug-villain-label" data-role="villain-label">😈 심술핑 8장</span>',
+        '      <div class="tp-flipbattle-hud-stat">',
+        '        <div class="tp-flipbattle-hud-avatar">' + safeRenderAvatar(h, ctx, 'tp-mg-avatar-sm') + '</div>',
+        '        <span class="tp-flipbattle-big-num" data-role="hud-hero-num">8</span>',
         '      </div>',
-        '      <div class="tp-flipbattle-tug-bar">',
-        '        <div class="tp-flipbattle-tug-fill-hero" data-role="tug-fill" style="width: 50%;"></div>',
+        '      <div class="tp-flipbattle-hud-clock">',
+        '        ' + ALARM_CLOCK_SVG,
+        '        <span class="tp-flipbattle-big-num" data-role="hud-timer-num">25</span>',
+        '        <div class="tp-flipbattle-timer-pill sr-only" data-role="timer">⏰ 25초</div>',
+        '      </div>',
+        '      <div class="tp-flipbattle-hud-right">',
+        '        <div class="tp-flipbattle-score-pill" data-role="score">💖 0점</div>',
+        '        <button type="button" class="tp-flipbattle-finish-btn" data-role="finish-btn">🏁 결과</button>',
+        '        <div class="tp-flipbattle-corner-ribbon">카드 뒤집기</div>',
+        '      </div>',
+        '    </div>',
+        '    <div class="tp-flipbattle-subrow">',
+        '      <div class="tp-flipbattle-banner" data-role="banner">' + state.bannerMessage + '</div>',
+        '      <div class="tp-flipbattle-tug">',
+        '        <div class="tp-flipbattle-tug-labels">',
+        '          <span class="tp-tug-hero-label" data-role="hero-label">💖 ' + ctx.name + ' 8장</span>',
+        '          <span class="tp-tug-vs">⚡ 줄다리기 대결 ⚡</span>',
+        '          <span class="tp-tug-villain-label" data-role="villain-label">😈 심술핑 8장</span>',
+        '        </div>',
+        '        <div class="tp-flipbattle-tug-bar">',
+        '          <div class="tp-flipbattle-tug-fill-hero" data-role="tug-fill" style="width: 50%;"></div>',
+        '        </div>',
         '      </div>',
         '    </div>',
         '  </div>',
-        '  <div class="tp-flipbattle-banner" data-role="banner">' + state.bannerMessage + '</div>',
         '  <div class="tp-flipbattle-grid" data-role="grid"></div>',
         '</div>'
       ].join('');
 
       var timerEl = stageEl.querySelector ? stageEl.querySelector('[data-role="timer"]') : null;
+      var hudHeroNumEl = stageEl.querySelector ? stageEl.querySelector('[data-role="hud-hero-num"]') : null;
+      var hudTimerNumEl = stageEl.querySelector ? stageEl.querySelector('[data-role="hud-timer-num"]') : null;
       var scoreEl = stageEl.querySelector ? stageEl.querySelector('[data-role="score"]') : null;
       var heroLabelEl = stageEl.querySelector ? stageEl.querySelector('[data-role="hero-label"]') : null;
       var villainLabelEl = stageEl.querySelector ? stageEl.querySelector('[data-role="villain-label"]') : null;
@@ -174,6 +345,12 @@
         if (timerEl) {
           timerEl.textContent = '⏰ ' + state.timeLeft + '초';
         }
+        if (hudTimerNumEl) {
+          hudTimerNumEl.textContent = String(state.timeLeft);
+        }
+        if (hudHeroNumEl) {
+          hudHeroNumEl.textContent = String(state.heroCount);
+        }
         if (scoreEl) {
           scoreEl.textContent = '💖 ' + state.score + '점';
         }
@@ -193,29 +370,33 @@
       }
 
       function buildTileInnerHtml(tile) {
-        var wandBadge = tile.hasMagicWand
-          ? '<span class="tp-flipbattle-wand-badge" data-role="wand-badge">👑 로열 마법봉!</span>'
-          : '';
-        if (tile.owner === 'hero') {
-          return (
-            wandBadge +
-            '<div class="tp-flipbattle-tile-inner tp-tile-hero">' +
-            '  <div class="tp-flipbattle-avatar-wrap">' + safeRenderAvatar(h, ctx, 'tp-mg-avatar-sm') + '</div>' +
-            '  <span class="tp-flipbattle-tile-name">💖 ' + ctx.name + '</span>' +
-            '</div>'
-          );
-        }
-        return (
-          wandBadge +
-          '<div class="tp-flipbattle-tile-inner tp-tile-villain">' +
-          '  <span class="tp-flipbattle-villain-icon">😈☁️</span>' +
-          '  <span class="tp-flipbattle-tile-name">심술핑</span>' +
+        var wandStyle = tile.hasMagicWand ? 'display:inline-flex;' : 'display:none;';
+        return [
+          '<span class="tp-flipbattle-wand-badge" data-role="wand-badge" style="' + wandStyle + '">👑 로열 마법봉!</span>',
+          '<div class="tp-flipbattle-tile-card">',
+          '  <div class="tp-flipbattle-tile-inner tp-tile-hero">',
+          '    <div class="tp-flipbattle-well tp-flipbattle-well-hero">',
+          '      <div class="tp-flipbattle-avatar-wrap">' + safeRenderAvatar(h, ctx, 'tp-mg-avatar-sm') + '</div>',
+          '      <span class="tp-flipbattle-tile-name">💖 ' + ctx.name + '</span>',
+          '    </div>',
+          '  </div>',
+          '  <div class="tp-flipbattle-tile-inner tp-tile-villain">',
+          '    <div class="tp-flipbattle-well tp-flipbattle-well-villain">',
+          '      <div class="tp-flipbattle-avatar-wrap">' + VILLAIN_FACE_SVG + '</div>',
+          '      <span class="tp-flipbattle-tile-name">심술핑</span>',
+          '    </div>',
+          '  </div>',
           '</div>'
-        );
+        ].join('');
       }
 
       function updateSingleTileDom(tile) {
         if (!tile || !tile.el) return;
+        if (!tile._domInitialized) {
+          tile.el.innerHTML = buildTileInnerHtml(tile);
+          tile._domInitialized = true;
+          tile.wandBadgeEl = tile.el.querySelector ? tile.el.querySelector('[data-role="wand-badge"]') : null;
+        }
         var cls = ['tp-flipbattle-tile'];
         cls.push(tile.owner === 'hero' ? 'is-hero' : 'is-villain');
         if (tile.hasMagicWand) cls.push('has-magic-wand');
@@ -223,7 +404,9 @@
         tile.el.className = cls.join(' ');
         tile.el.setAttribute('data-owner', tile.owner);
         tile.el.setAttribute('data-wand', tile.hasMagicWand ? 'true' : 'false');
-        tile.el.innerHTML = buildTileInnerHtml(tile);
+        if (tile.wandBadgeEl && tile.wandBadgeEl.style) {
+          tile.wandBadgeEl.style.display = tile.hasMagicWand ? 'inline-flex' : 'none';
+        }
       }
 
       function renderBoard() {
@@ -238,11 +421,14 @@
             btn.type = 'button';
             btn.setAttribute('data-tile-index', String(tile.index));
             tile.el = btn;
+            tile._domInitialized = false;
             updateSingleTileDom(tile);
 
+            var lastPointerDownTime = 0;
             if (btn.addEventListener) {
               btn.addEventListener('pointerdown', function (ev) {
                 if (ev && typeof ev.preventDefault === 'function') ev.preventDefault();
+                lastPointerDownTime = Date.now();
                 state.isPointerDown = true;
                 handleUserTileInteract(tile.index);
               });
@@ -251,12 +437,8 @@
                 handleUserTileSwipe(tile.index);
               });
               btn.addEventListener('click', function () {
-                // pointerdown에서 이미 뒤집힌 경우 중복 점수 방지
-                if (tile.hasMagicWand) {
-                  triggerMagicWand(tile.index);
-                } else if (tile.owner !== 'hero') {
-                  flipTile(tile.index);
-                }
+                if (Date.now() - lastPointerDownTime < 450) return;
+                handleUserTileInteract(tile.index);
               });
             }
 
