@@ -247,6 +247,46 @@ test('2. runner 게임 마운트 후 jump(), duck(true), stepFrame() 동작 및 
   assert.ok(hitState.knockbackX < 0, '충돌 직후 뒤로 밀려나는 knockbackX < 0 이어야 합니다');
   assert.ok(hitState.knockbackBounceY < 0, '충돌 직후 위로 튀어오르는 knockbackBounceY < 0 이어야 합니다');
 
+  // 빠른 연속 2단 점프 시 1단 점프보다 확실히 더 높이 올라가야 함
+  for (let i = 0; i < 40; i++) {
+    stageEl._tpRunnerGame.stepFrame();
+  }
+  stageEl._tpRunnerGame.jump();
+  stageEl._tpRunnerGame.stepFrame();
+  stageEl._tpRunnerGame.jump();
+  let minDoubleJumpY = 0;
+  for (let i = 0; i < 60; i++) {
+    const st = stageEl._tpRunnerGame.stepFrame();
+    if (st.y < minDoubleJumpY) minDoubleJumpY = st.y;
+  }
+  assert.ok(
+    minDoubleJumpY <= -150,
+    `빠른 2단 점프 정점 높이(minY=${minDoubleJumpY})는 1단 점프보다 훨씬 높아야 합니다 (<= -150)`
+  );
+  assert.equal(stageEl._tpRunnerGame.getState().isJumping, false, '60프레임 후 착지 상태여야 합니다');
+
+  // 전체화면 뷰포트(예: 960x640)에서 점프 변위(yOffset)가 화면 스케일에 맞춰 증폭되어야 함
+  const viewportEl = stageEl.querySelector('.tp-runner-viewport');
+  viewportEl.clientWidth = 960;
+  viewportEl.clientHeight = 640;
+  stageEl._tpRunnerGame.jump();
+  for (let i = 0; i < 12; i++) {
+    stageEl._tpRunnerGame.stepFrame();
+  }
+  const scaledState = stageEl._tpRunnerGame.getState();
+  assert.ok(
+    scaledState.renderScaleY > 1.1,
+    `전체화면(960x640)에서 renderScaleY(${scaledState.renderScaleY})가 1.1보다 커야 합니다`
+  );
+  const heroEl = stageEl.querySelector('.tp-runner-hero');
+  const translateMatch = heroEl.style.transform.match(/translateY\((-?\d+(?:\.\d+)?)px\)/);
+  assert.ok(translateMatch, 'heroEl transform에 translateY(px)가 포함되어야 합니다');
+  const renderedTranslateY = Number(translateMatch[1]);
+  assert.ok(
+    Math.abs(renderedTranslateY) > Math.abs(scaledState.y) * 1.1,
+    `DOM 점프 높이(${renderedTranslateY}px)가 논리 좌표(${scaledState.y})에 화면 스케일(${scaledState.renderScaleY})을 곱한 값과 일치해야 합니다`
+  );
+
   // cleanup 호출 확인
   cleanup();
   assert.equal(stageEl._tpRunnerGame.getState().isCleanedUp, true);
