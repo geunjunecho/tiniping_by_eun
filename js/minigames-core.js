@@ -71,6 +71,14 @@
             icon: '🃏',
             badge: '기억력 놀이',
             gradient: 'linear-gradient(135deg, #A855F7 0%, #EC4899 50%, #F59E0B 100%)'
+        },
+        {
+            id: 'flipbattle',
+            title: '샤랄라! 마법 판 뒤집기!',
+            subtitle: '악동핑보다 먼저 카드를 내 티니핑 빛깔로 뒤집어요!',
+            icon: '⚡',
+            badge: '스피드 판 뒤집기',
+            gradient: 'linear-gradient(135deg, #EC4899 0%, #8B5CF6 50%, #FBBF24 100%)'
         }
     ];
 

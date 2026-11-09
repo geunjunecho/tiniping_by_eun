@@ -153,15 +153,16 @@ await import('../js/games/tp-runner.js');
 await import('../js/games/tp-parfait.js');
 await import('../js/games/tp-bubble.js');
 await import('../js/games/tp-memory.js');
+await import('../js/games/tp-flipbattle.js');
 
 const mg = globalThis.TpMiniGames;
 assert.ok(mg, 'TpMiniGames should be defined');
-assert.equal(mg.games.size, 4, 'All 4 Teenieping games should be registered');
+assert.equal(mg.games.size, 5, 'All 5 Teenieping games should be registered');
 
 mg.openHub({ name: '하츄핑', color: '#FF69B4', grade: '로열', emotion: '사랑', mainSeason: 1 });
-for (const id of ['runner', 'parfait', 'bubble', 'memory']) {
+for (const id of ['runner', 'parfait', 'bubble', 'memory', 'flipbattle']) {
   mg.launchGame(id);
   assert.equal(mg.activeGameId, id, `Active game should be ${id}`);
 }
 mg.closeHub();
-console.log('✅ Teenieping 4-game full E2E integration test passed!');
+console.log('✅ Teenieping 5-game full E2E integration test passed!');
