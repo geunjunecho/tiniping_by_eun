@@ -230,13 +230,22 @@ test('2. runner 게임 마운트 후 jump(), duck(true), stepFrame() 동작 및 
   stageEl._tpRunnerGame.jump();
   assert.equal(stageEl._tpRunnerGame.getState().jumpCount, 2, '공중에서 한 번 더 누르면 2단 점프가 가능해야 합니다');
 
-  // 숙이기 테스트
+  // 숙이기 테스트 (누르는 동안만 유지, 떼면 즉시 해제)
   stageEl._tpRunnerGame.duck(true);
   const afterDuckState = stageEl._tpRunnerGame.getState();
   assert.equal(afterDuckState.isDucking, true, 'duck(true) 호출 후 isDucking === true 여야 합니다');
 
   stageEl._tpRunnerGame.duck(false);
   assert.equal(stageEl._tpRunnerGame.getState().isDucking, false, 'duck(false) 호출 후 isDucking === false 여야 합니다');
+
+  // 장애물 충돌 시 뒤로 팅팅 튕기는 넉백 바운스 확인
+  stageEl._tpRunnerGame.triggerObstacleHit();
+  stageEl._tpRunnerGame.stepFrame();
+  const hitState = stageEl._tpRunnerGame.getState();
+  assert.equal(hitState.lives, 2, '장애물 충돌 후 하트가 1 감소해야 합니다');
+  assert.ok(hitState.knockbackTimer > 0, '충돌 직후 knockbackTimer가 활성화되어야 합니다');
+  assert.ok(hitState.knockbackX < 0, '충돌 직후 뒤로 밀려나는 knockbackX < 0 이어야 합니다');
+  assert.ok(hitState.knockbackBounceY < 0, '충돌 직후 위로 튀어오르는 knockbackBounceY < 0 이어야 합니다');
 
   // cleanup 호출 확인
   cleanup();
