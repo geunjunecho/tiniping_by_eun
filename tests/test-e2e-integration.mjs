@@ -160,9 +160,13 @@ assert.ok(mg, 'TpMiniGames should be defined');
 assert.equal(mg.games.size, 5, 'All 5 Teenieping games should be registered');
 
 mg.openHub({ name: '하츄핑', color: '#FF69B4', grade: '로열', emotion: '사랑', mainSeason: 1 });
+assert.equal(mg.overlayEl.classList.contains('is-playing'), false, 'Hub view should not have is-playing class');
 for (const id of ['runner', 'parfait', 'bubble', 'memory', 'flipbattle']) {
   mg.launchGame(id);
   assert.equal(mg.activeGameId, id, `Active game should be ${id}`);
+  assert.equal(mg.overlayEl.classList.contains('is-playing'), true, `Overlay should enter full-screen is-playing mode for ${id}`);
 }
+mg.showHubView();
+assert.equal(mg.overlayEl.classList.contains('is-playing'), false, 'Returning to hub should exit is-playing mode');
 mg.closeHub();
 console.log('✅ Teenieping 5-game full E2E integration test passed!');
