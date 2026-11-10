@@ -290,6 +290,60 @@ test('2. runner 게임 마운트 후 jump(), duck(true), stepFrame() 동작 및 
   // cleanup 호출 확인
   cleanup();
   assert.equal(stageEl._tpRunnerGame.getState().isCleanedUp, true);
+
+  // 공중(air) 장애물 판정 및 장애물-아이템 겹침 방지 검증 (새 스테이지 마운트)
+  const stageEl2 = createMockElement('div');
+  const cleanup2 = registeredGames.runner.mount(stageEl2, charCtx, helpers);
+  const g2 = stageEl2._tpRunnerGame;
+
+  // 1) 장애물 근처(145px 이내)에서는 일반 spawnItem()이 겹쳐서 생성되지 않아야 함
+  g2.spawnObstacle('ground');
+  g2.spawnItem();
+  assert.equal(
+    g2.getState().items.length,
+    0,
+    '방금 생성된 장애물 근처(145px 이내)에는 아이템이 겹쳐서 생성되지 않아야 합니다'
+  );
+
+  // 2) 숙이지 않고 2단 점프로 높이 뛰어오른 상태(y <= -70)에서 공중 장애물과 겹치면 반드시 충돌해야 함
+  g2.spawnObstacle('air');
+  const airObsJump = g2.getState().obstacles.find((o) => o.kind === 'air');
+  assert.ok(airObsJump, '공중(air) 장애물이 생성되어야 합니다');
+  g2.jump();
+  g2.stepFrame();
+  g2.jump();
+  for (let i = 0; i < 8; i++) {
+    g2.stepFrame();
+  }
+  const highJumpTpState = g2.getState();
+  assert.ok(highJumpTpState.y <= -70, `점프 높이가 충분히 높아야 합니다 (현재 y=${highJumpTpState.y})`);
+  airObsJump.x = 92 + highJumpTpState.speed;
+  airObsJump.hitPlayer = false;
+  g2.stepFrame();
+  assert.equal(
+    g2.getState().lives,
+    2,
+    '공중(숙이기) 장애물은 점프로 뛰어넘을 수 없으며 점프 시 충돌하여 하트가 감소해야 합니다'
+  );
+  cleanup2();
+
+  // 3) 납작 숙이기(duck(true)) 상태에서는 공중 장애물을 충돌 없이 안전하게 통과해야 함
+  const stageEl3 = createMockElement('div');
+  const cleanup3 = registeredGames.runner.mount(stageEl3, charCtx, helpers);
+  const g3 = stageEl3._tpRunnerGame;
+  g3.spawnObstacle('air');
+  const airObsDuck = g3.getState().obstacles[0];
+  g3.duck(true);
+  airObsDuck.x = 92 + g3.getState().speed;
+  airObsDuck.hitPlayer = false;
+  g3.stepFrame();
+  assert.equal(
+    g3.getState().lives,
+    3,
+    '납작 숙이기(duck(true)) 상태에서는 공중 장애물을 충돌 없이 통과해야 합니다'
+  );
+  g3.duck(false);
+  cleanup3();
 });
 
 test('3. parfait 게임 마운트 후 3단계 재료 선택(selectIngredient(0) 3회) 및 feedTiniping() 호출 시 점수·그릇 카운트 진행 및 cleanup() 확인', () => {
