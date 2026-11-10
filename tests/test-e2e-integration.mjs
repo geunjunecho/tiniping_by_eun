@@ -166,6 +166,22 @@ for (const id of ['runner', 'parfait', 'bubble', 'memory', 'flipbattle']) {
   assert.equal(mg.activeGameId, id, `Active game should be ${id}`);
   assert.equal(mg.overlayEl.classList.contains('is-playing'), true, `Overlay should enter full-screen is-playing mode for ${id}`);
 }
+
+// Verify flipbattle 5-round series & escalating villain speed
+const stageBody = globalThis.document.getElementById('tp-game-stage-body');
+assert.ok(stageBody && stageBody._tpFlipBattleGame, '_tpFlipBattleGame hook should be attached on flipbattle stage');
+const fb = stageBody._tpFlipBattleGame;
+assert.equal(fb.getState().round, 1);
+assert.equal(fb.getState().maxRounds, 5);
+assert.equal(fb.getState().villainIntervalMs, 1200, 'Round 1 villain interval should be 1200ms');
+
+fb.flipTile(); // flip first villain tile to player -> 9 vs 7
+const fbR1 = fb.completeRound();
+assert.equal(fbR1.wonRound, true);
+assert.equal(fbR1.roundWins, 1);
+assert.equal(fb.getState().round, 2);
+assert.equal(fb.getState().villainIntervalMs, 980, 'Round 2 villain interval should accelerate to 980ms');
+
 mg.showHubView();
 assert.equal(mg.overlayEl.classList.contains('is-playing'), false, 'Returning to hub should exit is-playing mode');
 mg.closeHub();
