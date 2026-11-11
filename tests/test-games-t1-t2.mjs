@@ -96,10 +96,16 @@ function createMockElement(tagOrSelector = 'div') {
 
 function setupGlobalDomMocks() {
   const registeredGames = {};
+  const winListeners = new Map();
 
   globalThis.window = globalThis;
-  globalThis.addEventListener = globalThis.addEventListener || function () {};
-  globalThis.removeEventListener = globalThis.removeEventListener || function () {};
+  globalThis.addEventListener = function (type, fn) {
+    if (!winListeners.has(type)) winListeners.set(type, new Set());
+    winListeners.get(type).add(fn);
+  };
+  globalThis.removeEventListener = function (type, fn) {
+    if (winListeners.has(type)) winListeners.get(type).delete(fn);
+  };
   globalThis.requestAnimationFrame = function () {
     return 101;
   };
@@ -115,7 +121,7 @@ function setupGlobalDomMocks() {
     }
   };
 
-  return { registeredGames };
+  return { registeredGames, winListeners };
 }
 
 function createSampleCharCtx() {
@@ -183,7 +189,7 @@ function createMockHelpers() {
   };
 }
 
-const { registeredGames } = setupGlobalDomMocks();
+const { registeredGames, winListeners } = setupGlobalDomMocks();
 
 await import('../js/games/tp-runner.js');
 await import('../js/games/tp-parfait.js');
@@ -343,6 +349,51 @@ test('2. runner 게임 마운트 후 jump(), duck(true), stepFrame() 동작 및 
     '납작 숙이기(duck(true)) 상태에서는 공중 장애물을 충돌 없이 통과해야 합니다'
   );
   g3.duck(false);
+
+  // window 전역 touchend / pointerup 리스너가 e.preventDefault()를 호출하여 결과 오버레이 버튼(한 번 더 놀기 / 다른 게임 고르기)의 합성 click을 막지 않아야 함
+  let windowTouchEndPrevented = false;
+  let windowPointerUpPrevented = false;
+  for (const fn of winListeners.get('touchend') || []) {
+    fn({
+      preventDefault() {
+        windowTouchEndPrevented = true;
+      }
+    });
+  }
+  for (const fn of winListeners.get('pointerup') || []) {
+    fn({
+      preventDefault() {
+        windowPointerUpPrevented = true;
+      }
+    });
+  }
+  assert.equal(
+    windowTouchEndPrevented,
+    false,
+    'window 전역 touchend 리스너는 결과 오버레이 버튼 클릭이 막히지 않도록 e.preventDefault()를 호출하면 안 됩니다'
+  );
+  assert.equal(
+    windowPointerUpPrevented,
+    false,
+    'window 전역 pointerup 리스너는 결과 오버레이 버튼 클릭이 막히지 않도록 e.preventDefault()를 호출하면 안 됩니다'
+  );
+
+  // 하트 3개 소진 시 showResultOverlay에 전달된 onReplay / onRestart 콜백으로 즉시 재시작되어야 함
+  for (let hit = 0; hit < 3; hit++) {
+    g3.triggerObstacleHit();
+    for (let f = 0; f < 80; f++) {
+      g3.stepFrame();
+    }
+  }
+  assert.equal(g3.getState().isGameOver, true, '하트 3개 소진 시 isGameOver === true 여야 합니다');
+  const overlayOpts = helpers.getLastOverlay();
+  assert.ok(overlayOpts, '게임 오버 시 showResultOverlay가 호출되어야 합니다');
+  assert.equal(typeof overlayOpts.onReplay, 'function', 'showResultOverlay에 onReplay 콜백이 전달되어야 합니다');
+  assert.equal(typeof overlayOpts.onRestart, 'function', 'showResultOverlay에 onRestart 콜백이 전달되어야 합니다');
+  overlayOpts.onReplay();
+  assert.equal(g3.getState().isGameOver, false, 'onReplay 실행 후 isGameOver === false로 초기화되어야 합니다');
+  assert.equal(g3.getState().lives, 3, 'onReplay 실행 후 하트가 3개로 회복되어야 합니다');
+
   cleanup3();
 });
 
